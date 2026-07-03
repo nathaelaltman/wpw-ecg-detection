@@ -1,0 +1,15 @@
+wfdb==4.3.1
+neurokit2==0.2.13
+PyWavelets==1.8.0
+xgboost==3.2.0
+shap==0.52.0
+scikit-learn==1.6.1
+scipy==1.16.3
+pandas==2.3.3
+numpy==2.0.2
+matplotlib==3.10.0
+seaborn==0.13.2
+torch==2.11.0+cpu
+tqdm==4.67.3
+statsmodels==0.14.6
+patsy==1.0.2

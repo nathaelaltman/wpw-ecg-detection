@@ -1,0 +1,17 @@
+feature,abs_d,raison_exclusion
+QRS_On_Global,1.77,"artefact : temps absolu du début QRS (calage fenêtre), distribution bimodale anormale, pas de signification physiologique WPW"
+Q_On_Global,1.77,redondant (identique à QRS_On_Global) + même artefact
+QT_Int_Global,0.55,"redondant avec QT_IntFramingham (même intervalle, correction différente)"
+QT_IntFridericia_Global,0.58,redondant avec QT_IntFramingham (correction différente)
+QT_IntCorr_Global,0.42,redondant avec QT_IntFramingham ; identique à Bazett
+QT_IntBazett_Global,0.42,redondant avec QT_IntFramingham ; identique à Corr
+T_Off_Global,0.3,au seuil du d mais chevauchement visuel quasi total : échoue au critère de séparation visuelle
+HR_Ventr_Global,0.25,"gate non franchi : FC de repos non discriminante (tachycardies WPW en crise, pas au repos), p non significatif"
+RR_Mean_Global,0.21,"gate non franchi : idem fréquence cardiaque, p non significatif"
+HR_Atrial_Global,0.13,gate non franchi : fréquence non discriminante
+P_AxisFront_Global,0.16,gate non franchi : axe P non affecté par le WPW
+P_On_Global,0.2,gate non franchi : effet négligeable
+P_Off_Global,0.01,gate non franchi : effet nul
+T_On_Global,0.09,gate non franchi : effet négligeable
+QRS_Off_Global,0.16,gate non franchi : fin de QRS non discriminante
+Q_Off_Global,0.16,"gate non franchi : identique à QRS_Off, non discriminant"

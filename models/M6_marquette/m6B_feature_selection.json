@@ -1,0 +1,25 @@
+{
+  "model": "M6_B_discovery",
+  "n_features": 17,
+  "features": [
+    "R_PeakTime__mean",
+    "R_Dur__mean",
+    "R_PeakTime__std",
+    "R_Dur__std",
+    "R_PeakTime__max",
+    "R_Area__std",
+    "R_Dur__max",
+    "R_Area__mean",
+    "QRS_Area__std",
+    "QRS_Balance__max",
+    "QRS_Balance__std",
+    "QRS_Area__mean",
+    "ST_AmpMin__mean",
+    "ST_Amp116__mean",
+    "QRS_Balance__mean",
+    "ST_Amp116__std",
+    "ST_AmpMin__max"
+  ],
+  "method": "agrégation inter-dérivations (max/mean/std) des familles découvertes, dédoublonnage |corr|>0.9, représentant = plus fort |d|",
+  "fold_scope": "analyse sur folds 1-8"
+}

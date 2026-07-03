@@ -1,0 +1,50 @@
+{
+  "model": "M1_ptbxl",
+  "n_test": 2183,
+  "n_test_pos": 6,
+  "AP": 0.5984531706325168,
+  "AP_IC95": [
+    0.17483021820149636,
+    0.9583333333333333
+  ],
+  "AUC": 0.8474965548920533,
+  "AUC_IC95": [
+    0.5889526871841985,
+    0.9998468840912571
+  ],
+  "threshold_F1max_on_OOF": 0.9315724968910217,
+  "confusion_at_threshold": {
+    "TP": 3,
+    "FP": 0,
+    "FN": 3,
+    "TN": 2177,
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1": 0.6666666666666666,
+    "specificity": 1.0,
+    "npv": 0.9986238532110092
+  },
+  "brier_calibrated": 0.002409548005398551,
+  "ap_train": 0.5819608464146757,
+  "gap_train_fold9": -0.01649232421784108,
+  "multiseed": {
+    "AP_mean": 0.5501919829994278,
+    "AP_std": 0.03194184215265524,
+    "AUC_mean": 0.8414561322921452,
+    "AUC_std": 0.009812952991202672
+  },
+  "K": 37,
+  "xgb_params": {
+    "max_depth": 2,
+    "learning_rate": 0.02,
+    "n_estimators": 300,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 2.0,
+    "min_child_weight": 3
+  },
+  "detector": "ptbxl",
+  "legacy_07bc_same_AP": 0.542,
+  "gap_train_oof": null,
+  "gap_train_oof_note": "retroactively unavailable: the true train-OOF gap needs a refit, and frozen models are never refit (JOURNAL D13/D52)"
+}

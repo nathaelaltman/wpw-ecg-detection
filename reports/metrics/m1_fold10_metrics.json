@@ -1,0 +1,36 @@
+{
+  "model": "M1_fold10",
+  "n_test": 6713,
+  "n_test_pos": 14,
+  "AP": 0.25101516304683436,
+  "AP_IC95": [
+    0.06508292714746457,
+    0.49831196788106336
+  ],
+  "AUC": 0.9411745889578401,
+  "AUC_IC95": [
+    0.8792346405646898,
+    0.9872624912033778
+  ],
+  "threshold_F1max_on_OOF": 0.9665329456329346,
+  "confusion_at_threshold": {
+    "TP": 2,
+    "FP": 2,
+    "FN": 12,
+    "TN": 6697,
+    "precision": 0.5,
+    "recall": 0.14285714285714285,
+    "f1": 0.22222222222222224,
+    "specificity": 0.9997014479773101,
+    "npv": 0.9982113578774781
+  },
+  "brier_calibrated": null,
+  "ap_train": null,
+  "ap_oof": 0.19824401455565668,
+  "gap_train_fold9": null,
+  "gap_train_oof": null,
+  "multiseed": null,
+  "note": "per-model fold10 card; reporting on frozen cached scores; threshold = own OOF F1-max",
+  "oof_file": "m1_combined_oof.csv",
+  "ptb_only": false
+}

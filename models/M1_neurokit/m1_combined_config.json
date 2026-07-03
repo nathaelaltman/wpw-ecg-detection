@@ -1,0 +1,116 @@
+{
+  "model": "M1_neurokit_combined",
+  "train": "PTB-XL + Ningbo, folds 1-8",
+  "representation": "NeuroKit2 clinical + morphology/delta (leads II/V1/V5)",
+  "K": 35,
+  "features": [
+    "qrs_asym_II",
+    "delta_ratio_init_peak_V5",
+    "qrs_entropy_V5",
+    "delta_ratio_init_peak_II",
+    "delta_slow_phase_ms_V5",
+    "delta_slow_phase_ms_II",
+    "delta_t_to_max_II",
+    "delta_vel_quarter_V5",
+    "freq_hf_ratio_V5",
+    "qrs_nzero_II",
+    "delta_ratio_init_peak_V1",
+    "delta_area_third_V5",
+    "qrs_ninflect_V1",
+    "qrs_ninflect_V5",
+    "delta_t_to_max_V1",
+    "qrs_fwhm_V5",
+    "freq_p95_V5",
+    "qrs_skew_V1",
+    "delta_t_to_max_V5",
+    "qrs_fwhm_II",
+    "delta_vel_half_V5",
+    "qrs_absarea_V1",
+    "t_area_II",
+    "freq_median_II",
+    "freq_p95_II",
+    "Q_amp_II",
+    "delta_area_third_II",
+    "qrs_energy_V5",
+    "delta_area_third_V1",
+    "S_amp_V5",
+    "var_area_std_V1",
+    "delta_empatement_area_V5",
+    "Q_amp_V5",
+    "st_slope_II",
+    "qrs_posneg_ratio_V5"
+  ],
+  "xgb_params": {
+    "max_depth": 2,
+    "learning_rate": 0.05,
+    "n_estimators": 200,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 2.0,
+    "min_child_weight": 3,
+    "scale_pos_weight": 464.5652173913044
+  },
+  "calibration": "Platt (LogisticRegression) on OOF native folds (anti-shuffle)",
+  "selection": "gate |d|>0.3 & p_FDR<0.05 (BH) & IC95 excl 0 & cross-dataset; dedup Spearman>0.9; K & config via wide AP-vs-k + overfit gap + 2D K x config grid",
+  "metrics_standard_fold9": {
+    "model": "M1_combined",
+    "n_test": 6698,
+    "n_test_pos": 13,
+    "AP": 0.6648816203518605,
+    "AP_IC95": [
+      0.4172890899703039,
+      0.8969079596712484
+    ],
+    "AUC": 0.9608077786088256,
+    "AUC_IC95": [
+      0.8963301881364709,
+      0.9989189344686727
+    ],
+    "threshold_F1max_on_OOF": 0.9665329456329346,
+    "confusion_at_threshold": {
+      "TP": 8,
+      "FP": 1,
+      "FN": 5,
+      "TN": 6684,
+      "precision": 0.8888888888888888,
+      "recall": 0.6153846153846154,
+      "f1": 0.7272727272727274,
+      "specificity": 0.999850411368736,
+      "npv": 0.9992525041112273
+    },
+    "brier_calibrated": 0.0017095600420217727,
+    "ap_train": 0.4077462710380268,
+    "gap_train_test": -0.2571353493138337,
+    "multiseed": {
+      "AP_mean": 0.6348487084169682,
+      "AP_std": 0.028242786421907074,
+      "AUC_mean": 0.958049594384673,
+      "AUC_std": 0.0041347538203530985
+    },
+    "K": 35,
+    "xgb_params": {
+      "max_depth": 2,
+      "learning_rate": 0.05,
+      "n_estimators": 200,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 2.0,
+      "min_child_weight": 3
+    },
+    "legacy_07a_fold9_AP": 0.571
+  },
+  "multiseed": {
+    "AP_mean": 0.6348487084169682,
+    "AP_std": 0.028242786421907074,
+    "AUC_mean": 0.958049594384673,
+    "AUC_std": 0.0041347538203530985
+  },
+  "legacy_07a": {
+    "K": 35,
+    "AP_fold9": 0.571,
+    "AUC_fold9": 0.968,
+    "note": "re-derived with M2-level rigor; this notebook (05a) supersedes 07a"
+  },
+  "fold10": "UNTOUCHED — reserved for the final ensemble evaluation",
+  "date_frozen": "2026-06-20 21:52"
+}

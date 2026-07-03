@@ -1,0 +1,42 @@
+{
+  "status": "DECIDED — 0.5-40 Hz bandpass retained, PTB-XL+Ningbo fusion validated (3 concordant probes)",
+  "filter_FINAL": {
+    "type": "butterworth",
+    "order": 4,
+    "low": 0.5,
+    "high": 40,
+    "fs": 500,
+    "phase": "zero-phase (sosfiltfilt)",
+    "implementation": "scipy.signal.butter(4,[0.5,40]/(fs/2),'band','sos') + sosfiltfilt on float64"
+  },
+  "fusion": "VALIDATED — combined PTB-XL+Ningbo models (no per-dataset fallback)",
+  "decision_basis": {
+    "batch_effect": "dataset-separation AUC ~0.95 (strong), NOT harmonizable by any bandpass (~0.05 drop). Filtering is denoising, not harmonization.",
+    "true_judge": "cross-dataset generalization (train one dataset -> test the other), NOT the raw batch effect",
+    "probes": {
+      "M1_neurokit_clinical": {
+        "combined_0.5_40": 0.783,
+        "cross_same_drop": "+0.02",
+        "note": "designates 0.5-40; QRS_upslope d=-0.61 (delta signature) maximized at 0.5-40"
+      },
+      "M3_wavelet_freq": {
+        "combined_0.5_40": 0.697,
+        "cross_same_drop": "-0.004",
+        "note": "generalizes; gate spontaneously drops cD1/cD2 (batch-effect bands)"
+      },
+      "M7_cnn_deep": {
+        "combined_0.5_40": 0.867,
+        "cross_same_drop": "+0.07",
+        "note": "stronger but unstable (+/-0.13 across seeds); still generalizes"
+      }
+    },
+    "verdict_filter": "Unanimous that filtering helps. M1 designates 0.5-40; M3 and M7 judge it equivalent to 0.5-75 (no probe reliably prefers 0.5-75). 0.5-40 retained: only positively designated + ECG standard.",
+    "verdict_fusion": "All 3 families (clinical/frequency/deep) generalize cross-dataset despite batch effect 0.95 -> they learn WPW, not the dataset. Fusion is robust."
+  },
+  "implications": {
+    "common_filter": "0.5-40 applied identically to M1-M5, M7 and Flask (train/inference consistency)",
+    "cnn_normalization": "per-signal z-score for M7 (removes the inter-dataset amplitude gap at the source)",
+    "nan_neurokit": "extraction failure 7x more frequent in WPW (delta blurs R_Onset) -> 'extraction_failed' feature for M1; XGBoost handles NaN natively"
+  },
+  "probe_files": "data/processed/filter_probes/probe_m1_ext_*.csv, probe_m3_*.csv, probe_m7_grid.csv (exploratory)"
+}

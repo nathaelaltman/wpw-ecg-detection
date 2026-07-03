@@ -1,0 +1,49 @@
+{
+  "model": "M1_combined",
+  "n_test": 6698,
+  "n_test_pos": 13,
+  "AP": 0.6648816203518605,
+  "AP_IC95": [
+    0.4172890899703039,
+    0.8969079596712484
+  ],
+  "AUC": 0.9608077786088256,
+  "AUC_IC95": [
+    0.8963301881364709,
+    0.9989189344686727
+  ],
+  "threshold_F1max_on_OOF": 0.9665329456329346,
+  "confusion_at_threshold": {
+    "TP": 8,
+    "FP": 1,
+    "FN": 5,
+    "TN": 6684,
+    "precision": 0.8888888888888888,
+    "recall": 0.6153846153846154,
+    "f1": 0.7272727272727274,
+    "specificity": 0.999850411368736,
+    "npv": 0.9992525041112273
+  },
+  "brier_calibrated": 0.0017095600420217727,
+  "ap_train": 0.4077462710380268,
+  "gap_train_fold9": -0.2571353493138337,
+  "multiseed": {
+    "AP_mean": 0.6348487084169682,
+    "AP_std": 0.028242786421907074,
+    "AUC_mean": 0.958049594384673,
+    "AUC_std": 0.0041347538203530985
+  },
+  "K": 35,
+  "xgb_params": {
+    "max_depth": 2,
+    "learning_rate": 0.05,
+    "n_estimators": 200,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 2.0,
+    "min_child_weight": 3
+  },
+  "legacy_07a_fold9_AP": 0.571,
+  "gap_train_oof": null,
+  "gap_train_oof_note": "retroactively unavailable: the true train-OOF gap needs a refit, and frozen models are never refit (JOURNAL D13/D52)"
+}

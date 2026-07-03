@@ -1,0 +1,49 @@
+{
+  "model": "M5_combined",
+  "n_test": 6698,
+  "n_test_pos": 13,
+  "AP": 0.46162516654428154,
+  "AP_IC95": [
+    0.22958810585072284,
+    0.7299909395846232
+  ],
+  "AUC": 0.9233530867038721,
+  "AUC_IC95": [
+    0.8243455497382198,
+    0.9981367585294286
+  ],
+  "threshold_F1max_on_OOF": 0.7577914595603943,
+  "confusion_at_threshold": {
+    "TP": 5,
+    "FP": 3,
+    "FN": 8,
+    "TN": 6682,
+    "precision": 0.625,
+    "recall": 0.38461538461538464,
+    "f1": 0.4761904761904762,
+    "specificity": 0.9995512341062079,
+    "npv": 0.9988041853512706
+  },
+  "brier_calibrated": 0.001399141374829508,
+  "ap_train": 0.9999999999999998,
+  "gap_train_fold9": 0.5383748334557182,
+  "multiseed": {
+    "AP_mean": 0.4321009443954898,
+    "AP_std": 0.04380086849303548,
+    "AUC_mean": 0.9402830677176226,
+    "AUC_std": 0.0170378292764237
+  },
+  "K": 77,
+  "cfg": "d4_lr10",
+  "depth": 4,
+  "R_DETECTOR": "wavelet_env",
+  "transforms": [
+    "kors",
+    "dower"
+  ],
+  "OOF_AP_folds1_8": 0.5347464474101399,
+  "precision_at_recall0.8_fold9": 0.0763888888888889,
+  "failrate": 0.001628056339711132,
+  "gap_train_oof": null,
+  "gap_train_oof_note": "retroactively unavailable: the true train-OOF gap needs a refit, and frozen models are never refit (JOURNAL D13/D52)"
+}

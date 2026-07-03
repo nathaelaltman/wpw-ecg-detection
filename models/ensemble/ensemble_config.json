@@ -1,0 +1,35 @@
+{
+  "model": "ensemble_M3_M4_rankvote",
+  "members": [
+    "M3",
+    "M4"
+  ],
+  "alpha_weight_on_M4": 0.5,
+  "fusion": "ens = alpha*pct(M4) + (1-alpha)*pct(M3)  on OOF percentile ranks",
+  "oof_files": {
+    "M3": "data/processed/m3_combined_oof.csv",
+    "M4": "data/processed/m4_combined_oof.csv"
+  },
+  "oof_folds": "1-8",
+  "n_oof": 53540,
+  "n_wpw_oof": 115,
+  "oof_AP": 0.7173,
+  "oof_AP_CI95": [
+    0.6411,
+    0.7961
+  ],
+  "oof_AUC": 0.9715,
+  "threshold_F1max_on_OOF_ensemble": 0.9969,
+  "oof_confusion_at_threshold": {
+    "TP": 80,
+    "FP": 25,
+    "FN": 35
+  },
+  "ref_scores": {
+    "M3": "models/ensemble/ref_scores_M3.npy",
+    "M4": "models/ensemble/ref_scores_M4.npy"
+  },
+  "ranking_recipe": "To score NEW data (e.g. fold10) with ZERO new decisions: for each raw score x, pct_M = searchsorted(sorted ref_scores_M, x)/len(ref)  (fraction of frozen folds-1-8 scores <= x); ens = alpha*pct_M4 + (1-alpha)*pct_M3 ; flag WPW if ens >= threshold. Rank against the frozen reference ONLY - do NOT re-rank jointly with the new data.",
+  "date_frozen": "2026-07-01 19:06",
+  "fold10": "UNTOUCHED (final evaluation)"
+}

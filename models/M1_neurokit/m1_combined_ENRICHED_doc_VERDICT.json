@@ -1,0 +1,32 @@
+{
+  "experiment": "M1 feature-pool enrichment (~172 -> ~700 features: per-beat med/std/IQR/skew + sub-segments)",
+  "conclusion": "REJECTED — does not lift M1 ceiling; M1 is signal-limited (the WPW delta wave breaks NeuroKit delineation, so adding features cannot raise the ceiling).",
+  "enriched_result": {
+    "K": 64,
+    "xgb_params": {
+      "max_depth": 2,
+      "learning_rate": 0.05,
+      "n_estimators": 200,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 2.0,
+      "min_child_weight": 3
+    },
+    "AP_oof": 0.16640433532878857,
+    "AP_fold9": 0.3382748477851206,
+    "AUC_fold9": 0.9481272654047523,
+    "multiseed_AP": 0.32185225462054906,
+    "F1": 0.27586206896551724
+  },
+  "canonical_v1": {
+    "K": 50,
+    "AP_oof": 0.216,
+    "AP_fold9": 0.617,
+    "AUC_fold9": 0.972,
+    "multiseed_AP": 0.614,
+    "F1": 0.545,
+    "note": "canonical M1 = notebook 05a (v1 pool)"
+  },
+  "decision": "Keep the simpler v1 pool as the canonical M1. The enriched pool ties v1 on OOF AP and is worse on AUC; apparent gains exist only at depth-3 / large-gap (memorization). Enriched feature table archived: data/processed/m1_features_enriched.csv (gitignored).",
+  "date": "2026-06-20 14:46"
+}

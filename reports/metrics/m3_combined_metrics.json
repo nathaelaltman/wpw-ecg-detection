@@ -1,0 +1,60 @@
+{
+  "model": "M3_combined",
+  "n_test": 6698,
+  "n_test_pos": 13,
+  "AP": 0.6536738128574205,
+  "AP_IC95": [
+    0.41477178783788665,
+    0.8775452692511515
+  ],
+  "AUC": 0.9291295092342213,
+  "AUC_IC95": [
+    0.791196996720557,
+    0.9991600023013636
+  ],
+  "threshold_F1max_on_OOF": 0.4067365527153015,
+  "confusion_at_threshold": {
+    "TP": 7,
+    "FP": 2,
+    "FN": 6,
+    "TN": 6683,
+    "precision": 0.7777777777777778,
+    "recall": 0.5384615384615384,
+    "f1": 0.6363636363636364,
+    "specificity": 0.999700822737472,
+    "npv": 0.9991030049334728
+  },
+  "brier_calibrated": 0.001098874489845441,
+  "ap_train": 1.0,
+  "gap_train_fold9": 0.34632618714257946,
+  "multiseed": {
+    "AP_mean": 0.6822070509985318,
+    "AP_std": 0.03414228737724438,
+    "AUC_mean": 0.9269575973764456,
+    "AUC_std": 0.005220147028325624
+  },
+  "K": 500,
+  "POOL": "localization",
+  "cfg": "d4_lr10",
+  "depth": 4,
+  "OOF_AP_folds1_8": 0.6187917947281243,
+  "precision_at_recall0.8_fold9": 0.19298245614035087,
+  "recall_oriented_fold9": {
+    "thr": 0.00017526613373775035,
+    "TP": 12,
+    "FP": 1141,
+    "FN": 1,
+    "TN": 5544
+  },
+  "xgb_params": {
+    "max_depth": 4,
+    "learning_rate": 0.1,
+    "n_estimators": 200,
+    "min_child_weight": 3,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 2.0
+  },
+  "gap_train_oof": null,
+  "gap_train_oof_note": "retroactively unavailable: the true train-OOF gap needs a refit, and frozen models are never refit (JOURNAL D13/D52)"
+}

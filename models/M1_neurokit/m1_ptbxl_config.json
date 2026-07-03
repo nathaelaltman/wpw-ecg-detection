@@ -1,0 +1,138 @@
+{
+  "model": "M1_neurokit_ptbxl",
+  "train": "ptbxl folds 1-8",
+  "representation": "NeuroKit2 clinical + morphology/delta (leads II/V1/V5), v1 pool",
+  "K": 37,
+  "features": [
+    "qrs_asym_II",
+    "delta_t_to_max_II",
+    "delta_ratio_init_peak_II",
+    "delta_ratio_init_peak_V5",
+    "delta_ratio_init_peak_V1",
+    "qrs_entropy_V5",
+    "delta_slow_phase_ms_II",
+    "delta_slow_phase_ms_V5",
+    "delta_t_to_max_V1",
+    "t_area_II",
+    "delta_vel_quarter_V5",
+    "delta_slow_phase_ms_V1",
+    "freq_hf_ratio_V5",
+    "delta_t_to_max_V5",
+    "qrs_skew_V1",
+    "delta_area_third_V5",
+    "qrs_nzero_II",
+    "qrs_fwhm_V5",
+    "freq_median_II",
+    "qrs_ninflect_V1",
+    "delta_vel_half_V5",
+    "qrs_absarea_V1",
+    "var_area_std_V1",
+    "freq_p95_V5",
+    "qrs_energy_V5",
+    "qrs_asym_V1",
+    "delta_area_third_V1",
+    "delta_area_third_II",
+    "qrs_ninflect_V5",
+    "freq_p95_II",
+    "st_slope_II",
+    "t_symmetry_V5",
+    "R_amp_II",
+    "Q_amp_V1",
+    "var_qrswidth_std_V1",
+    "qrs_posneg_ratio_V5",
+    "delta_empatement_area_V5"
+  ],
+  "xgb_params": {
+    "max_depth": 2,
+    "learning_rate": 0.02,
+    "n_estimators": 300,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 2.0,
+    "min_child_weight": 3,
+    "scale_pos_weight": 304.57894736842104
+  },
+  "calibration": "Platt (LogisticRegression) on OOF native folds (anti-shuffle)",
+  "selection": "single-dataset gate |d|>0.3 & p_FDR<0.05 (BH) & IC95 excl 0; dedup Spearman>0.9; K & config via wide AP-vs-k + overfit gap + 2D K x config grid",
+  "metrics_same_fold9": {
+    "model": "M1_ptbxl",
+    "n_test": 2183,
+    "n_test_pos": 6,
+    "AP": 0.5984531706325168,
+    "AP_IC95": [
+      0.17483021820149636,
+      0.9583333333333333
+    ],
+    "AUC": 0.8474965548920533,
+    "AUC_IC95": [
+      0.5889526871841985,
+      0.9998468840912571
+    ],
+    "threshold_F1max_on_OOF": 0.9315724968910217,
+    "confusion_at_threshold": {
+      "TP": 3,
+      "FP": 0,
+      "FN": 3,
+      "TN": 2177,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "specificity": 1.0,
+      "npv": 0.9986238532110092
+    },
+    "brier_calibrated": 0.002409548005398551,
+    "ap_train": 0.5819608464146757,
+    "gap_train_test": -0.01649232421784108,
+    "multiseed": {
+      "AP_mean": 0.5501919829994278,
+      "AP_std": 0.03194184215265524,
+      "AUC_mean": 0.8414561322921452,
+      "AUC_std": 0.009812952991202672
+    },
+    "K": 37,
+    "xgb_params": {
+      "max_depth": 2,
+      "learning_rate": 0.02,
+      "n_estimators": 300,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 2.0,
+      "min_child_weight": 3
+    },
+    "detector": "ptbxl",
+    "legacy_07bc_same_AP": 0.542
+  },
+  "multiseed": {
+    "AP_mean": 0.5501919829994278,
+    "AP_std": 0.03194184215265524,
+    "AUC_mean": 0.8414561322921452,
+    "AUC_std": 0.009812952991202672
+  },
+  "cross_dataset": {
+    "to": "ningbo",
+    "AP": 0.030150252391990942,
+    "AUC": 0.8755249288620996,
+    "collapse_AP": -0.5683029182405258,
+    "naive_same_thr": {
+      "thr": 0.9315724968910217,
+      "F1": 0.057971014492753624,
+      "recall": 0.06896551724137931,
+      "precision": 0.05
+    },
+    "reopt_thr": {
+      "thr": 0.8706349206349207,
+      "F1": 0.10067114093959731,
+      "recall": 0.25862068965517243,
+      "precision": 0.0625
+    },
+    "note": "transfer diagnostic on ningbo folds 1-8; ningbo folds 9-10 untouched"
+  },
+  "legacy_07bc": {
+    "K": 37,
+    "same_AP": 0.542,
+    "cross_AP": 0.025,
+    "note": "re-derived with M2-level rigor + v1 pool; supersedes 07b/07c"
+  },
+  "fold10": "ptbxl fold 10 UNTOUCHED — reserved for the final ensemble evaluation",
+  "date_frozen": "2026-06-20 21:47"
+}

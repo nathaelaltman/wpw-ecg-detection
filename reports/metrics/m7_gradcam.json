@@ -1,0 +1,11 @@
+{
+  "profile": {
+    "onset": 0.43494805693626404,
+    "qrs": 0.5890756249427795,
+    "st_t": 0.198263481259346,
+    "baseline": 0.28918448090553284
+  },
+  "dominant": "qrs",
+  "verdict": "QRS-dominant (morphology) - plausible, cross-check with rho",
+  "n_wpw": 6
+}

@@ -1,0 +1,42 @@
+{
+  "model": "M7v1_oof_5000",
+  "n_test": 6698,
+  "n_test_pos": 13,
+  "AP": 0.8343242103325843,
+  "AP_IC95": [
+    0.6601334432780221,
+    0.989010989010989
+  ],
+  "AUC": 0.9833726482941143,
+  "AUC_IC95": [
+    0.9504044646453024,
+    0.9999769863644209
+  ],
+  "threshold_F1max_on_OOF": 0.7163580060005188,
+  "confusion_at_threshold": {
+    "TP": 9,
+    "FP": 2,
+    "FN": 4,
+    "TN": 6683,
+    "precision": 0.8181818181818182,
+    "recall": 0.6923076923076923,
+    "f1": 0.7500000000000001,
+    "specificity": 0.999700822737472,
+    "npv": 0.9994018244354718
+  },
+  "brier_calibrated": null,
+  "ap_train": 0.9944404236193,
+  "gap_train_fold9": 0.16011621328671566,
+  "multiseed": null,
+  "run": "m7_run7",
+  "config": "both+strong+base",
+  "OOF_AP": 0.6508294358102523,
+  "OOF_AP_CI": [
+    0.5656576174719669,
+    0.7317500689675576
+  ],
+  "OOF_AUC": 0.9654008328931766,
+  "gap": 0.34361098780904764,
+  "gap_train_oof": null,
+  "gap_train_oof_note": "retroactively unavailable: the true train-OOF gap needs a refit, and frozen models are never refit (JOURNAL D13/D52)"
+}

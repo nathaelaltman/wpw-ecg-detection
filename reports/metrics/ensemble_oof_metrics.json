@@ -1,0 +1,41 @@
+{
+  "model": "ensemble_oof",
+  "n_test": 53540,
+  "n_test_pos": 115,
+  "AP": 0.7173006031818691,
+  "AP_IC95": [
+    0.6411177234713215,
+    0.7961202718149446
+  ],
+  "AUC": 0.9715004781184513,
+  "AUC_IC95": [
+    0.9493457793330756,
+    0.9887335456043621
+  ],
+  "threshold_F1max_on_OOF": 0.9969462084422862,
+  "confusion_at_threshold": {
+    "TP": 80,
+    "FP": 25,
+    "FN": 35,
+    "TN": 53400,
+    "precision": 0.7619047619047619,
+    "recall": 0.6956521739130435,
+    "f1": 0.7272727272727272,
+    "specificity": 0.9995320542817033,
+    "npv": 0.9993449985964256
+  },
+  "brier_calibrated": null,
+  "ap_train": null,
+  "ap_oof": 0.7173006031818691,
+  "gap_train_fold9": null,
+  "gap_train_oof": null,
+  "multiseed": null,
+  "members": [
+    "M3",
+    "M4"
+  ],
+  "alpha": 0.5,
+  "fusion": "rank-vote on OOF percentiles",
+  "threshold_F1max": 0.9969462084422862,
+  "note": "OOF-only standardized card; fold10 evaluation is separate (the final evaluation, name=ensemble_fold10)"
+}

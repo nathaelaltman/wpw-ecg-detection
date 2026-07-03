@@ -1,0 +1,63 @@
+{
+  "model": "M4_medianbeat_combined",
+  "R_DETECTOR": "pan_tompkins",
+  "version": "1.0",
+  "K": 273,
+  "cfg": "d3_lr10",
+  "depth": 3,
+  "OOF_AP": 0.7049870871293925,
+  "failrate": 0.004316589744738689,
+  "metrics_standard_fold9": {
+    "model": "M4_combined_pan_tompkins",
+    "n_test": 6698,
+    "n_test_pos": 13,
+    "AP": 0.7785729989778393,
+    "AP_IC95": [
+      0.56871827454084,
+      0.9686301198801198
+    ],
+    "AUC": 0.9679995397272884,
+    "AUC_IC95": [
+      0.9059542028651977,
+      0.9999312467637075
+    ],
+    "threshold_F1max_on_OOF": 0.3757728040218353,
+    "confusion_at_threshold": {
+      "TP": 10,
+      "FP": 5,
+      "FN": 3,
+      "TN": 6680,
+      "precision": 0.6666666666666666,
+      "recall": 0.7692307692307693,
+      "f1": 0.7142857142857142,
+      "specificity": 0.9992520568436799,
+      "npv": 0.9995510998054766
+    },
+    "brier_calibrated": 0.0008715084328242713,
+    "ap_train": 0.9999999999999997,
+    "gap_train_test": 0.2214270010221604,
+    "multiseed": {
+      "AP_mean": 0.7913785548017925,
+      "AP_std": 0.019976020497986736,
+      "AUC_mean": 0.9678200333697717,
+      "AUC_std": 0.008038353901115505
+    },
+    "K": 273,
+    "cfg": "d3_lr10",
+    "depth": 3,
+    "R_DETECTOR": "pan_tompkins",
+    "OOF_AP_folds1_8": 0.7049870871293925,
+    "precision_at_recall0.8_fold9": 0.23404255319148937,
+    "failrate": 0.004316589744738689
+  },
+  "multiseed": {
+    "AP_mean": 0.7913785548017925,
+    "AP_std": 0.019976020497986736,
+    "AUC_mean": 0.9678200333697717,
+    "AUC_std": 0.008038353901115505
+  },
+  "representation": "median+most-pre-excited+variability; calibration-invariant morphology; delineation-free (R-peak only)",
+  "selection": "gate |d|>0.3 & p_FDR & IC95 & cross-dataset; dedup>0.95; max OOF AP depth-open + parsimony tiebreak; fold10 untouched",
+  "fold10": "UNTOUCHED",
+  "date_frozen": "2026-06-24 02:32"
+}

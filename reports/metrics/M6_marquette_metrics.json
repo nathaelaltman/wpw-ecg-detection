@@ -1,0 +1,36 @@
+{
+  "model": "M6_marquette",
+  "n_test": 2183,
+  "n_test_pos": 6,
+  "AP": 0.7886044591246903,
+  "AP_IC95": [
+    0.4415949889208288,
+    1.0
+  ],
+  "AUC": 0.973817179604961,
+  "AUC_IC95": [
+    0.9199931097841065,
+    1.0
+  ],
+  "threshold_F1max_on_OOF": 0.9521485567092896,
+  "confusion_at_threshold": {
+    "TP": 4,
+    "FP": 1,
+    "FN": 2,
+    "TN": 2176,
+    "precision": 0.8,
+    "recall": 0.6666666666666666,
+    "f1": 0.7272727272727272,
+    "specificity": 0.9995406522737712,
+    "npv": 0.9990817263544536
+  },
+  "brier_calibrated": 0.0016619021642770885,
+  "ap_train": 0.7204100686373373,
+  "gap_train_fold9": -0.0681943904873531,
+  "multiseed": null,
+  "protocol": "threshold on OOF folds 1-8 (57 WPW), evaluated on fold 9 (6 WPW); reference model, PTB-XL only",
+  "headline_oof_auc": 0.9685926410981661,
+  "headline_oof_ap": 0.5834149640339829,
+  "gap_train_oof": null,
+  "gap_train_oof_note": "retroactively unavailable: the true train-OOF gap needs a refit, and frozen models are never refit (JOURNAL D13/D52)"
+}

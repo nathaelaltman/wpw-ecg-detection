@@ -1,0 +1,15 @@
+{
+  "model": "M6_Marquette_12SL",
+  "n_features": 6,
+  "features": [
+    "PR_Int_Global",
+    "QRS_Dur_Global",
+    "QT_IntFramingham_Global",
+    "R_AxisFrontal_Global",
+    "T_AxisFront_Global",
+    "P_Dur_Global"
+  ],
+  "nan_strategy": "laisser tel quel (XGBoost route les NaN nativement)",
+  "gate": "|cohen_d| > 0.3 ET p < 0.05 ET séparation visuelle",
+  "fold_scope": "sélection sur folds 1-8 uniquement"
+}

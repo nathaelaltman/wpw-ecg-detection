@@ -1,0 +1,36 @@
+{
+  "model": "M2_ptbxl_CROSS_on_ningbo",
+  "n_test": 36122,
+  "n_test_pos": 58,
+  "AP": 0.20934578692632314,
+  "AP_IC95": [
+    0.11832895920183009,
+    0.3476564848072759
+  ],
+  "AUC": 0.895927355199951,
+  "AUC_IC95": [
+    0.8459448647806198,
+    0.9388950414779854
+  ],
+  "threshold_F1max_on_OOF": 0.9133593440055847,
+  "confusion_at_threshold": {
+    "TP": 5,
+    "FP": 2,
+    "FN": 53,
+    "TN": 36062,
+    "precision": 0.7142857142857143,
+    "recall": 0.08620689655172414,
+    "f1": 0.15384615384615388,
+    "specificity": 0.9999445430346051,
+    "npv": 0.9985324657344594
+  },
+  "brier_calibrated": 0.0014040361776019076,
+  "ap_train": null,
+  "gap_train_fold9": null,
+  "multiseed": null,
+  "eval_type": "cross_dataset",
+  "train_on": "ptbxl",
+  "test_on": "ningbo_folds1_8",
+  "gap_train_oof": null,
+  "gap_train_oof_note": "retroactively unavailable: the true train-OOF gap needs a refit, and frozen models are never refit (JOURNAL D13/D52)"
+}

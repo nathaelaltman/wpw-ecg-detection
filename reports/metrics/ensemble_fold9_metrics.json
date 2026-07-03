@@ -1,0 +1,40 @@
+{
+  "model": "ensemble_fold9",
+  "n_test": 6698,
+  "n_test_pos": 13,
+  "AP": 0.8345106515668195,
+  "AP_IC95": [
+    0.6565594382671397,
+    0.9794871794871794
+  ],
+  "AUC": 0.9387722225418562,
+  "AUC_IC95": [
+    0.81615528450607,
+    0.9999539727288418
+  ],
+  "threshold_F1max_on_OOF": 0.9969462084422862,
+  "confusion_at_threshold": {
+    "TP": 8,
+    "FP": 0,
+    "FN": 5,
+    "TN": 6685,
+    "precision": 1.0,
+    "recall": 0.6153846153846154,
+    "f1": 0.761904761904762,
+    "specificity": 1.0,
+    "npv": 0.9992526158445441
+  },
+  "brier_calibrated": null,
+  "ap_train": null,
+  "ap_oof": 0.7173,
+  "gap_train_fold9": null,
+  "gap_train_oof": null,
+  "multiseed": null,
+  "members": [
+    "M3",
+    "M4"
+  ],
+  "alpha": 0.5,
+  "frozen_threshold": 0.9969,
+  "note": "fold9 validation of the frozen ensemble; decides nothing"
+}

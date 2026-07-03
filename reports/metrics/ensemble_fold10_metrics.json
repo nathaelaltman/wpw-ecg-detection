@@ -1,0 +1,40 @@
+{
+  "model": "ensemble_fold10",
+  "n_test": 6713,
+  "n_test_pos": 14,
+  "AP": 0.5952462607057022,
+  "AP_IC95": [
+    0.3456662032344163,
+    0.8542742700031063
+  ],
+  "AUC": 0.9498325976158488,
+  "AUC_IC95": [
+    0.8941595760561277,
+    0.9952588872539609
+  ],
+  "threshold_F1max_on_OOF": 0.9969462084422862,
+  "confusion_at_threshold": {
+    "TP": 8,
+    "FP": 3,
+    "FN": 6,
+    "TN": 6696,
+    "precision": 0.7272727272727273,
+    "recall": 0.5714285714285714,
+    "f1": 0.64,
+    "specificity": 0.999552171965965,
+    "npv": 0.999104744852283
+  },
+  "brier_calibrated": null,
+  "ap_train": null,
+  "ap_oof": 0.7173,
+  "gap_train_fold9": null,
+  "gap_train_oof": null,
+  "multiseed": null,
+  "members": [
+    "M3",
+    "M4"
+  ],
+  "alpha": 0.5,
+  "frozen_threshold": 0.9969,
+  "note": "fold10 SINGLE atomic test-set contact"
+}

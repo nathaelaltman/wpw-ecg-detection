@@ -1,0 +1,63 @@
+{
+  "model": "M4_medianbeat_combined",
+  "R_DETECTOR": "wavelet_env",
+  "version": "1.0",
+  "K": 220,
+  "cfg": "d3_lr10",
+  "depth": 3,
+  "OOF_AP": 0.7183760619466781,
+  "failrate": 0.001628056339711132,
+  "metrics_standard_fold9": {
+    "model": "M4_combined_wavelet_env",
+    "n_test": 6698,
+    "n_test_pos": 13,
+    "AP": 0.8366764521719016,
+    "AP_IC95": [
+      0.6486271836246525,
+      0.9945054945054945
+    ],
+    "AUC": 0.959726137736609,
+    "AUC_IC95": [
+      0.880012082158679,
+      0.9999884931822105
+    ],
+    "threshold_F1max_on_OOF": 0.40892526507377625,
+    "confusion_at_threshold": {
+      "TP": 10,
+      "FP": 2,
+      "FN": 3,
+      "TN": 6683,
+      "precision": 0.8333333333333334,
+      "recall": 0.7692307692307693,
+      "f1": 0.8,
+      "specificity": 0.999700822737472,
+      "npv": 0.9995513012264433
+    },
+    "brier_calibrated": 0.0007068544277828615,
+    "ap_train": 0.9998494231145296,
+    "gap_train_test": 0.16317297094262806,
+    "multiseed": {
+      "AP_mean": 0.8269357494993734,
+      "AP_std": 0.02023200020449834,
+      "AUC_mean": 0.9599171509119152,
+      "AUC_std": 0.010076467449111053
+    },
+    "K": 220,
+    "cfg": "d3_lr10",
+    "depth": 3,
+    "R_DETECTOR": "wavelet_env",
+    "OOF_AP_folds1_8": 0.7183760619466781,
+    "precision_at_recall0.8_fold9": 0.8461538461538461,
+    "failrate": 0.001628056339711132
+  },
+  "multiseed": {
+    "AP_mean": 0.8269357494993734,
+    "AP_std": 0.02023200020449834,
+    "AUC_mean": 0.9599171509119152,
+    "AUC_std": 0.010076467449111053
+  },
+  "representation": "median+most-pre-excited+variability; calibration-invariant morphology; delineation-free (R-peak only)",
+  "selection": "gate |d|>0.3 & p_FDR & IC95 & cross-dataset; dedup>0.95; max OOF AP depth-open + parsimony tiebreak; fold10 untouched",
+  "fold10": "UNTOUCHED",
+  "date_frozen": "2026-06-24 05:24"
+}

@@ -1,0 +1,75 @@
+{
+  "model": "M5_spatial",
+  "version": "v2",
+  "R_DETECTOR": "wavelet_env",
+  "transforms": [
+    "kors",
+    "dower"
+  ],
+  "K": 443,
+  "cfg": "d2_lr03",
+  "depth": 2,
+  "gap_cap": 0.3,
+  "stability": "60x@0.6",
+  "OOF_AP": 0.42901851907072697,
+  "failrate": 0.001628056339711132,
+  "metrics_standard_fold9": {
+    "model": "M5v2_combined",
+    "n_test": 6698,
+    "n_test_pos": 13,
+    "AP": 0.44308920364652843,
+    "AP_IC95": [
+      0.21331139037973643,
+      0.6995273614122459
+    ],
+    "AUC": 0.9603820263506129,
+    "AUC_IC95": [
+      0.8965508313675853,
+      0.9967783786893734
+    ],
+    "threshold_F1max_on_OOF": 0.8884236216545105,
+    "confusion_at_threshold": {
+      "TP": 7,
+      "FP": 13,
+      "FN": 6,
+      "TN": 6672,
+      "precision": 0.35,
+      "recall": 0.5384615384615384,
+      "f1": 0.4242424242424242,
+      "specificity": 0.9980553477935676,
+      "npv": 0.9991015274034142
+    },
+    "brier_calibrated": 0.0016736162528788036,
+    "ap_train": 0.7045077715910892,
+    "gap_train_test": 0.2614185679445608,
+    "multiseed": {
+      "AP_mean": 0.43696554660544795,
+      "AP_std": 0.028383129041998828,
+      "AUC_mean": 0.9526120476382255,
+      "AUC_std": 0.004240711011731777
+    },
+    "K": 443,
+    "cfg": "d2_lr03",
+    "depth": 2,
+    "R_DETECTOR": "wavelet_env",
+    "transforms": [
+      "kors",
+      "dower"
+    ],
+    "gap_cap": 0.3,
+    "stability": "60x@0.6",
+    "OOF_AP_folds1_8": 0.42901851907072697,
+    "precision_at_recall0.8_fold9": 0.05583756345177665,
+    "failrate": 0.001628056339711132
+  },
+  "multiseed": {
+    "AP_mean": 0.43696554660544795,
+    "AP_std": 0.028383129041998828,
+    "AUC_mean": 0.9526120476382255,
+    "AUC_std": 0.004240711011731777
+  },
+  "representation": "dense VCG trajectory (x/y/z+mag+angvel) + finer delta vector + area-vector/ventricular-gradient + 66-pair inter-lead (lag,ratio) + rich axis variability; Kors+Dower; common-anchor M4 beats",
+  "selection": "gate |d|>0.3 & p_FDR & IC95 & cross-dataset; stability 60x@0.6; dedup>0.95; max OOF AP under gap<= 0.3 + parsimony; fold10 untouched",
+  "fold10": "UNTOUCHED",
+  "date_frozen": "2026-06-26 13:44"
+}

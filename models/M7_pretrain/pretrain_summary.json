@@ -1,0 +1,8 @@
+{
+  "total_steps": 16100,
+  "epochs": 20,
+  "best_val_recon": 0.5929411202669144,
+  "mask_ratio": 0.3,
+  "mask_span": 100,
+  "encoder": "stem+layer1+layer2+layer3"
+}

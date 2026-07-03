@@ -1,0 +1,43 @@
+{
+  "model": "M6_final",
+  "role": "Référence externe (Marquette 12SL) — HORS ensemble, NE touche jamais fold 10",
+  "representation": "C_combined",
+  "algo": "XGBoost",
+  "hyperparams": {
+    "max_depth": 2,
+    "learning_rate": 0.05,
+    "n_estimators": 100,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 2.0,
+    "min_child_weight": 3,
+    "scale_pos_weight": 304.6
+  },
+  "features": [
+    "PR_Int_Global",
+    "QRS_Dur_Global",
+    "QT_IntFramingham_Global",
+    "R_AxisFrontal_Global",
+    "T_AxisFront_Global",
+    "P_Dur_Global",
+    "R_PeakTime__mean",
+    "R_Dur__mean",
+    "R_Area__mean",
+    "Q_PeakTime__mean"
+  ],
+  "calibration": "sigmoid (Platt), cv=3 interne",
+  "eval_protocol": "OOF sur folds natifs PTB-XL 1-8 (PAS de StratifiedKFold shuffle)",
+  "auc_oof": 0.9686,
+  "auc_ic95": [
+    0.9446,
+    0.9867
+  ],
+  "average_precision": 0.5834,
+  "seuil": 0.28,
+  "recall": 0.667,
+  "precision": 0.691,
+  "F1": 0.679,
+  "note_seuil": "Seuil fixé au coude de la courbe PR (avant effondrement de la précision). Recall 0.667 < baseline cardiologue 0.749 : choix ASSUMÉ — au seuil recall>=0.70 la précision chute à 0.354 (sur-diagnostic non viable). Justifié pour une référence ; le seuil de l ensemble M1-M5 sera choisi séparément sur sa propre courbe PR.",
+  "faux_negatifs": "19/57 ratés, 17 avec proba<0.10 (aveuglés, pas ratés de justesse). Profil: QRS étroit (110 vs 137ms), R_PeakTime bas -> WPW à pré-excitation minime/intermittente, limite intrinsèque de l ECG de repos. Cas à inspecter visuellement: ecg_id 11190 (PR 236ms) et 17072 (label douteux?).",
+  "fold10": "JAMAIS touché — réservé évaluation finale ensemble"
+}
