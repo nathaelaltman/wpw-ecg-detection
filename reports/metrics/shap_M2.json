@@ -1,0 +1,664 @@
+{
+  "model": "M2",
+  "n": 53540,
+  "folds": "1-8",
+  "base_value": 0.406962,
+  "ranked_features": [
+    {
+      "feature": "sp_rel_lf_V4",
+      "mean_abs_shap": 0.566369
+    },
+    {
+      "feature": "ac_lag100_V4",
+      "mean_abs_shap": 0.267341
+    },
+    {
+      "feature": "slope_updown_ratio_AVR",
+      "mean_abs_shap": 0.235737
+    },
+    {
+      "feature": "trev_8_AVR",
+      "mean_abs_shap": 0.212533
+    },
+    {
+      "feature": "hj2_mobility_III",
+      "mean_abs_shap": 0.199821
+    },
+    {
+      "feature": "sp_e_vlf_III",
+      "mean_abs_shap": 0.198675
+    },
+    {
+      "feature": "max_I",
+      "mean_abs_shap": 0.195725
+    },
+    {
+      "feature": "skew_V2",
+      "mean_abs_shap": 0.168893
+    },
+    {
+      "feature": "ac_lag200_I",
+      "mean_abs_shap": 0.155849
+    },
+    {
+      "feature": "sp_ratio_dhf_mf_V3",
+      "mean_abs_shap": 0.154453
+    },
+    {
+      "feature": "sp_rel_lf_V3",
+      "mean_abs_shap": 0.143372
+    },
+    {
+      "feature": "spf_2_5_V3",
+      "mean_abs_shap": 0.143008
+    },
+    {
+      "feature": "spf_2_5_V4",
+      "mean_abs_shap": 0.140324
+    },
+    {
+      "feature": "hj2_mobility_AVL",
+      "mean_abs_shap": 0.130486
+    },
+    {
+      "feature": "spf_10_12_V5",
+      "mean_abs_shap": 0.129273
+    },
+    {
+      "feature": "sp_log_lf_V4",
+      "mean_abs_shap": 0.128554
+    },
+    {
+      "feature": "hj2_complexity_I",
+      "mean_abs_shap": 0.118998
+    },
+    {
+      "feature": "hj_abs_mobility_AVF",
+      "mean_abs_shap": 0.111693
+    },
+    {
+      "feature": "spf_2_5_AVR",
+      "mean_abs_shap": 0.106847
+    },
+    {
+      "feature": "p25_V4",
+      "mean_abs_shap": 0.106278
+    },
+    {
+      "feature": "hj2_complexity_V5",
+      "mean_abs_shap": 0.105688
+    },
+    {
+      "feature": "p05_AVF",
+      "mean_abs_shap": 0.097071
+    },
+    {
+      "feature": "p25_V2",
+      "mean_abs_shap": 0.096822
+    },
+    {
+      "feature": "absmax_AVL",
+      "mean_abs_shap": 0.096221
+    },
+    {
+      "feature": "min_AVF",
+      "mean_abs_shap": 0.088604
+    },
+    {
+      "feature": "spf_10_12_V1",
+      "mean_abs_shap": 0.084317
+    },
+    {
+      "feature": "sp_rel_vlf_I",
+      "mean_abs_shap": 0.084211
+    },
+    {
+      "feature": "spf_5_8_V2",
+      "mean_abs_shap": 0.083841
+    },
+    {
+      "feature": "sp_rel_vlf_III",
+      "mean_abs_shap": 0.08355
+    },
+    {
+      "feature": "sp_rel_vlf_AVF",
+      "mean_abs_shap": 0.081781
+    },
+    {
+      "feature": "spf_15_18_V4",
+      "mean_abs_shap": 0.075988
+    },
+    {
+      "feature": "spf_5_8_V5",
+      "mean_abs_shap": 0.074959
+    },
+    {
+      "feature": "sp_bw_AVR",
+      "mean_abs_shap": 0.074446
+    },
+    {
+      "feature": "spf_5_8_V4",
+      "mean_abs_shap": 0.070064
+    },
+    {
+      "feature": "hj2_mobility_I",
+      "mean_abs_shap": 0.062454
+    },
+    {
+      "feature": "sp_rel_delta_hf_V6",
+      "mean_abs_shap": 0.062185
+    },
+    {
+      "feature": "sp_e_vlf_I",
+      "mean_abs_shap": 0.06112
+    },
+    {
+      "feature": "spf_2_5_V2",
+      "mean_abs_shap": 0.060998
+    },
+    {
+      "feature": "ncross_2sd_V4",
+      "mean_abs_shap": 0.055841
+    },
+    {
+      "feature": "p95_I",
+      "mean_abs_shap": 0.053222
+    },
+    {
+      "feature": "p95_AVL",
+      "mean_abs_shap": 0.052633
+    },
+    {
+      "feature": "hj2_complexity_V4",
+      "mean_abs_shap": 0.048556
+    },
+    {
+      "feature": "sp_ratio_dhf_lf_V5",
+      "mean_abs_shap": 0.047867
+    },
+    {
+      "feature": "sp_bw_V6",
+      "mean_abs_shap": 0.047685
+    },
+    {
+      "feature": "sp_entropy_V1",
+      "mean_abs_shap": 0.045574
+    },
+    {
+      "feature": "ac_lag200_AVL",
+      "mean_abs_shap": 0.044359
+    },
+    {
+      "feature": "p95_III",
+      "mean_abs_shap": 0.041095
+    },
+    {
+      "feature": "sp_bw_I",
+      "mean_abs_shap": 0.039918
+    },
+    {
+      "feature": "spf_12_15_AVL",
+      "mean_abs_shap": 0.039242
+    },
+    {
+      "feature": "hj_abs_mobility_V4",
+      "mean_abs_shap": 0.038661
+    },
+    {
+      "feature": "spf_12_15_V5",
+      "mean_abs_shap": 0.036626
+    },
+    {
+      "feature": "spf_15_18_V5",
+      "mean_abs_shap": 0.035688
+    },
+    {
+      "feature": "sp_e_lf_AVL",
+      "mean_abs_shap": 0.03402
+    },
+    {
+      "feature": "iqr_III",
+      "mean_abs_shap": 0.032547
+    },
+    {
+      "feature": "sp_bw_V5",
+      "mean_abs_shap": 0.031775
+    },
+    {
+      "feature": "sp_e_vlf_AVL",
+      "mean_abs_shap": 0.029623
+    },
+    {
+      "feature": "hj2_complexity_AVF",
+      "mean_abs_shap": 0.02921
+    },
+    {
+      "feature": "sp_rel_vlf_II",
+      "mean_abs_shap": 0.029097
+    },
+    {
+      "feature": "spf_10_12_V4",
+      "mean_abs_shap": 0.029018
+    },
+    {
+      "feature": "sp_rel_mf_V1",
+      "mean_abs_shap": 0.028152
+    },
+    {
+      "feature": "sp_rel_lf_V2",
+      "mean_abs_shap": 0.027904
+    },
+    {
+      "feature": "sp_ratio_dhf_lf_V3",
+      "mean_abs_shap": 0.025495
+    },
+    {
+      "feature": "iqr_AVL",
+      "mean_abs_shap": 0.025084
+    },
+    {
+      "feature": "sp_ratio_dhf_mf_V4",
+      "mean_abs_shap": 0.025057
+    },
+    {
+      "feature": "hj_abs_mobility_III",
+      "mean_abs_shap": 0.023446
+    },
+    {
+      "feature": "hj2_complexity_V2",
+      "mean_abs_shap": 0.023387
+    },
+    {
+      "feature": "hj_abs_mobility_V5",
+      "mean_abs_shap": 0.022459
+    },
+    {
+      "feature": "ac_lag200_III",
+      "mean_abs_shap": 0.022344
+    },
+    {
+      "feature": "sp_ratio_dhf_mf_V5",
+      "mean_abs_shap": 0.022301
+    },
+    {
+      "feature": "sp_bw_AVL",
+      "mean_abs_shap": 0.021028
+    },
+    {
+      "feature": "sp_ratio_dhf_mf_I",
+      "mean_abs_shap": 0.02093
+    },
+    {
+      "feature": "sp_entropy_V5",
+      "mean_abs_shap": 0.020708
+    },
+    {
+      "feature": "spf_2_5_V5",
+      "mean_abs_shap": 0.020594
+    },
+    {
+      "feature": "p25_V3",
+      "mean_abs_shap": 0.020293
+    },
+    {
+      "feature": "spf_18_20_AVL",
+      "mean_abs_shap": 0.020265
+    },
+    {
+      "feature": "spf_12_15_III",
+      "mean_abs_shap": 0.019879
+    },
+    {
+      "feature": "dabs_mean_AVL",
+      "mean_abs_shap": 0.01816
+    },
+    {
+      "feature": "spf_2_5_AVL",
+      "mean_abs_shap": 0.01531
+    },
+    {
+      "feature": "sp_rel_delta_hf_I",
+      "mean_abs_shap": 0.014834
+    },
+    {
+      "feature": "spf_2_5_I",
+      "mean_abs_shap": 0.01452
+    },
+    {
+      "feature": "hj2_complexity_AVL",
+      "mean_abs_shap": 0.014417
+    },
+    {
+      "feature": "sp_centroid_III",
+      "mean_abs_shap": 0.014031
+    },
+    {
+      "feature": "spf_12_15_I",
+      "mean_abs_shap": 0.014015
+    },
+    {
+      "feature": "sp_rel_vlf_AVL",
+      "mean_abs_shap": 0.013884
+    },
+    {
+      "feature": "sp_log_lf_AVF",
+      "mean_abs_shap": 0.013441
+    },
+    {
+      "feature": "p25_I",
+      "mean_abs_shap": 0.012942
+    },
+    {
+      "feature": "hj2_mobility_AVR",
+      "mean_abs_shap": 0.012833
+    },
+    {
+      "feature": "sp_rel_lf_AVR",
+      "mean_abs_shap": 0.012788
+    },
+    {
+      "feature": "spf_12_15_V4",
+      "mean_abs_shap": 0.012576
+    },
+    {
+      "feature": "max_AVL",
+      "mean_abs_shap": 0.012301
+    },
+    {
+      "feature": "std_I",
+      "mean_abs_shap": 0.012216
+    },
+    {
+      "feature": "absmean_AVF",
+      "mean_abs_shap": 0.011846
+    },
+    {
+      "feature": "spf_12_15_V1",
+      "mean_abs_shap": 0.01183
+    },
+    {
+      "feature": "p75_III",
+      "mean_abs_shap": 0.011808
+    },
+    {
+      "feature": "sp_edge95_V4",
+      "mean_abs_shap": 0.011584
+    },
+    {
+      "feature": "hj_abs_mobility_AVL",
+      "mean_abs_shap": 0.011539
+    },
+    {
+      "feature": "perm_ent_m4_III",
+      "mean_abs_shap": 0.011012
+    },
+    {
+      "feature": "p75_AVF",
+      "mean_abs_shap": 0.010233
+    },
+    {
+      "feature": "std_III",
+      "mean_abs_shap": 0.010195
+    },
+    {
+      "feature": "sp_rel_lf_I",
+      "mean_abs_shap": 0.01016
+    },
+    {
+      "feature": "sp_ratio_dhf_mf_V6",
+      "mean_abs_shap": 0.010061
+    },
+    {
+      "feature": "sp_entropy_AVF",
+      "mean_abs_shap": 0.010029
+    },
+    {
+      "feature": "spf_2_5_V6",
+      "mean_abs_shap": 0.009919
+    },
+    {
+      "feature": "sp_centroid_II",
+      "mean_abs_shap": 0.009747
+    },
+    {
+      "feature": "sp_entropy_AVL",
+      "mean_abs_shap": 0.009718
+    },
+    {
+      "feature": "sp_roll90_V3",
+      "mean_abs_shap": 0.008934
+    },
+    {
+      "feature": "sp_entropy_III",
+      "mean_abs_shap": 0.008541
+    },
+    {
+      "feature": "spf_12_15_AVF",
+      "mean_abs_shap": 0.008339
+    },
+    {
+      "feature": "p05_I",
+      "mean_abs_shap": 0.008194
+    },
+    {
+      "feature": "sp_entropy_I",
+      "mean_abs_shap": 0.008148
+    },
+    {
+      "feature": "hj2_mobility_AVF",
+      "mean_abs_shap": 0.007883
+    },
+    {
+      "feature": "spf_12_15_AVR",
+      "mean_abs_shap": 0.007707
+    },
+    {
+      "feature": "sp_peak_pow_II",
+      "mean_abs_shap": 0.007267
+    },
+    {
+      "feature": "ac_lag100_V3",
+      "mean_abs_shap": 0.006547
+    },
+    {
+      "feature": "sp_rel_lf_V5",
+      "mean_abs_shap": 0.006513
+    },
+    {
+      "feature": "sp_roll75_AVL",
+      "mean_abs_shap": 0.006003
+    },
+    {
+      "feature": "spf_15_18_V3",
+      "mean_abs_shap": 0.005635
+    },
+    {
+      "feature": "ac_lag200_AVF",
+      "mean_abs_shap": 0.005158
+    },
+    {
+      "feature": "perm_ent_m4_AVL",
+      "mean_abs_shap": 0.005093
+    },
+    {
+      "feature": "spf_2_5_III",
+      "mean_abs_shap": 0.003972
+    },
+    {
+      "feature": "sp_edge95_AVF",
+      "mean_abs_shap": 0.003746
+    },
+    {
+      "feature": "hj_abs_mobility_V6",
+      "mean_abs_shap": 0.002949
+    },
+    {
+      "feature": "sp_centroid_AVF",
+      "mean_abs_shap": 0.002603
+    },
+    {
+      "feature": "sp_roll90_I",
+      "mean_abs_shap": 0.00255
+    },
+    {
+      "feature": "sp_entropy_II",
+      "mean_abs_shap": 0.00218
+    },
+    {
+      "feature": "perm_ent_m4_AVF",
+      "mean_abs_shap": 0.001888
+    },
+    {
+      "feature": "spf_15_18_AVL",
+      "mean_abs_shap": 0.001417
+    },
+    {
+      "feature": "spf_5_8_V3",
+      "mean_abs_shap": 0.001395
+    },
+    {
+      "feature": "sp_bw_V2",
+      "mean_abs_shap": 0.00129
+    },
+    {
+      "feature": "hj_complexity_II",
+      "mean_abs_shap": 0.001137
+    },
+    {
+      "feature": "sp_roll90_II",
+      "mean_abs_shap": 0.00105
+    },
+    {
+      "feature": "ac_lag200_II",
+      "mean_abs_shap": 0.000662
+    },
+    {
+      "feature": "spf_15_18_III",
+      "mean_abs_shap": 0.000621
+    },
+    {
+      "feature": "sp_ratio_d1540_V4",
+      "mean_abs_shap": 0.000525
+    },
+    {
+      "feature": "hj2_complexity_V3",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "sp_rel_lf_V6",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "sp_bw_II",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "sp_entropy_AVR",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "sp_rel_lf_AVL",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "hj2_complexity_AVR",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "min_III",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "hj2_mobility_V4",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "sp_e_mf_AVL",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "sp_roll90_AVR",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "sp_roll75_V5",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "sp_bw_V4",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "p25_AVL",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "p05_AVL",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "absmean_AVL",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "p05_III",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "sp_bw_V3",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "sp_entropy_V4",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "sp_rel_delta_hf_AVR",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "spf_15_18_AVR",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "hj2_complexity_III",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "sp_bw_III",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "spf_15_18_II",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "sp_e_lf_AVR",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "spf_12_15_V6",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "spf_15_18_V2",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "ac_lag200_V6",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "spf_12_15_II",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "hj2_complexity_II",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "spf_30_32_V5",
+      "mean_abs_shap": 0.0
+    }
+  ]
+}

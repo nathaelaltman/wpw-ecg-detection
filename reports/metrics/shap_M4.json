@@ -1,0 +1,888 @@
+{
+  "model": "M4",
+  "n": 53540,
+  "folds": "1-8",
+  "base_value": 2.381068,
+  "ranked_features": [
+    {
+      "feature": "med_AVR_amp15",
+      "mean_abs_shap": 0.559433
+    },
+    {
+      "feature": "med_V5_onQRS_min",
+      "mean_abs_shap": 0.507136
+    },
+    {
+      "feature": "med_AVR_on0_slur",
+      "mean_abs_shap": 0.479085
+    },
+    {
+      "feature": "med_AVR_onQRS_max",
+      "mean_abs_shap": 0.467381
+    },
+    {
+      "feature": "med_II_vel6",
+      "mean_abs_shap": 0.442989
+    },
+    {
+      "feature": "med_V2_vel14",
+      "mean_abs_shap": 0.421443
+    },
+    {
+      "feature": "ext_I_on0_slur",
+      "mean_abs_shap": 0.373331
+    },
+    {
+      "feature": "ext_V6_P_skew",
+      "mean_abs_shap": 0.369647
+    },
+    {
+      "feature": "med_AVF_on0_slur",
+      "mean_abs_shap": 0.320785
+    },
+    {
+      "feature": "med_II_on0_slur",
+      "mean_abs_shap": 0.294218
+    },
+    {
+      "feature": "med_AVR_bodyQRS_slope",
+      "mean_abs_shap": 0.27597
+    },
+    {
+      "feature": "med_V1_on0_slur",
+      "mean_abs_shap": 0.273662
+    },
+    {
+      "feature": "med_AVR_vel14",
+      "mean_abs_shap": 0.269676
+    },
+    {
+      "feature": "med_AVR_on1_signed",
+      "mean_abs_shap": 0.248876
+    },
+    {
+      "feature": "med_V1_PR_min",
+      "mean_abs_shap": 0.246167
+    },
+    {
+      "feature": "med_V2_ST_skew",
+      "mean_abs_shap": 0.236291
+    },
+    {
+      "feature": "med_V5_vel14",
+      "mean_abs_shap": 0.235294
+    },
+    {
+      "feature": "med_V6_on0_slur",
+      "mean_abs_shap": 0.231972
+    },
+    {
+      "feature": "med_V5_vel13",
+      "mean_abs_shap": 0.231036
+    },
+    {
+      "feature": "med_V6_vel13",
+      "mean_abs_shap": 0.229677
+    },
+    {
+      "feature": "ext_III_T_skew",
+      "mean_abs_shap": 0.226033
+    },
+    {
+      "feature": "med_AVF_on1_slur",
+      "mean_abs_shap": 0.220993
+    },
+    {
+      "feature": "med_V1_PR_ms",
+      "mean_abs_shap": 0.216055
+    },
+    {
+      "feature": "med_AVR_P_skew",
+      "mean_abs_shap": 0.215875
+    },
+    {
+      "feature": "med_V3_amp15",
+      "mean_abs_shap": 0.21444
+    },
+    {
+      "feature": "med_AVF_on2_slur",
+      "mean_abs_shap": 0.211506
+    },
+    {
+      "feature": "med_V4_onQRS_min",
+      "mean_abs_shap": 0.207876
+    },
+    {
+      "feature": "med_II_PR_max",
+      "mean_abs_shap": 0.202322
+    },
+    {
+      "feature": "med_V3_PR_ms",
+      "mean_abs_shap": 0.194279
+    },
+    {
+      "feature": "ext_I_on1_slur",
+      "mean_abs_shap": 0.192385
+    },
+    {
+      "feature": "med_III_on1_slur",
+      "mean_abs_shap": 0.192164
+    },
+    {
+      "feature": "med_AVR_vel13",
+      "mean_abs_shap": 0.19203
+    },
+    {
+      "feature": "ext_V5_PR_ms",
+      "mean_abs_shap": 0.188102
+    },
+    {
+      "feature": "med_V3_on0_slope",
+      "mean_abs_shap": 0.178899
+    },
+    {
+      "feature": "med_V3_onQRS_min",
+      "mean_abs_shap": 0.167792
+    },
+    {
+      "feature": "med_AVR_amp14",
+      "mean_abs_shap": 0.164591
+    },
+    {
+      "feature": "med_II_qrswidth_ms",
+      "mean_abs_shap": 0.155496
+    },
+    {
+      "feature": "var_AVL_deltafrac",
+      "mean_abs_shap": 0.148458
+    },
+    {
+      "feature": "med_V5_on1_signed",
+      "mean_abs_shap": 0.145579
+    },
+    {
+      "feature": "ext_AVR_onQRS_skew",
+      "mean_abs_shap": 0.143343
+    },
+    {
+      "feature": "ext_I_offQRS_skew",
+      "mean_abs_shap": 0.142348
+    },
+    {
+      "feature": "ext_V2_offQRS_skew",
+      "mean_abs_shap": 0.138489
+    },
+    {
+      "feature": "med_III_amp29",
+      "mean_abs_shap": 0.138069
+    },
+    {
+      "feature": "ext_V3_on0_slur",
+      "mean_abs_shap": 0.134013
+    },
+    {
+      "feature": "med_I_onQRS_skew",
+      "mean_abs_shap": 0.133955
+    },
+    {
+      "feature": "med_V2_offQRS_skew",
+      "mean_abs_shap": 0.124825
+    },
+    {
+      "feature": "ext_I_qrswidth_ms",
+      "mean_abs_shap": 0.12239
+    },
+    {
+      "feature": "med_V3_acc9",
+      "mean_abs_shap": 0.121762
+    },
+    {
+      "feature": "med_III_T_skew",
+      "mean_abs_shap": 0.120829
+    },
+    {
+      "feature": "med_V4_on2_signed",
+      "mean_abs_shap": 0.120044
+    },
+    {
+      "feature": "med_AVR_on2_slur",
+      "mean_abs_shap": 0.119071
+    },
+    {
+      "feature": "med_AVF_onQRS_max",
+      "mean_abs_shap": 0.118697
+    },
+    {
+      "feature": "med_V4_offQRS_skew",
+      "mean_abs_shap": 0.118553
+    },
+    {
+      "feature": "med_I_on0_slur",
+      "mean_abs_shap": 0.116237
+    },
+    {
+      "feature": "med_V2_on0_slope",
+      "mean_abs_shap": 0.114409
+    },
+    {
+      "feature": "ext_V4_PR_ms",
+      "mean_abs_shap": 0.113726
+    },
+    {
+      "feature": "med_V6_amp15",
+      "mean_abs_shap": 0.107164
+    },
+    {
+      "feature": "var_III_deltafrac",
+      "mean_abs_shap": 0.106341
+    },
+    {
+      "feature": "ext_V1_on2_slur",
+      "mean_abs_shap": 0.105856
+    },
+    {
+      "feature": "med_V6_PR_max",
+      "mean_abs_shap": 0.105262
+    },
+    {
+      "feature": "med_II_on2_slur",
+      "mean_abs_shap": 0.104727
+    },
+    {
+      "feature": "med_V3_ST_skew",
+      "mean_abs_shap": 0.103052
+    },
+    {
+      "feature": "med_AVF_PR_skew",
+      "mean_abs_shap": 0.10135
+    },
+    {
+      "feature": "med_V4_PR_slope",
+      "mean_abs_shap": 0.098435
+    },
+    {
+      "feature": "med_V5_ST_skew",
+      "mean_abs_shap": 0.097004
+    },
+    {
+      "feature": "med_V4_PR_max",
+      "mean_abs_shap": 0.094983
+    },
+    {
+      "feature": "med_V6_P_skew",
+      "mean_abs_shap": 0.09441
+    },
+    {
+      "feature": "med_V4_ST_skew",
+      "mean_abs_shap": 0.09255
+    },
+    {
+      "feature": "ext_V3_on1_slur",
+      "mean_abs_shap": 0.090453
+    },
+    {
+      "feature": "med_V2_on1_slur",
+      "mean_abs_shap": 0.090443
+    },
+    {
+      "feature": "med_AVL_PR_max",
+      "mean_abs_shap": 0.090105
+    },
+    {
+      "feature": "med_V6_on0_slope",
+      "mean_abs_shap": 0.087608
+    },
+    {
+      "feature": "med_V2_vel13",
+      "mean_abs_shap": 0.085803
+    },
+    {
+      "feature": "med_V3_onQRS_slope",
+      "mean_abs_shap": 0.084572
+    },
+    {
+      "feature": "ext_V6_on1_slur",
+      "mean_abs_shap": 0.084234
+    },
+    {
+      "feature": "med_V2_vel11",
+      "mean_abs_shap": 0.084054
+    },
+    {
+      "feature": "med_AVF_PR_ms",
+      "mean_abs_shap": 0.081723
+    },
+    {
+      "feature": "med_V3_amp14",
+      "mean_abs_shap": 0.081046
+    },
+    {
+      "feature": "med_V5_on1_slur",
+      "mean_abs_shap": 0.079649
+    },
+    {
+      "feature": "med_V5_amp14",
+      "mean_abs_shap": 0.07888
+    },
+    {
+      "feature": "med_II_on1_slur",
+      "mean_abs_shap": 0.077799
+    },
+    {
+      "feature": "med_AVL_T_skew",
+      "mean_abs_shap": 0.077789
+    },
+    {
+      "feature": "ext_AVF_on1_slur",
+      "mean_abs_shap": 0.077178
+    },
+    {
+      "feature": "med_V3_on0_slur",
+      "mean_abs_shap": 0.075977
+    },
+    {
+      "feature": "ext_I_PR_ms",
+      "mean_abs_shap": 0.075518
+    },
+    {
+      "feature": "med_V3_on1_signed",
+      "mean_abs_shap": 0.074832
+    },
+    {
+      "feature": "med_I_offQRS_skew",
+      "mean_abs_shap": 0.073784
+    },
+    {
+      "feature": "med_V1_PR_max",
+      "mean_abs_shap": 0.072174
+    },
+    {
+      "feature": "med_AVR_PR_slope",
+      "mean_abs_shap": 0.070243
+    },
+    {
+      "feature": "ext_V1_on0_slur",
+      "mean_abs_shap": 0.069928
+    },
+    {
+      "feature": "ext_V5_on0_slur",
+      "mean_abs_shap": 0.069357
+    },
+    {
+      "feature": "med_AVF_pol_onset",
+      "mean_abs_shap": 0.069052
+    },
+    {
+      "feature": "med_III_amp30",
+      "mean_abs_shap": 0.06857
+    },
+    {
+      "feature": "med_V3_amp12",
+      "mean_abs_shap": 0.066684
+    },
+    {
+      "feature": "med_V6_amp14",
+      "mean_abs_shap": 0.066151
+    },
+    {
+      "feature": "ext_I_on2_slur",
+      "mean_abs_shap": 0.065487
+    },
+    {
+      "feature": "ext_III_on2_slur",
+      "mean_abs_shap": 0.062742
+    },
+    {
+      "feature": "ext_AVL_T_skew",
+      "mean_abs_shap": 0.062482
+    },
+    {
+      "feature": "med_V5_on0_slur",
+      "mean_abs_shap": 0.062421
+    },
+    {
+      "feature": "ext_AVF_on0_slur",
+      "mean_abs_shap": 0.062259
+    },
+    {
+      "feature": "med_AVL_qrswidth_ms",
+      "mean_abs_shap": 0.060291
+    },
+    {
+      "feature": "med_V4_amp28",
+      "mean_abs_shap": 0.059996
+    },
+    {
+      "feature": "med_V6_PR_slope",
+      "mean_abs_shap": 0.059266
+    },
+    {
+      "feature": "med_AVL_on1_signed",
+      "mean_abs_shap": 0.059007
+    },
+    {
+      "feature": "ext_V3_on2_slur",
+      "mean_abs_shap": 0.055642
+    },
+    {
+      "feature": "med_V3_vel13",
+      "mean_abs_shap": 0.055607
+    },
+    {
+      "feature": "ext_AVF_PR_skew",
+      "mean_abs_shap": 0.055327
+    },
+    {
+      "feature": "ext_I_PR_skew",
+      "mean_abs_shap": 0.054412
+    },
+    {
+      "feature": "med_AVL_on1_slur",
+      "mean_abs_shap": 0.053916
+    },
+    {
+      "feature": "ext_V5_on1_slur",
+      "mean_abs_shap": 0.053494
+    },
+    {
+      "feature": "med_V5_on0_slope",
+      "mean_abs_shap": 0.052687
+    },
+    {
+      "feature": "med_AVL_on2_slur",
+      "mean_abs_shap": 0.051747
+    },
+    {
+      "feature": "med_I_on1_slur",
+      "mean_abs_shap": 0.051517
+    },
+    {
+      "feature": "med_V4_PR_area",
+      "mean_abs_shap": 0.051404
+    },
+    {
+      "feature": "med_V3_vel12",
+      "mean_abs_shap": 0.051391
+    },
+    {
+      "feature": "med_III_qrswidth_ms",
+      "mean_abs_shap": 0.050147
+    },
+    {
+      "feature": "med_V2_PR_slope",
+      "mean_abs_shap": 0.0496
+    },
+    {
+      "feature": "med_V3_offQRS_skew",
+      "mean_abs_shap": 0.048407
+    },
+    {
+      "feature": "med_V4_vel14",
+      "mean_abs_shap": 0.046773
+    },
+    {
+      "feature": "med_AVL_on0_slur",
+      "mean_abs_shap": 0.046375
+    },
+    {
+      "feature": "med_AVR_on1_slur",
+      "mean_abs_shap": 0.044708
+    },
+    {
+      "feature": "med_V3_vel11",
+      "mean_abs_shap": 0.043958
+    },
+    {
+      "feature": "med_V2_onQRS_min",
+      "mean_abs_shap": 0.042974
+    },
+    {
+      "feature": "ext_AVL_PR_skew",
+      "mean_abs_shap": 0.042581
+    },
+    {
+      "feature": "med_AVL_onQRS_min",
+      "mean_abs_shap": 0.042472
+    },
+    {
+      "feature": "ext_V4_on1_slur",
+      "mean_abs_shap": 0.042267
+    },
+    {
+      "feature": "med_AVL_amp15",
+      "mean_abs_shap": 0.041552
+    },
+    {
+      "feature": "ext_III_offQRS_skew",
+      "mean_abs_shap": 0.041478
+    },
+    {
+      "feature": "ext_V2_on2_slur",
+      "mean_abs_shap": 0.041071
+    },
+    {
+      "feature": "ext_V6_on0_slur",
+      "mean_abs_shap": 0.040615
+    },
+    {
+      "feature": "ext_V1_qrswidth_ms",
+      "mean_abs_shap": 0.040381
+    },
+    {
+      "feature": "med_V1_on1_area",
+      "mean_abs_shap": 0.038884
+    },
+    {
+      "feature": "med_AVL_amp30",
+      "mean_abs_shap": 0.038506
+    },
+    {
+      "feature": "med_V6_on1_slur",
+      "mean_abs_shap": 0.038323
+    },
+    {
+      "feature": "med_V1_qrswidth_ms",
+      "mean_abs_shap": 0.038038
+    },
+    {
+      "feature": "med_V2_on2_slur",
+      "mean_abs_shap": 0.037953
+    },
+    {
+      "feature": "ext_III_qrswidth_ms",
+      "mean_abs_shap": 0.037912
+    },
+    {
+      "feature": "med_I_qrswidth_ms",
+      "mean_abs_shap": 0.037714
+    },
+    {
+      "feature": "med_V2_PR_max",
+      "mean_abs_shap": 0.03622
+    },
+    {
+      "feature": "med_V6_vel14",
+      "mean_abs_shap": 0.035322
+    },
+    {
+      "feature": "med_AVL_amp14",
+      "mean_abs_shap": 0.035069
+    },
+    {
+      "feature": "med_III_on2_slur",
+      "mean_abs_shap": 0.033902
+    },
+    {
+      "feature": "ext_V1_on1_slur",
+      "mean_abs_shap": 0.033865
+    },
+    {
+      "feature": "med_I_on2_slur",
+      "mean_abs_shap": 0.032869
+    },
+    {
+      "feature": "med_AVR_PR_min",
+      "mean_abs_shap": 0.032733
+    },
+    {
+      "feature": "med_V5_amp15",
+      "mean_abs_shap": 0.032714
+    },
+    {
+      "feature": "med_AVL_offQRS_skew",
+      "mean_abs_shap": 0.032425
+    },
+    {
+      "feature": "med_III_onQRS_max",
+      "mean_abs_shap": 0.031996
+    },
+    {
+      "feature": "med_V2_vel12",
+      "mean_abs_shap": 0.031931
+    },
+    {
+      "feature": "med_V4_on0_slur",
+      "mean_abs_shap": 0.030628
+    },
+    {
+      "feature": "med_I_PR_max",
+      "mean_abs_shap": 0.030399
+    },
+    {
+      "feature": "med_V2_on1_signed",
+      "mean_abs_shap": 0.030298
+    },
+    {
+      "feature": "med_V5_PR_slope",
+      "mean_abs_shap": 0.029678
+    },
+    {
+      "feature": "med_III_amp31",
+      "mean_abs_shap": 0.028857
+    },
+    {
+      "feature": "med_V3_vel14",
+      "mean_abs_shap": 0.028652
+    },
+    {
+      "feature": "med_I_T_skew",
+      "mean_abs_shap": 0.028324
+    },
+    {
+      "feature": "med_V2_amp26",
+      "mean_abs_shap": 0.028122
+    },
+    {
+      "feature": "med_V5_PR_max",
+      "mean_abs_shap": 0.026785
+    },
+    {
+      "feature": "ext_V4_on0_slur",
+      "mean_abs_shap": 0.026612
+    },
+    {
+      "feature": "med_V1_on2_slur",
+      "mean_abs_shap": 0.026406
+    },
+    {
+      "feature": "med_V5_offQRS_skew",
+      "mean_abs_shap": 0.025044
+    },
+    {
+      "feature": "med_V2_PR_ms",
+      "mean_abs_shap": 0.024984
+    },
+    {
+      "feature": "med_III_PR_skew",
+      "mean_abs_shap": 0.024885
+    },
+    {
+      "feature": "med_V2_on0_slur",
+      "mean_abs_shap": 0.023464
+    },
+    {
+      "feature": "ext_III_on0_slur",
+      "mean_abs_shap": 0.023433
+    },
+    {
+      "feature": "ext_V6_PR_ms",
+      "mean_abs_shap": 0.022977
+    },
+    {
+      "feature": "med_V3_PR_slope",
+      "mean_abs_shap": 0.021568
+    },
+    {
+      "feature": "med_V2_amp14",
+      "mean_abs_shap": 0.021498
+    },
+    {
+      "feature": "med_V6_bodyQRS_rms",
+      "mean_abs_shap": 0.021342
+    },
+    {
+      "feature": "med_III_ST_area",
+      "mean_abs_shap": 0.020436
+    },
+    {
+      "feature": "ext_AVL_on0_slur",
+      "mean_abs_shap": 0.019878
+    },
+    {
+      "feature": "med_V4_on1_slur",
+      "mean_abs_shap": 0.019227
+    },
+    {
+      "feature": "ext_AVL_on1_slur",
+      "mean_abs_shap": 0.018985
+    },
+    {
+      "feature": "med_AVF_onQRS_slope",
+      "mean_abs_shap": 0.018603
+    },
+    {
+      "feature": "med_V3_PR_max",
+      "mean_abs_shap": 0.018324
+    },
+    {
+      "feature": "med_V4_on1_signed",
+      "mean_abs_shap": 0.018109
+    },
+    {
+      "feature": "med_V3_on1_slur",
+      "mean_abs_shap": 0.017667
+    },
+    {
+      "feature": "ext_AVL_qrswidth_ms",
+      "mean_abs_shap": 0.017622
+    },
+    {
+      "feature": "ext_I_T_skew",
+      "mean_abs_shap": 0.017193
+    },
+    {
+      "feature": "med_V3_on2_signed",
+      "mean_abs_shap": 0.017163
+    },
+    {
+      "feature": "med_V4_amp14",
+      "mean_abs_shap": 0.01711
+    },
+    {
+      "feature": "ext_AVF_on2_slur",
+      "mean_abs_shap": 0.017054
+    },
+    {
+      "feature": "ext_V4_ST_skew",
+      "mean_abs_shap": 0.017028
+    },
+    {
+      "feature": "med_V1_on1_slur",
+      "mean_abs_shap": 0.016485
+    },
+    {
+      "feature": "ext_AVR_on0_slur",
+      "mean_abs_shap": 0.015517
+    },
+    {
+      "feature": "med_III_on0_slur",
+      "mean_abs_shap": 0.014792
+    },
+    {
+      "feature": "ext_AVL_offQRS_skew",
+      "mean_abs_shap": 0.014788
+    },
+    {
+      "feature": "ext_AVL_on2_slur",
+      "mean_abs_shap": 0.014695
+    },
+    {
+      "feature": "var_I_deltafrac",
+      "mean_abs_shap": 0.014417
+    },
+    {
+      "feature": "med_V4_amp15",
+      "mean_abs_shap": 0.0139
+    },
+    {
+      "feature": "ext_II_on0_slur",
+      "mean_abs_shap": 0.013436
+    },
+    {
+      "feature": "med_AVR_on0_slope",
+      "mean_abs_shap": 0.013023
+    },
+    {
+      "feature": "med_V4_PR_ms",
+      "mean_abs_shap": 0.012801
+    },
+    {
+      "feature": "ext_V3_offQRS_skew",
+      "mean_abs_shap": 0.012544
+    },
+    {
+      "feature": "med_V2_amp15",
+      "mean_abs_shap": 0.011802
+    },
+    {
+      "feature": "med_V3_amp27",
+      "mean_abs_shap": 0.011447
+    },
+    {
+      "feature": "ext_V5_qrswidth_ms",
+      "mean_abs_shap": 0.009511
+    },
+    {
+      "feature": "ext_AVR_on1_slur",
+      "mean_abs_shap": 0.008874
+    },
+    {
+      "feature": "med_V2_amp25",
+      "mean_abs_shap": 0.008464
+    },
+    {
+      "feature": "ext_V2_on1_slur",
+      "mean_abs_shap": 0.007895
+    },
+    {
+      "feature": "ext_V4_offQRS_skew",
+      "mean_abs_shap": 0.007522
+    },
+    {
+      "feature": "med_AVR_qrswidth_ms",
+      "mean_abs_shap": 0.005899
+    },
+    {
+      "feature": "ext_V5_offQRS_skew",
+      "mean_abs_shap": 0.005557
+    },
+    {
+      "feature": "ext_AVF_qrswidth_ms",
+      "mean_abs_shap": 0.005364
+    },
+    {
+      "feature": "med_V6_onQRS_min",
+      "mean_abs_shap": 0.004706
+    },
+    {
+      "feature": "med_AVL_amp31",
+      "mean_abs_shap": 0.0043
+    },
+    {
+      "feature": "ext_V2_on0_slur",
+      "mean_abs_shap": 0.004243
+    },
+    {
+      "feature": "med_V6_qrswidth_ms",
+      "mean_abs_shap": 0.003599
+    },
+    {
+      "feature": "med_V4_on0_slope",
+      "mean_abs_shap": 0.003599
+    },
+    {
+      "feature": "ext_II_on1_slur",
+      "mean_abs_shap": 0.002462
+    },
+    {
+      "feature": "med_AVF_amp17",
+      "mean_abs_shap": 0.001823
+    },
+    {
+      "feature": "med_AVF_qrswidth_ms",
+      "mean_abs_shap": 0.001538
+    },
+    {
+      "feature": "ext_III_on1_slur",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "med_V3_on2_slur",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "ext_II_qrswidth_ms",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "ext_AVR_qrswidth_ms",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "ext_V6_qrswidth_ms",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "med_V5_qrswidth_ms",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "med_AVL_ST_area",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "med_V3_amp29",
+      "mean_abs_shap": 0.0
+    }
+  ]
+}

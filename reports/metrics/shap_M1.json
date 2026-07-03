@@ -1,0 +1,148 @@
+{
+  "model": "M1",
+  "n": 53540,
+  "folds": "1-8",
+  "base_value": 0.431228,
+  "ranked_features": [
+    {
+      "feature": "delta_area_third_V1",
+      "mean_abs_shap": 0.697065
+    },
+    {
+      "feature": "S_amp_V5",
+      "mean_abs_shap": 0.661238
+    },
+    {
+      "feature": "Q_amp_V5",
+      "mean_abs_shap": 0.575732
+    },
+    {
+      "feature": "qrs_posneg_ratio_V5",
+      "mean_abs_shap": 0.529216
+    },
+    {
+      "feature": "delta_vel_half_V5",
+      "mean_abs_shap": 0.430845
+    },
+    {
+      "feature": "delta_vel_quarter_V5",
+      "mean_abs_shap": 0.345228
+    },
+    {
+      "feature": "delta_ratio_init_peak_V1",
+      "mean_abs_shap": 0.335225
+    },
+    {
+      "feature": "Q_amp_II",
+      "mean_abs_shap": 0.310136
+    },
+    {
+      "feature": "qrs_energy_V5",
+      "mean_abs_shap": 0.309982
+    },
+    {
+      "feature": "freq_hf_ratio_V5",
+      "mean_abs_shap": 0.268522
+    },
+    {
+      "feature": "qrs_absarea_V1",
+      "mean_abs_shap": 0.264567
+    },
+    {
+      "feature": "delta_area_third_II",
+      "mean_abs_shap": 0.195862
+    },
+    {
+      "feature": "qrs_ninflect_V1",
+      "mean_abs_shap": 0.185031
+    },
+    {
+      "feature": "st_slope_II",
+      "mean_abs_shap": 0.178524
+    },
+    {
+      "feature": "qrs_entropy_V5",
+      "mean_abs_shap": 0.119548
+    },
+    {
+      "feature": "qrs_skew_V1",
+      "mean_abs_shap": 0.10723
+    },
+    {
+      "feature": "delta_slow_phase_ms_V5",
+      "mean_abs_shap": 0.087957
+    },
+    {
+      "feature": "delta_empatement_area_V5",
+      "mean_abs_shap": 0.0766
+    },
+    {
+      "feature": "qrs_asym_II",
+      "mean_abs_shap": 0.063915
+    },
+    {
+      "feature": "delta_ratio_init_peak_II",
+      "mean_abs_shap": 0.059061
+    },
+    {
+      "feature": "var_area_std_V1",
+      "mean_abs_shap": 0.050585
+    },
+    {
+      "feature": "t_area_II",
+      "mean_abs_shap": 0.049955
+    },
+    {
+      "feature": "freq_p95_V5",
+      "mean_abs_shap": 0.048787
+    },
+    {
+      "feature": "delta_slow_phase_ms_II",
+      "mean_abs_shap": 0.046284
+    },
+    {
+      "feature": "delta_t_to_max_V1",
+      "mean_abs_shap": 0.036728
+    },
+    {
+      "feature": "delta_area_third_V5",
+      "mean_abs_shap": 0.033447
+    },
+    {
+      "feature": "qrs_ninflect_V5",
+      "mean_abs_shap": 0.031061
+    },
+    {
+      "feature": "delta_ratio_init_peak_V5",
+      "mean_abs_shap": 0.022841
+    },
+    {
+      "feature": "qrs_nzero_II",
+      "mean_abs_shap": 0.021074
+    },
+    {
+      "feature": "qrs_fwhm_V5",
+      "mean_abs_shap": 0.010077
+    },
+    {
+      "feature": "qrs_fwhm_II",
+      "mean_abs_shap": 0.005969
+    },
+    {
+      "feature": "delta_t_to_max_V5",
+      "mean_abs_shap": 0.004071
+    },
+    {
+      "feature": "freq_p95_II",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "freq_median_II",
+      "mean_abs_shap": 0.0
+    },
+    {
+      "feature": "delta_t_to_max_II",
+      "mean_abs_shap": 0.0
+    }
+  ]
+}
