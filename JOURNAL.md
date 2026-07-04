@@ -363,7 +363,7 @@ superseded notebooks move to `archive/`. Every current notebook is mapped.
 - **Options considered:** enrich to 697 features vs keep the 172-feature v1.
 - **Decision:** **Reject** the enrichment; return to v1 (172); keep the enriched notebook as a *documented negative*. M1 is signal-limited.
 - **Why:** Apples-to-apples: enriched (697) OOF AP **0.166**, AUC 0.948, fold9 0.322; v1 (172) OOF AP **0.216**, AUC **0.972**, fold9 0.614. On the honest OOF judge the enrichment is *worse* on both AP and AUC; gains appeared only at depth-3 / gap-0.5 (memorization). The ceiling is the fragile NeuroKit delineation on the delta wave, a *signal* limit, not a feature-count limit.
-- **Rejected alternative(s):** the 697-feature pool (OOF 0.166 < 0.216, AUC 0.948 < 0.972). Recorded in persistent memory (`m1-enrichment-rejected.md`).
+- **Rejected alternative(s):** the 697-feature pool (OOF 0.166 < 0.216, AUC 0.948 < 0.972). Recorded as a permanent rejection: M1 is signal-limited and is not to be re-enriched.
 - **Status:** frozen (rejected).
 
 ---
@@ -514,4 +514,126 @@ superseded notebooks move to `archive/`. Every current notebook is mapped.
 - **Status:** frozen (Run 10 cancelled; M7 reference-only).
 
 ## <a id="d42"></a>[D42] M7 Grad-CAM: confirms the delta and explains the null committee contribution
-- **Context:** I
+- **Context:** Interpretability with pre-registered reading criteria (delta/QRS-onset confirms; T/ST means orthogonality; edges/noise means artifact).
+- **Options considered:** (interpretation against pre-registered criteria, not an A/B).
+- **Decision:** Verdict: M7 **reads the delta**, and does so in the **same region as M3/M4**, which explains its rho and null vote-delta.
+- **Why:** Salience by window (6 WPW TP, fold9): QRS 0.589, onset/delta 0.435, baseline 0.289, ST/T 0.198, so onset-dominant and not artifact/batch. Same delta/QRS region as the morphology detectors gives rho 0.37 to 0.45 and vote +0.004: same signal, different representation, not complementary. The per-source gap (ptbxl 0.739 > ningbo 0.553) is real transfer difficulty, not artifact cheating (baseline and ST-T salience are low).
+- **Rejected alternative(s):** an artifact/batch reading (refuted by low baseline and ST-T salience).
+- **Status:** frozen (figures `M7_gradcam_*`).
+
+---
+
+# FEATURE-UNION MODELS
+
+## <a id="d43"></a>[D43] best_model v1 (feature-union of M1 to M5) rejected: nested CV unmasks selection optimism
+- **Context:** A single XGBoost on the union of all gate-passed M1 to M5 features (3685 features), the natural "use everything" model; its in-sample OOF (0.727) appeared to beat the vote.
+- **Options considered:** deploy the feature-union (in-sample 0.727) vs keep the M3+M4 vote (0.736).
+- **Decision:** **Keep the vote**; freeze best_model as an honest negative, not deployed.
+- **Why:** **Nested CV = 0.613 +/- 0.004 vs in-sample OOF 0.727, so selection optimism +0.114.** The honest 0.613 loses to the 4-model vote (0.685) and badly to M3+M4 (0.736). Choosing among about 1657 stability-surviving features with 115 WPW overfits *the choice* itself (high variance); the vote instead weights only 4 to 5 denoised scores ("less freedom = less overfitting = better generalization"). Shadow-feature check: 0 of 50 survive, so the *selection* is clean and the optimism is in the K/config search, which only nested CV exposes. Selected K=280, depth 4 (train 1.000, gap +0.273 < cap 0.30), so the cap alone was insufficient and nested CV caught it.
+- **Rejected alternative(s):** trusting in-sample 0.727 and deploying (would ship the worse generalizer); adding M1/M5 to the vote (0.685 < M3+M4 0.736, "more models = worse").
+- **Status:** frozen (honest negative). fold10 later: 0.553.
+
+## <a id="d44"></a>[D44] best_model v2 (plus 54 clinical-interval features) rejected: clinical intervals add nothing
+- **Context:** v1 pool plus 54 clinical features (per-lead and composite PR, P amplitude/area/duration, PR slope, short-PR fraction; PR composite valid on 99.8 % of ECGs).
+- **Options considered:** deploy v2 with clinical intervals vs keep the vote.
+- **Decision:** **Keep the vote**; v2 frozen as a second honest negative.
+- **Why:** Nested CV v2 = **0.610 +/- 0.011, about equal to v1's 0.613**, still far below M3+M4 (0.736). In-sample rose 0.727 to 0.740 (looks like it beats M4 0.718) but that is only more selection optimism (+0.130). SHAP mass of clinical features = 4 %; the best clinical feature ranks 19th, and M4 already carried an equivalent PR feature. With 115 WPW the model cannot learn a generalizing PR-by-QRS interaction. A yellow flag confirmed thinness: the best shadow feature ranked 10th (vs 50th in v1), so only about 9 features clearly beat noise.
+- **Rejected alternative(s):** v2 (nested 0.610 < vote 0.736; clinical SHAP 4 %).
+- **Status:** frozen (honest negative). *(This is the **second and third** of the at-least-five independent confirmations that the vote/data ceiling holds.)*
+
+---
+
+# COMPOSITION
+
+## <a id="d45"></a>[D45] The deployed ensemble is M3 plus M4, and no more members
+- **Context:** With all detectors frozen, decide the committee composition on a symmetric FN/FP complementarity analysis (OOF folds 1 to 8, each model at its own F1-max threshold), so the conclusion is non-circular ([D18](#d18)).
+- **Options considered:** add M1, M2, M5v2, or M7 to M3+M4; or keep the two-member vote.
+- **Decision:** **Ensemble = M3 plus M4** (two members).
+- **Why:** At each model's own threshold, the M3-intersect-M4 committee gives **TP 60, FN 27, FP-common 9**. Of the 27 WPW missed by *both*: **M5v2 recovers 1** (at the cost of 56 injected FP), **M7 recovers 2** (7 FP, and vote-delta only +0.004 = below noise), **M1 and M2 recover 0**; **24 of 27 are recovered by no one**. rho(M3,M4) = 0.237 is already the most orthogonal available pair. Parsimony wins: two members suffice.
+- **Rejected alternative(s):** plus M5v2 (+1 FN for 56 FP), plus M7 (+2 FN for 7 FP but +0.004 AP), plus M1/M2 (0). No mutual-FN or FP tuning was allowed, since it would contaminate the fold10 test.
+- **Status:** frozen.
+
+---
+
+# ERROR ANALYSIS
+
+## <a id="d46"></a>[D46] The FN mechanism: narrow-QRS minimal pre-excitation, masked by comorbidity; specificity-complementarity
+- **Context:** Understand *which* WPW the deployed committee misses and *why*, on the canonical populations (TP 60, FN 27 missed-by-both, MIXED 28, FP-common 9, FP-union 49).
+- **Options considered:** (analysis, not a fork) candidate theses: QRS width, comorbidity masking, complementarity mechanism, irreducible floor.
+- **Decision:** The central FN thesis is **minimal pre-excitation at narrow QRS**, compounded by **comorbidity masking**; M3 and M4 are complementary in **specificity**.
+- **Why:** QRS width TP vs FN: Holm **p = 0.013** (median **101 vs 70 ms**), so the missed WPW have near-normal-width QRS (minimal/latent pre-excitation). Comorbidity enrichment FN vs TP (PTB): Fisher **p = 0.0036, OR = 15.4** (FNs are 15 times more often masked by infarct/block). Complementarity mechanism: **Jaccard(FN) 0.49 vs Jaccard(FP) 0.18**, so M3 and M4 miss *similar* hard cases but produce *distinct* false positives and thus complement each other in specificity (the mechanism behind rho=0.237). Irreducible floor: of 27 FN, PTB has 6 non-validated labels, 3 comorbid, 2 isolated-physiological; Ningbo has 16 (no validation field, a stated limit); the true physiological PTB floor is about 2 of 11.
+- **Rejected alternative(s):** non-discriminant hypotheses recorded as negative results: intermittence (qrs_cv), delta slurring (inverted gradient), R-amplitude, per-lead localization, batch effect (PTB about Ningbo); BBB-enrichment among FP suggestive but non-conclusive (N=4).
+- **Status:** frozen.
+
+## <a id="d47"></a>[D47] The "HR pivot" reversal: a diluted-population artifact, documented as a lesson
+- **Context:** An intermediate analysis pivoted the central thesis to heart rate; it later proved to be an artifact of the FN population definition.
+- **Options considered:** pivot the thesis to HR (computed on a diluted FN = 55) vs audit the population and use the canonical FN = 27.
+- **Decision:** **Reverse the HR pivot.** Central thesis stays QRS-width; HR is recorded as a **non-significant** result. Lesson graved: audit the population definition *before* concluding.
+- **Why:** The HR effect was computed on **FN = 55 = "missed by at least one" model**, which includes the 28 easier MIXED cases and dilutes the signal. On the **canonical FN = 27 = "missed by both"**, HR is **not significant after Holm (p = 0.22)** and the effect disappears; QRS width becomes significant (p = 0.013, [D46](#d46)), the inverse of the earlier hypothesis.
+- **Rejected alternative(s):** the HR pivot on FN=55 (population artifact). Kept in the record as a methodological near-miss, not hidden.
+- **Status:** frozen (reversal; negative result).
+
+---
+
+# ENSEMBLE
+
+## <a id="d48"></a>[D48] Rank-vote on OOF percentiles, equal weight alpha = 0.50 by parsimony
+- **Context:** Fuse M3 and M4 into the deployed artifact (folds 1 to 9; fold10 untouched).
+- **Options considered:** fuse calibrated probabilities vs percentile ranks; weight alpha on M4 chosen by argmax (0.96) vs equal weight (0.50).
+- **Decision:** **Rank-vote on OOF percentiles**, `ens = alpha * pct(M4) + (1 - alpha) * pct(M3)`, **alpha = 0.50 frozen**; operating threshold = F1-max on the OOF ensemble = **0.9969**.
+- **Why:** Rank/percentile fusion is **robust to the batch effect**, since ranks transfer across corpora while absolute calibrated scores do not ([D10](#d10)). The alpha sweep: argmax **alpha = 0.96 (AP 0.7244)** vs **equal-weight 0.50 (AP 0.7173)**, gain **+0.0071 < half-CI 0.039**, within noise, so parsimony picks 0.50. Frozen artifact `ensemble_config.json`: members M3+M4, alpha 0.50, **OOF AP 0.7173** (CI95 [0.641, 0.796]), **OOF AUC 0.9715**, threshold 0.9969, plus `ref_scores_M3/M4.npy` (the frozen folds-1-to-8 reference distribution used to rank fold9/10). Honest framing: the equal-weight ensemble (0.717) merely *equals* M4 alone (0.718) on OOF, so the deliverable is not an AP gain but **robustness (rank-vote) plus specificity complementarity**.
+- **Rejected alternative(s):** alpha = 0.96 (+0.0071 < half-CI 0.039 = noise); calibrated-probability fusion (batch effect corrupts absolute scale). *(Discrepancy note: earlier documents cite "vote 0.736" as the deployable ceiling; that was an equal-weight rank-vote measured during M4's development, and a `vote_oof_AP` of 0.685 for the 4-model vote lives inside the best_model JSONs; the **authoritative deployed number is the frozen `ensemble_config.json` OOF AP 0.7173**. Trust the JSON.)*
+- **Status:** frozen.
+
+---
+
+# FOLD10: THE SINGLE HELD-OUT TEST
+
+## <a id="d49"></a>[D49] One atomic contact with fold10; the frozen ensemble is reported, per-model cards are reference-only
+- **Context:** The entire system (composition, weights, threshold) was frozen on folds 1 to 9. Fold10 (14 WPW) is the one unbiased estimate and must not drive any re-decision.
+- **Options considered:** re-choose composition/weights/threshold on fold10 vs keep everything frozen and report per-model cards as descriptive reference (Option 3); a single run with a HARD-STOP barrier.
+- **Decision:** **Option 3**: keep the frozen ensemble, report every model's fold10 card as a *descriptive reference*, no re-decision, a single atomic run behind a HARD-STOP (fold9 validated first). **fold10 is now consumed.**
+- **Why:** Deployed ensemble fold10: **AP 0.595** (CI95 [0.346, 0.854]), **AUC 0.950**; at the frozen threshold TP 8 / FP 3 / FN 6 / TN 6696 (recall 0.571, precision 0.727). OOF was 0.717, so fold10 sits inside the CI (unbiased, noisy at 14 WPW). Master table (own-OOF F1-max per model; all AP CIs overlap, so **ranking not statistically separable**): M7 fold10 0.745 [0.529, 0.940] AUC 0.978 · ENSEMBLE 0.595 [0.346, 0.854] AUC 0.950 · best_model 0.553 · M4 0.552 · M3 0.544 · M5v2 0.301 · M2 0.276 · M1 0.251. M7 numerically leads (recovers 10 of 14 vs the ensemble's 8 of 14) but the overlapping CIs make no approach separable, **the fifth confirmation that data is the bottleneck.** FN (6): 4825, 17885, 19147, 19330 (missed by every model, the hardest), JS11155, JS36160 (near-miss 0.996 vs 0.9969). FP (3): 10822, JS10031, JS10032.
+- **Rejected alternative(s):** re-selecting anything on fold10 (nothing was, all pre-registered and frozen); a second contact (fold10 is consumed).
+- **Status:** frozen (fold10 consumed).
+
+---
+
+# DEPLOYMENT
+
+## <a id="d50"></a>[D50] The deliverable is a risk score, not a binary decision
+- **Context:** A fold10 AP of 0.595 could be misread as a ranking weakness.
+- **Options considered:** present a binary classifier at F1-max vs present a risk score judged by AP/AUC with a user-chosen operating point.
+- **Decision:** The deliverable is a **risk score** (calibrated probability plus percentile); the threshold is the user's operating choice, not a claim.
+- **Why:** Every model reaches **AUC > 0.90** on held-out test (ensemble 0.950): the score reliably sorts WPW to the top of the pile, the intended screening behavior. The **modest AP (0.595) is a mechanical consequence of 471:1 imbalance** (precision is brutal at high recall), not a ranking failure. In deployment, the output is a percentile ("top X % most suspect") with local recalibration, consistent with [D10](#d10).
+- **Rejected alternative(s):** the binary-at-F1-max framing (misleading given the deferred-threshold reality).
+- **Status:** frozen (reporting framing).
+
+## <a id="d51"></a>[D51] The deployed display: a 1-to-100 percentile plus a category, never the absolute probability
+- **Context:** At 471:1 the absolute calibrated probability is low almost everywhere ([D16](#d16)), so showing it to a user is misleading; a raw percentile over the reference distribution is also misleading because 99.8 % of the mass sits at low scores and would crush the useful range into the top 1 %.
+- **Options considered:** display the absolute calibrated probability; display a raw percentile within the frozen folds-1-to-8 reference distribution; display a hybrid 1-to-100 score anchored on the precision-recall thresholds plus a named category.
+- **Decision:** Display a **hybrid 1-to-100 score anchored on the PR-curve thresholds**, plus a **named category** (low, intermediate, high, very high). The reference distribution is the frozen folds-1-to-8 scores (about 53,500 ECGs), computed once, not per patient.
+- **Why:** A raw percentile at 471:1 would compress the clinically useful range into the top 1 % (99.8 % of non-WPW sit at low scores). The hybrid instead anchors the 1-to-100 scale on clinically meaningful operating points (about 50 where precision starts to rise, about 90 at F1-max, about 99 at high precision), and the named category maps those bands to plain language. This is the concrete product form of the risk-score framing ([D50](#d50)) and of the rank-transfers-scale-does-not result ([D10](#d10)): a relative, batch-robust display with a documented per-site recalibration path.
+- **Rejected alternative(s):** absolute calibrated probability (near-flat at 471:1, uninterpretable to a user); raw percentile (crushes the useful range into the top 1 %).
+- **Status:** frozen (display design).
+
+---
+
+# FINALIZATION
+
+## <a id="d52"></a>[D52] Evaluation module rewrite, canonical OOF schema, and M2 re-key
+- **Context:** During finalization, three latent inconsistencies needed fixing without touching any model or fold10.
+- **Options considered:** leave `evaluate_standard`'s single overloaded "gap" and dead params vs disambiguate and purge; grave M2's OOF assuming `.npy` order vs prove the AP first; heterogeneous per-model OOF files vs one canonical schema.
+- **Decision:** Rewrite `evaluate_standard`: rename `gap_train_test` to `gap_train_fold9`, add a distinct `gap_train_oof` (via a new `ap_oof` arg), purge dead defaults `m6_ref`/`m1_ref`, add helpers `write_oof_canonical` and `permutation_control` (backup kept). Adopt one canonical OOF schema `(ecg_id, source, fold, label, proba_raw, proba_cal)` across all 9 OOF files; **re-key M2 with an order proof**.
+- **Why:** Synthetic test 13 of 13 PASS (permutation control: null AP collapses to prevalence 0.242 vs real 1.000). M2 was a naked `.npy` with no key and was therefore **absent from every vote**; rather than assume order, labels were attached via the folds-1-to-8 metadata order and the AP recomputed to **0.2995**, matching the frozen 0.29947 (double confirmation) before writing `m2_combined_oof.csv`. AP was unchanged before and after migration on all 9 files (anti-corruption guardrail): M1 0.198, M2 0.299, M3 0.619, M4 0.718, M5v2 0.429, M7 0.651, best 0.727. The fold10 feature-coverage scare was also resolved by exact streaming counts (M3/M4 = 6713 ECG / 14 WPW present; a file mistaken for "0 MB empty" was a feature *list*, not a matrix), so no re-extraction was needed.
+- **Rejected alternative(s):** leaving the overloaded gap (silently conflates two quantities); assuming `.npy` order (unverified, risks a wrong M2 key); the duplicate `m4_combined_wavelet_env_oof.csv` is **not** migrated, so do not use it (canonical = `m4_combined_oof.csv`). Retroactive harmonization of old `*_metrics.json` deferred to a later cleanup pass.
+- **Status:** frozen.
+
+---
+
+*End of decision log. This log records every design decision and the rationale that settled it; see the
+repository `README.md` for the project overview, results summary, and reproduction details.*
+
+
+
+
