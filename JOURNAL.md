@@ -137,6 +137,8 @@ superseded notebooks move to `archive/`. Every current notebook is mapped.
 
 **Finalization:** [D52](#d52) evaluation module rewrite, OOF schema, M2 re-key
 
+**Paper revision:** [D53](#d53) selection not nested; learning curve confirms the data bottleneck
+
 ---
 # DATA AND PROTOCOL
 
@@ -628,6 +630,18 @@ superseded notebooks move to `archive/`. Every current notebook is mapped.
 - **Why:** Synthetic test 13 of 13 PASS (permutation control: null AP collapses to prevalence 0.242 vs real 1.000). M2 was a naked `.npy` with no key and was therefore **absent from every vote**; rather than assume order, labels were attached via the folds-1-to-8 metadata order and the AP recomputed to **0.2995**, matching the frozen 0.29947 (double confirmation) before writing `m2_combined_oof.csv`. AP was unchanged before and after migration on all 9 files (anti-corruption guardrail): M1 0.198, M2 0.299, M3 0.619, M4 0.718, M5v2 0.429, M7 0.651, best 0.727. The fold10 feature-coverage scare was also resolved by exact streaming counts (M3/M4 = 6713 ECG / 14 WPW present; a file mistaken for "0 MB empty" was a feature *list*, not a matrix), so no re-extraction was needed.
 - **Rejected alternative(s):** leaving the overloaded gap (silently conflates two quantities); assuming `.npy` order (unverified, risks a wrong M2 key); the duplicate `m4_combined_wavelet_env_oof.csv` is **not** migrated, so do not use it (canonical = `m4_combined_oof.csv`). Retroactive harmonization of old `*_metrics.json` deferred to a later cleanup pass.
 - **Status:** frozen.
+
+---
+
+# PAPER REVISION
+
+## <a id="d53"></a>[D53] Feature selection is not nested; learning curve confirms the data bottleneck directly
+- **Context:** After the paper draft, two questions on the folds 1-8 development estimates needed an honest answer: is feature selection nested inside the cross-validation, and can the data-bottleneck thesis be shown directly rather than only through indirect arguments?
+- **Options considered:** claim a nested selection versus audit the code and report what it actually does; argue the bottleneck only indirectly (overlapping fold10 CIs, no representation separating, the M6 gap) versus measure it with a positive-subsample learning curve.
+- **Decision:** State plainly that selection is computed once on the pooled folds 1-8, not re-nested per fold, and document the resulting mild optimism in Methods 4.3. Add an M4 learning curve over 10/25/40/55/70/85/100 percent of the 115 training WPW positives (negatives held fixed, 8 seeds, OOF AP on folds 1-8) as the direct test.
+- **Why:** (1) The admission gate (Cohen's d, BH-FDR, bootstrap CI, cross-dataset coherence) and the Spearman dedup are computed once on `tr = df[df.fold.between(1,8)]`, then a separate OOF fold loop trains on the fixed selected set; this is uniform across M1 to M5 (notebooks `05a`, `06a`, `07a`, `08a`, `09a`). Each held-out fold therefore contributes about one eighth of the univariate selection statistics, and selection never consults the model's OOF score, so the optimism is mild and bounded. The selected sets were frozen before the single fold10 contact, so the headline held-out result (**fold10 AP 0.595 / AUC 0.950**) is clean; only the folds 1-8 OOF numbers carry the optimism. This is now documented rather than papered over with a nesting the code does not implement. (2) Learning curve OOF AP by fraction: **0.225, 0.484, 0.543, 0.564, 0.660, 0.688, 0.718**. Monotone and still rising at 100 percent (**+0.030 from 85 percent**, beyond the 85 percent seed spread of 0.016), with the inter-seed spread contracting from 0.091 to 0.007 and no plateau. Positives were varied, not the whole dataset, because at 471:1 the negatives are abundant and are not the scarce resource.
+- **Rejected alternative(s):** claiming a nested procedure the notebooks do not implement (dishonest); re-running selection inside every fold to erase the mild optimism (a large recompute for a bounded effect that never touches the fold10 headline); varying total dataset size instead of the positive count (would confound the scarce resource, since negatives are not limiting).
+- **Status:** frozen. Script `learning_curve_run.py`, figure `reports/figures/learning_curve.png`, values `reports/metrics/learning_curve.json`. Sixth and most direct confirmation of the data-bottleneck thesis; the prior five are indirect.
 
 ---
 
