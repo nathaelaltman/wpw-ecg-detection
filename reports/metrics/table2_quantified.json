@@ -1,0 +1,170 @@
+{
+  "artifact": "table2_quantified",
+  "description": "Quantified data-bottleneck comparisons for Table 2. Point estimates are OOF folds 1-8 Average Precision; no fold10 contact; computed by reusing frozen OOF per-ECG scores and stored multiseed outputs. Paired bootstrap CIs are on the OOF AP difference AP(A)-AP(B).",
+  "scale": "OOF folds 1-8 Average Precision",
+  "paired_bootstrap_params": {
+    "n_resamples": 600,
+    "seed": 42,
+    "method": "stratified: positives and negatives resampled with replacement separately",
+    "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples"
+  },
+  "seed_sd_scale_warning": "Across-seed SD scale is NOT uniform: XGBoost models' frozen multiseed was computed on fold9 (13 WPW, noisy); M7's is OOF-scale (run9); the deterministic rank-vote ensemble has no training seed (SD 0). The paired bootstrap CI on the OOF difference is the reliable uncertainty for each comparison.",
+  "comparisons": {
+    "1_add_M5_to_committee": {
+      "label": "Adding M5 spatial to the M3+M4 committee",
+      "side_A": {
+        "name": "M3+M4+M5 (equal-weight OOF percentile vote)",
+        "AP": 0.6683
+      },
+      "side_B": {
+        "name": "M3+M4 (deployed equal-weight vote)",
+        "AP": 0.7173
+      },
+      "delta_A_minus_B": -0.0491,
+      "paired_bootstrap_ci95": {
+        "lo": -0.0802,
+        "hi": -0.0207,
+        "excludes_zero": true,
+        "n_resamples": 600,
+        "seed": 42,
+        "method": "stratified: positives and negatives resampled with replacement separately",
+        "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples"
+      },
+      "across_seed_sd": {
+        "A": null,
+        "B": null,
+        "fold": null,
+        "note": "deterministic rank-vote, no training seed on either side"
+      },
+      "n_ecg": 53540,
+      "n_wpw": 115,
+      "verdict": "significantly worse: adding the weak M5 detector (standalone AP 0.429) hurts the committee (CI excludes 0)"
+    },
+    "2_feature_union_v1_vs_vote": {
+      "label": "Feature-union model (v1) vs the M3+M4 vote",
+      "side_A": {
+        "name": "best_model v1 (XGBoost on union of gate-passed M1-M5 features)",
+        "AP": 0.7265
+      },
+      "side_B": {
+        "name": "M3+M4 vote",
+        "AP": 0.7173
+      },
+      "delta_A_minus_B": 0.0092,
+      "paired_bootstrap_ci95": {
+        "lo": -0.0269,
+        "hi": 0.042,
+        "excludes_zero": false,
+        "n_resamples": 600,
+        "seed": 42,
+        "method": "stratified: positives and negatives resampled with replacement separately",
+        "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples"
+      },
+      "across_seed_sd": {
+        "A": 0.0184,
+        "B": 0.0,
+        "fold": "A=fold9 (frozen multiseed); B=deterministic vote",
+        "note": "best_model multiseed SD is fold9-scale (13 WPW); the vote has no training seed"
+      },
+      "n_ecg": 53540,
+      "n_wpw": 115,
+      "verdict": "not statistically separable: +0.009, CI includes 0"
+    },
+    "3_feature_union_clinical_v2_vs_vote": {
+      "label": "Feature-union + clinical model (v2) vs the M3+M4 vote",
+      "side_A": {
+        "name": "best_model v2 (v1 union plus 54 clinical-interval features)",
+        "AP": 0.7399
+      },
+      "side_B": {
+        "name": "M3+M4 vote",
+        "AP": 0.7173
+      },
+      "delta_A_minus_B": 0.0226,
+      "paired_bootstrap_ci95": {
+        "lo": -0.0086,
+        "hi": 0.0561,
+        "excludes_zero": false,
+        "n_resamples": 600,
+        "seed": 42,
+        "method": "stratified: positives and negatives resampled with replacement separately",
+        "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples"
+      },
+      "across_seed_sd": {
+        "A": 0.0241,
+        "B": 0.0,
+        "fold": "A=fold9 (frozen multiseed); B=deterministic vote",
+        "note": "best_model_v2 multiseed SD is fold9-scale; the vote has no training seed"
+      },
+      "n_ecg": 53540,
+      "n_wpw": 115,
+      "verdict": "not statistically separable: +0.023 (a trend), CI includes 0"
+    },
+    "4_cnn_vs_wavelet": {
+      "label": "CNN (M7) vs wavelet detector (M3)",
+      "side_A": {
+        "name": "M7 (1D-CNN, ResNet)",
+        "AP": 0.6508
+      },
+      "side_B": {
+        "name": "M3 (wavelet-localization)",
+        "AP": 0.6188
+      },
+      "delta_A_minus_B": 0.032,
+      "paired_bootstrap_ci95": {
+        "lo": -0.0166,
+        "hi": 0.0833,
+        "excludes_zero": false,
+        "n_resamples": 600,
+        "seed": 42,
+        "method": "stratified: positives and negatives resampled with replacement separately",
+        "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples"
+      },
+      "across_seed_sd": {
+        "A": 0.0183,
+        "B": 0.0341,
+        "fold": "A=OOF (M7 run9 from-scratch seed SD); B=fold9 (M3 frozen multiseed)",
+        "note": "scales differ: M7 seed SD is OOF-scale, M3 seed SD is fold9-scale"
+      },
+      "n_ecg": 53538,
+      "n_wpw": 115,
+      "verdict": "not statistically separable: +0.032, CI includes 0 (paired on the 53538 ECGs common to M3 and M7)"
+    },
+    "5_pretraining_vs_scratch": {
+      "label": "Self-supervised pretraining (finetune) vs from-scratch (M7)",
+      "side_A": {
+        "name": "M7 pretrained then finetuned (best pretrained mode)",
+        "AP_point": 0.6251,
+        "AP_ci95_per_side": [
+          0.4984,
+          0.7447
+        ],
+        "AP_seed_mean": 0.59,
+        "AP_seed_std": 0.0154
+      },
+      "side_B": {
+        "name": "M7 from-scratch",
+        "AP_point": 0.6285,
+        "AP_ci95_per_side": [
+          0.5094,
+          0.7431
+        ],
+        "AP_seed_mean": 0.5757,
+        "AP_seed_std": 0.0183
+      },
+      "point_delta_A_minus_B": -0.0033,
+      "stored_delta_seed_mean_A_minus_B": 0.0144,
+      "delta_sigma": 1.041,
+      "gate_pass": false,
+      "paired_bootstrap_ci95": null,
+      "paired_ci_note": "NOT computable from frozen artifacts without retraining: m7_run9_transfer_ab.json stores only per-mode summary AP and seed statistics, not per-ECG OOF scores for the two modes. Reported instead: point APs, per-side CIs, seed means/SDs, and the stored delta at 1.04 sigma (pre-registered gate did not pass).",
+      "across_seed_sd": {
+        "A": 0.0154,
+        "B": 0.0183,
+        "fold": "OOF (mini-OOF, m7_run9_transfer_ab)",
+        "note": "seed SDs from the run9 transfer A/B"
+      },
+      "verdict": "no benefit: point APs tied (0.625 vs 0.628); seed-mean advantage +0.014 at 1.04 sigma; gate_pass = false"
+    }
+  }
+}
