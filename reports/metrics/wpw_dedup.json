@@ -1,0 +1,12 @@
+{
+  "threshold": 0.95,
+  "n_loaded": 142,
+  "n_pairs": 0,
+  "pairs": [],
+  "fold10_wpw": 14,
+  "fold10_twins": [],
+  "csn_split": {
+    "ningbo": 72
+  },
+  "csn_total": 72
+}

@@ -25,7 +25,7 @@ folds). **Folds 1 to 8 are training and model selection** (115 WPW), reported as
 AP. **Fold 9 is validation** (13 WPW; noisy, looked at once). **Fold 10 is the sacred held-out test**
 (14 WPW), never touched until a single, pre-registered, atomic evaluation of the frozen system.
 
-**Central result.** Six representations (clinical-interval, global-statistical, wavelet, median-beat,
+**Central result.** Six representations (QRS-onset-morphology, global-statistical, wavelet, median-beat,
 spatial-VCG, and a 1D-CNN) plus feature-union and committee models were built under one rigorous,
 leakage-controlled protocol. Across all of them the ceiling is set by **data, not model diversity or
 representation**: adding orthogonal detectors to the two strongest yields no committee gain, a feature-union
@@ -51,7 +51,7 @@ config JSONs, OOF CSVs) keeps its `M1` to `M7` / `bestmodel` / `ensemble` ID. Cr
 
 | ID | Descriptive name | Representation | On-disk key | Role |
 |----|------------------|----------------|-------------|------|
-| **M1** | Clinical-interval detector | NeuroKit delineation: PR, QRS width, wave morphology | `models/M1_neurokit/` | detector (signal-limited) |
+| **M1** | QRS-onset morphology detector | NeuroKit delineation; retains onset-morphology and delta-slope descriptors (no classical interval survives selection; formerly "Clinical-interval detector") | `models/M1_neurokit/` | detector (signal-limited) |
 | **M2** | Global-statistical detector | per-lead distribution plus spectral summaries, no delineation | `models/M2_statistical/` | detector |
 | **M3** | Wavelet-localization detector | SWT/WPT/DWT time-frequency at QRS onset | `models/M3_wavelet/` | **deployed** (ensemble member) |
 | **M4** | Median-beat morphology detector | denoised median beat plus most-pre-excited beat shape | `models/M4_medianbeat/` | **deployed** (ensemble member) |
@@ -137,7 +137,7 @@ superseded notebooks move to `archive/`. Every current notebook is mapped.
 
 **Finalization:** [D52](#d52) evaluation module rewrite, OOF schema, M2 re-key
 
-**Paper revision:** [D53](#d53) selection not nested; learning curve confirms the data bottleneck
+**Paper revision:** [D53](#d53) selection not nested; fixed-feature learning curve · [D54](#d54) QRS-narrowing is real and delineator-dependent · [D55](#d55) leak-free learning curve (the paper's direct test) · [D56](#d56) finalization v_c, draft corrections, citation-order bibliography
 
 ---
 # DATA AND PROTOCOL
@@ -642,6 +642,23 @@ superseded notebooks move to `archive/`. Every current notebook is mapped.
 - **Why:** (1) The admission gate (Cohen's d, BH-FDR, bootstrap CI, cross-dataset coherence) and the Spearman dedup are computed once on `tr = df[df.fold.between(1,8)]`, then a separate OOF fold loop trains on the fixed selected set; this is uniform across M1 to M5 (notebooks `05a`, `06a`, `07a`, `08a`, `09a`). Each held-out fold therefore contributes about one eighth of the univariate selection statistics, and selection never consults the model's OOF score, so the optimism is mild and bounded. The selected sets were frozen before the single fold10 contact, so the headline held-out result (**fold10 AP 0.595 / AUC 0.950**) is clean; only the folds 1-8 OOF numbers carry the optimism. This is now documented rather than papered over with a nesting the code does not implement. (2) Learning curve OOF AP by fraction: **0.225, 0.484, 0.543, 0.564, 0.660, 0.688, 0.718**. Monotone and still rising at 100 percent (**+0.030 from 85 percent**, beyond the 85 percent seed spread of 0.016), with the inter-seed spread contracting from 0.091 to 0.007 and no plateau. Positives were varied, not the whole dataset, because at 471:1 the negatives are abundant and are not the scarce resource.
 - **Rejected alternative(s):** claiming a nested procedure the notebooks do not implement (dishonest); re-running selection inside every fold to erase the mild optimism (a large recompute for a bounded effect that never touches the fold10 headline); varying total dataset size instead of the positive count (would confound the scarce resource, since negatives are not limiting).
 - **Status:** frozen. Script `learning_curve_run.py`, figure `reports/figures/learning_curve.png`, values `reports/metrics/learning_curve.json`. Sixth and most direct confirmation of the data-bottleneck thesis; the prior five are indirect.
+
+## <a id="d54"></a>[D54] The missed-case QRS narrowing is real (device-confirmed) and the measurement is delineator-dependent
+- **Context:** The paper re-ran the FN mechanism on the *deployed committee's own* population (rank-vote at threshold 0.9969: 80 TP / 25 FP / 35 FN; PTB split 43 detected / 14 missed), not the earlier missed-by-both AND-population of [D46](#d46). A manuscript draft briefly read the narrow-QRS finding as an *instrumental artifact*, after an on-machine 12SL QRS duration appeared to show no difference (94 vs 89 ms, p=0.26). That reading was wrong.
+- **Options considered:** trust the delineation proxy alone; read the 94/89 12SL number as "no real narrowing, hence artifact"; or audit which 12SL column was actually read.
+- **Decision:** **The narrowing is real.** The proxy shows detected 118.0 vs missed 76.5 ms (Mann-Whitney p=0.0008); the true device QRS duration (`QRS_Dur_Global`) shows detected **140.0 vs missed 103.0 ms, p<0.001**, confirming it. The 94/89 was a **wrong-column bug** in `error_analysis_committee_population.json` (block `A2`): no column of `features_marquette.csv` reproduces 94/89, and `QRS_Dur_Global` has a WPW mean of 129 ms, so 94/89 would put *detected* WPW narrower than normal sinus (physiologically impossible). The audit script `qrs_12sl_column_audit.py` settled it.
+- **Why:** Three delineators on the same 57 PTB WPW: the custom proxy (lead II) 118.0 / 76.5 (p<0.001); the device 12SL 140.0 / 103.0 (p<0.001); and the open-source **NeuroKit delineation INVERTS the sign** (96.0 / 136.5, not significant, anti-correlated with the device at rho = -0.22). The proxy also returns physiologically impossible <60 ms widths on 9 of 57 cases. Generalizable point: when the pathology degrades the very instrument used to characterize the errors, a single-delineator morphological error analysis can report the wrong sign, and only an independent measurement adjudicates. Artifacts `reports/metrics/qrs_three_delineators.json`, `qrs_12sl_column_audit.json`; figure `qrs_three_delineators.png`.
+- **Rejected alternative(s):** the "instrumental artifact" reading of the draft (it rested on the 94/89 wrong column, refuted by the device's true `QRS_Dur_Global` 140/103 and by physiological consistency); asserting the narrowing from one proxy alone (delineator-dependent, wrong sign under NeuroKit).
+- **Status:** frozen (corrected). Extends [D46](#d46) onto the committee population with device confirmation; supersedes the draft artifact reading.
+
+## <a id="d55"></a>[D55] The leak-free learning curve (feature re-selection per subsample) is the paper's direct data-bottleneck test
+- **Context:** The learning curve of [D53](#d53) held the *selected feature set fixed* while subsampling positives, which lets a low-data point borrow a feature set chosen with information it did not have. The paper needed a curve free of that leak.
+- **Options considered:** keep the fixed-feature curve of [D53](#d53); or re-run the entire feature selection (gate, dedup, k/config) from scratch on every positive subsample, stratified by corpus.
+- **Decision:** Adopt the **leak-free** curve (`learning_curve_leakfree.py`): re-run selection from scratch on each subsample of the 115 training WPW (fractions 10-100%, 8 seeds, negatives fixed, stratified by corpus), reported for the two deployed detectors M3 and M4.
+- **Why:** M4 rises from **0.317 at 12 positives to 0.715 at 115** and is still rising at the full set: paired 90-vs-100% difference **+0.027 (95% CI [0.019, 0.033])**, seed spread contracting 0.092 to 0. M3 is **inconclusive** on its final segment (paired -0.007, CI [-0.023, +0.010]). The two protocols are biased in opposite directions at low n (the leak-free 0.317 sits *above* the fixed-feature 0.225 at 10%, over-selecting on 12 positives), and the qualitative "still climbing, not turned over" conclusion survives both. Bounded inference to the deployed vote: its dominant member M4 is demonstrably still improving and no member's saturation caps the committee, so the system as deployed is not shown to have saturated (the paper claims only this, not that data is the sole ceiling). Artifacts `reports/metrics/learning_curve_leakfree.json`, `learning_curve_M4.json`; figure `learning_curve_leakfree_M3M4.png`.
+- **Rejected alternative(s):** the fixed-feature curve of [D53](#d53) as the headline (carries the borrowed-feature leak; retained only as the opposite-bias cross-check); extrapolating to a target corpus size (a 12-115 range cannot constrain an asymptote).
+- **Status:** frozen. Supersedes [D53](#d53)'s fixed-feature curve as the paper's Figure 7 and direct test.
+
 
 ---
 

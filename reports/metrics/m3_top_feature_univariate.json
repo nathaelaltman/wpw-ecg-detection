@@ -1,0 +1,12 @@
+{
+  "feature_largest_abs_d": "swtdb4_D6_I_qrspolsigned",
+  "abs_d": 2.1547,
+  "d": -2.1547,
+  "univariate_OOF_AUC": 0.784,
+  "univariate_OOF_AP": 0.0964,
+  "top_SHAP_feature": "swtsym4_D5_V5_hjcomp",
+  "top_SHAP_feature_abs_d": 0.6669,
+  "note": "largest-|d| feature (swtdb4_D6_I_qrspolsigned) and top-SHAP feature (swtsym4_D5_V5_hjcomp) are DIFFERENT features",
+  "population": "OOF folds 1-8",
+  "n_eval": 53538
+}

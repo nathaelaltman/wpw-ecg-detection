@@ -1,0 +1,886 @@
+{
+  "committee": {
+    "FP_total": 25,
+    "FP_ptb": 11,
+    "FP_csn": 14,
+    "FN_ptb": 14
+  },
+  "preexc_code_set": {
+    "195060002": "VPE ventricular preexcitation",
+    "74390002": "WPW",
+    "233897008": "AVRT atrioventricular reentrant tachycardia"
+  },
+  "avnrt_excluded": {
+    "233896004": "AVNRT (nodal reentry - NOT accessory pathway; reported, excluded)"
+  },
+  "csn_preexc_corpus_counts": {
+    "195060002": 12,
+    "74390002": 72,
+    "233897008": 26,
+    "233896004": 0
+  },
+  "csn_preexc_carriers": {
+    "195060002": [
+      "JS01371",
+      "JS01944",
+      "JS03280",
+      "JS04328",
+      "JS04376",
+      "JS07636",
+      "JS08169",
+      "JS08488",
+      "JS08633",
+      "JS09363",
+      "JS10032",
+      "JS10637"
+    ],
+    "74390002": [
+      "JS02697",
+      "JS06083",
+      "JS07007",
+      "JS10034",
+      "JS10729",
+      "JS10830",
+      "JS11155",
+      "JS13105",
+      "JS13767",
+      "JS15013",
+      "JS15016",
+      "JS15017",
+      "JS19204",
+      "JS20366",
+      "JS20685",
+      "JS20910",
+      "JS21102",
+      "JS21677",
+      "JS21758",
+      "JS22501",
+      "JS22818",
+      "JS24221",
+      "JS24222",
+      "JS24883",
+      "JS24884",
+      "JS24885",
+      "JS24886",
+      "JS24887",
+      "JS24888",
+      "JS24889",
+      "JS24890",
+      "JS24891",
+      "JS24892",
+      "JS24893",
+      "JS24894",
+      "JS24895",
+      "JS24896",
+      "JS24897",
+      "JS24898",
+      "JS24899",
+      "JS24900",
+      "JS24901",
+      "JS24902",
+      "JS24903",
+      "JS24904",
+      "JS24905",
+      "JS24906",
+      "JS24907",
+      "JS25577",
+      "JS34781",
+      "JS34782",
+      "JS34783",
+      "JS34784",
+      "JS34785",
+      "JS36154",
+      "JS36155",
+      "JS36156",
+      "JS36157",
+      "JS36158",
+      "JS36159",
+      "JS36160",
+      "JS36161",
+      "JS41515",
+      "JS41516",
+      "JS41517",
+      "JS41518",
+      "JS41519",
+      "JS41520",
+      "JS42292",
+      "JS45353",
+      "JS45372",
+      "JS45373"
+    ],
+    "233897008": [
+      "JS10184",
+      "JS10214",
+      "JS10306",
+      "JS10332",
+      "JS10361",
+      "JS10449",
+      "JS10481",
+      "JS10493",
+      "JS10651",
+      "JS21818",
+      "JS22122",
+      "JS22379",
+      "JS22388",
+      "JS22398",
+      "JS22407",
+      "JS22435",
+      "JS23283",
+      "JS23361",
+      "JS23395",
+      "JS23444",
+      "JS23462",
+      "JS45353",
+      "JS45435",
+      "JS45507",
+      "JS45543",
+      "JS45550"
+    ],
+    "233896004": []
+  },
+  "csn_preexc_any_total": 109,
+  "csn_preexc_any_ids": [
+    "JS01371",
+    "JS01944",
+    "JS02697",
+    "JS03280",
+    "JS04328",
+    "JS04376",
+    "JS06083",
+    "JS07007",
+    "JS07636",
+    "JS08169",
+    "JS08488",
+    "JS08633",
+    "JS09363",
+    "JS10032",
+    "JS10034",
+    "JS10184",
+    "JS10214",
+    "JS10306",
+    "JS10332",
+    "JS10361",
+    "JS10449",
+    "JS10481",
+    "JS10493",
+    "JS10637",
+    "JS10651",
+    "JS10729",
+    "JS10830",
+    "JS11155",
+    "JS13105",
+    "JS13767",
+    "JS15013",
+    "JS15016",
+    "JS15017",
+    "JS19204",
+    "JS20366",
+    "JS20685",
+    "JS20910",
+    "JS21102",
+    "JS21677",
+    "JS21758",
+    "JS21818",
+    "JS22122",
+    "JS22379",
+    "JS22388",
+    "JS22398",
+    "JS22407",
+    "JS22435",
+    "JS22501",
+    "JS22818",
+    "JS23283",
+    "JS23361",
+    "JS23395",
+    "JS23444",
+    "JS23462",
+    "JS24221",
+    "JS24222",
+    "JS24883",
+    "JS24884",
+    "JS24885",
+    "JS24886",
+    "JS24887",
+    "JS24888",
+    "JS24889",
+    "JS24890",
+    "JS24891",
+    "JS24892",
+    "JS24893",
+    "JS24894",
+    "JS24895",
+    "JS24896",
+    "JS24897",
+    "JS24898",
+    "JS24899",
+    "JS24900",
+    "JS24901",
+    "JS24902",
+    "JS24903",
+    "JS24904",
+    "JS24905",
+    "JS24906",
+    "JS24907",
+    "JS25577",
+    "JS34781",
+    "JS34782",
+    "JS34783",
+    "JS34784",
+    "JS34785",
+    "JS36154",
+    "JS36155",
+    "JS36156",
+    "JS36157",
+    "JS36158",
+    "JS36159",
+    "JS36160",
+    "JS36161",
+    "JS41515",
+    "JS41516",
+    "JS41517",
+    "JS41518",
+    "JS41519",
+    "JS41520",
+    "JS42292",
+    "JS45353",
+    "JS45372",
+    "JS45373",
+    "JS45435",
+    "JS45507",
+    "JS45543",
+    "JS45550"
+  ],
+  "fp_csn_preexc_count": 5,
+  "fp_csn_preexc": [
+    {
+      "ecg_id": "JS01944",
+      "source": "ningbo",
+      "fold": 6,
+      "ens": 0.9979,
+      "dx": [
+        {
+          "snomed": "426177001",
+          "name": "SB (Sinus Bradycardia)"
+        },
+        {
+          "snomed": "195060002",
+          "name": "VPE (ventricular preexcitation)"
+        }
+      ],
+      "preexc": [
+        "195060002"
+      ]
+    },
+    {
+      "ecg_id": "JS03280",
+      "source": "ningbo",
+      "fold": 5,
+      "ens": 0.9993,
+      "dx": [
+        {
+          "snomed": "427084000",
+          "name": "ST (Sinus Tachycardia)"
+        },
+        {
+          "snomed": "195060002",
+          "name": "VPE (ventricular preexcitation)"
+        }
+      ],
+      "preexc": [
+        "195060002"
+      ]
+    },
+    {
+      "ecg_id": "JS04328",
+      "source": "ningbo",
+      "fold": 6,
+      "ens": 0.9979,
+      "dx": [
+        {
+          "snomed": "426177001",
+          "name": "SB (Sinus Bradycardia)"
+        },
+        {
+          "snomed": "195060002",
+          "name": "VPE (ventricular preexcitation)"
+        }
+      ],
+      "preexc": [
+        "195060002"
+      ]
+    },
+    {
+      "ecg_id": "JS07636",
+      "source": "ningbo",
+      "fold": 4,
+      "ens": 0.9979,
+      "dx": [
+        {
+          "snomed": "164890007",
+          "name": "AF (Atrial Flutter)"
+        },
+        {
+          "snomed": "195060002",
+          "name": "VPE (ventricular preexcitation)"
+        }
+      ],
+      "preexc": [
+        "195060002"
+      ]
+    },
+    {
+      "ecg_id": "JS08488",
+      "source": "ningbo",
+      "fold": 7,
+      "ens": 0.9989,
+      "dx": [
+        {
+          "snomed": "426783006",
+          "name": "SR (Sinus Rhythm)"
+        },
+        {
+          "snomed": "195060002",
+          "name": "VPE (ventricular preexcitation)"
+        }
+      ],
+      "preexc": [
+        "195060002"
+      ]
+    }
+  ],
+  "FP_ptb": [
+    {
+      "ecg_id": "8585",
+      "source": "ptbxl",
+      "fold": 4,
+      "ens": 0.9989,
+      "scp_codes": {
+        "IMI": 100.0,
+        "ABQRS": 0.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "10977",
+      "source": "ptbxl",
+      "fold": 5,
+      "ens": 0.9972,
+      "scp_codes": {
+        "IMI": 15.0,
+        "LVH": 100.0,
+        "ISC_": 100.0,
+        "IVCD": 100.0,
+        "LOWT": 0.0,
+        "INVT": 0.0,
+        "STD_": 0.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "11292",
+      "source": "ptbxl",
+      "fold": 1,
+      "ens": 0.9982,
+      "scp_codes": {
+        "NORM": 100.0,
+        "IVCD": 100.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "13384",
+      "source": "ptbxl",
+      "fold": 4,
+      "ens": 0.999,
+      "scp_codes": {
+        "NORM": 100.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "15348",
+      "source": "ptbxl",
+      "fold": 1,
+      "ens": 0.9974,
+      "scp_codes": {
+        "ASMI": 100.0,
+        "IMI": 50.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "16835",
+      "source": "ptbxl",
+      "fold": 8,
+      "ens": 0.9979,
+      "scp_codes": {
+        "PVC": 100.0,
+        "BIGU": 100.0,
+        "AFIB": 0.0
+      }
+    },
+    {
+      "ecg_id": "19180",
+      "source": "ptbxl",
+      "fold": 1,
+      "ens": 0.9996,
+      "scp_codes": {
+        "NORM": 100.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "20486",
+      "source": "ptbxl",
+      "fold": 5,
+      "ens": 0.9985,
+      "scp_codes": {
+        "WPW": 50.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "20874",
+      "source": "ptbxl",
+      "fold": 5,
+      "ens": 0.9987,
+      "scp_codes": {
+        "CLBBB": 100.0,
+        "ABQRS": 0.0,
+        "AFIB": 0.0
+      }
+    },
+    {
+      "ecg_id": "20877",
+      "source": "ptbxl",
+      "fold": 5,
+      "ens": 0.9993,
+      "scp_codes": {
+        "CLBBB": 100.0,
+        "ABQRS": 0.0,
+        "AFIB": 0.0
+      }
+    },
+    {
+      "ecg_id": "21326",
+      "source": "ptbxl",
+      "fold": 2,
+      "ens": 0.997,
+      "scp_codes": {
+        "IMI": 50.0,
+        "ILBBB": 100.0,
+        "SR": 0.0
+      }
+    }
+  ],
+  "FP_csn": [
+    {
+      "ecg_id": "JS01944",
+      "source": "ningbo",
+      "fold": 6,
+      "ens": 0.9979,
+      "dx": [
+        {
+          "snomed": "426177001",
+          "name": "SB (Sinus Bradycardia)"
+        },
+        {
+          "snomed": "195060002",
+          "name": "VPE (ventricular preexcitation)"
+        }
+      ],
+      "preexc": [
+        "195060002"
+      ]
+    },
+    {
+      "ecg_id": "JS03280",
+      "source": "ningbo",
+      "fold": 5,
+      "ens": 0.9993,
+      "dx": [
+        {
+          "snomed": "427084000",
+          "name": "ST (Sinus Tachycardia)"
+        },
+        {
+          "snomed": "195060002",
+          "name": "VPE (ventricular preexcitation)"
+        }
+      ],
+      "preexc": [
+        "195060002"
+      ]
+    },
+    {
+      "ecg_id": "JS04328",
+      "source": "ningbo",
+      "fold": 6,
+      "ens": 0.9979,
+      "dx": [
+        {
+          "snomed": "426177001",
+          "name": "SB (Sinus Bradycardia)"
+        },
+        {
+          "snomed": "195060002",
+          "name": "VPE (ventricular preexcitation)"
+        }
+      ],
+      "preexc": [
+        "195060002"
+      ]
+    },
+    {
+      "ecg_id": "JS07636",
+      "source": "ningbo",
+      "fold": 4,
+      "ens": 0.9979,
+      "dx": [
+        {
+          "snomed": "164890007",
+          "name": "AF (Atrial Flutter)"
+        },
+        {
+          "snomed": "195060002",
+          "name": "VPE (ventricular preexcitation)"
+        }
+      ],
+      "preexc": [
+        "195060002"
+      ]
+    },
+    {
+      "ecg_id": "JS08488",
+      "source": "ningbo",
+      "fold": 7,
+      "ens": 0.9989,
+      "dx": [
+        {
+          "snomed": "426783006",
+          "name": "SR (Sinus Rhythm)"
+        },
+        {
+          "snomed": "195060002",
+          "name": "VPE (ventricular preexcitation)"
+        }
+      ],
+      "preexc": [
+        "195060002"
+      ]
+    },
+    {
+      "ecg_id": "JS10033",
+      "source": "ningbo",
+      "fold": 3,
+      "ens": 0.999,
+      "dx": [
+        {
+          "snomed": "426761007",
+          "name": "SVT (Supraventricular Tachycardia)"
+        }
+      ],
+      "preexc": []
+    },
+    {
+      "ecg_id": "JS10035",
+      "source": "ningbo",
+      "fold": 1,
+      "ens": 0.9987,
+      "dx": [
+        {
+          "snomed": "426761007",
+          "name": "SVT (Supraventricular Tachycardia)"
+        },
+        {
+          "snomed": "164909002",
+          "name": "LFBBB (left front bundle branch block)"
+        }
+      ],
+      "preexc": []
+    },
+    {
+      "ecg_id": "JS13714",
+      "source": "ningbo",
+      "fold": 8,
+      "ens": 0.9982,
+      "dx": [
+        {
+          "snomed": "6374002",
+          "name": "UNKNOWN"
+        },
+        {
+          "snomed": "164934002",
+          "name": "TWC (T wave Change)"
+        },
+        {
+          "snomed": "164890007",
+          "name": "AF (Atrial Flutter)"
+        },
+        {
+          "snomed": "164873001",
+          "name": "LVH (left ventricle hypertrophy)"
+        },
+        {
+          "snomed": "55930002",
+          "name": "UNKNOWN"
+        }
+      ],
+      "preexc": []
+    },
+    {
+      "ecg_id": "JS21396",
+      "source": "ningbo",
+      "fold": 3,
+      "ens": 0.9983,
+      "dx": [
+        {
+          "snomed": "426761007",
+          "name": "SVT (Supraventricular Tachycardia)"
+        },
+        {
+          "snomed": "425856008",
+          "name": "UNKNOWN"
+        },
+        {
+          "snomed": "733534002",
+          "name": "UNKNOWN"
+        }
+      ],
+      "preexc": []
+    },
+    {
+      "ecg_id": "JS21814",
+      "source": "ningbo",
+      "fold": 4,
+      "ens": 0.9985,
+      "dx": [
+        {
+          "snomed": "713427006",
+          "name": "UNKNOWN"
+        },
+        {
+          "snomed": "164896001",
+          "name": "UNKNOWN"
+        },
+        {
+          "snomed": "55930002",
+          "name": "UNKNOWN"
+        }
+      ],
+      "preexc": []
+    },
+    {
+      "ecg_id": "JS23068",
+      "source": "ningbo",
+      "fold": 4,
+      "ens": 0.9979,
+      "dx": [
+        {
+          "snomed": "10370003",
+          "name": "UNKNOWN"
+        }
+      ],
+      "preexc": []
+    },
+    {
+      "ecg_id": "JS23580",
+      "source": "ningbo",
+      "fold": 1,
+      "ens": 0.9989,
+      "dx": [
+        {
+          "snomed": "426177001",
+          "name": "SB (Sinus Bradycardia)"
+        },
+        {
+          "snomed": "427172004",
+          "name": "UNKNOWN"
+        }
+      ],
+      "preexc": []
+    },
+    {
+      "ecg_id": "JS45371",
+      "source": "ningbo",
+      "fold": 2,
+      "ens": 0.9976,
+      "dx": [
+        {
+          "snomed": "425856008",
+          "name": "UNKNOWN"
+        }
+      ],
+      "preexc": []
+    },
+    {
+      "ecg_id": "JS45527",
+      "source": "ningbo",
+      "fold": 6,
+      "ens": 0.9971,
+      "dx": [
+        {
+          "snomed": "425856008",
+          "name": "UNKNOWN"
+        }
+      ],
+      "preexc": []
+    }
+  ],
+  "FN_ptb": [
+    {
+      "ecg_id": "7046",
+      "source": "ptbxl",
+      "fold": 7,
+      "ens": 0.4694,
+      "scp_codes": {
+        "WPW": 100.0
+      }
+    },
+    {
+      "ecg_id": "7291",
+      "source": "ptbxl",
+      "fold": 4,
+      "ens": 0.9959,
+      "scp_codes": {
+        "WPW": 100.0,
+        "ABQRS": 0.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "10246",
+      "source": "ptbxl",
+      "fold": 3,
+      "ens": 0.6987,
+      "scp_codes": {
+        "WPW": 100.0,
+        "IRBBB": 100.0,
+        "ABQRS": 0.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "10266",
+      "source": "ptbxl",
+      "fold": 6,
+      "ens": 0.7861,
+      "scp_codes": {
+        "WPW": 100.0,
+        "SBRAD": 0.0
+      }
+    },
+    {
+      "ecg_id": "13339",
+      "source": "ptbxl",
+      "fold": 6,
+      "ens": 0.8574,
+      "scp_codes": {
+        "WPW": 100.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "13956",
+      "source": "ptbxl",
+      "fold": 5,
+      "ens": 0.6719,
+      "scp_codes": {
+        "IMI": 80.0,
+        "WPW": 100.0,
+        "LOWT": 0.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "15389",
+      "source": "ptbxl",
+      "fold": 5,
+      "ens": 0.9705,
+      "scp_codes": {
+        "WPW": 100.0,
+        "ABQRS": 0.0,
+        "SVARR": 0.0
+      }
+    },
+    {
+      "ecg_id": "15427",
+      "source": "ptbxl",
+      "fold": 5,
+      "ens": 0.9129,
+      "scp_codes": {
+        "ASMI": 100.0,
+        "ALMI": 100.0,
+        "IRBBB": 100.0,
+        "WPW": 100.0,
+        "ABQRS": 0.0,
+        "SVARR": 0.0
+      }
+    },
+    {
+      "ecg_id": "17072",
+      "source": "ptbxl",
+      "fold": 3,
+      "ens": 0.842,
+      "scp_codes": {
+        "ALMI": 100.0,
+        "WPW": 100.0,
+        "ABQRS": 0.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "17074",
+      "source": "ptbxl",
+      "fold": 7,
+      "ens": 0.9922,
+      "scp_codes": {
+        "ASMI": 100.0,
+        "WPW": 100.0,
+        "ABQRS": 0.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "17363",
+      "source": "ptbxl",
+      "fold": 6,
+      "ens": 0.9946,
+      "scp_codes": {
+        "WPW": 100.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "17557",
+      "source": "ptbxl",
+      "fold": 7,
+      "ens": 0.9962,
+      "scp_codes": {
+        "WPW": 100.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "17591",
+      "source": "ptbxl",
+      "fold": 2,
+      "ens": 0.9207,
+      "scp_codes": {
+        "WPW": 100.0,
+        "SR": 0.0
+      }
+    },
+    {
+      "ecg_id": "19918",
+      "source": "ptbxl",
+      "fold": 2,
+      "ens": 0.9719,
+      "scp_codes": {
+        "WPW": 100.0,
+        "ABQRS": 0.0,
+        "SR": 0.0
+      }
+    }
+  ]
+}

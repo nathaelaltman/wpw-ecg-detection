@@ -3,10 +3,11 @@
   "description": "Quantified data-bottleneck comparisons for Table 2. Point estimates are OOF folds 1-8 Average Precision; no fold10 contact; computed by reusing frozen OOF per-ECG scores and stored multiseed outputs. Paired bootstrap CIs are on the OOF AP difference AP(A)-AP(B).",
   "scale": "OOF folds 1-8 Average Precision",
   "paired_bootstrap_params": {
-    "n_resamples": 600,
+    "n_resamples": 2000,
     "seed": 42,
     "method": "stratified: positives and negatives resampled with replacement separately",
-    "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples"
+    "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples",
+    "n_resamples_note": "The four computable Table-2 comparisons (1-4) were re-run at 2000 resamples (seed 42; stability confirmed at seeds 7 and 123). Comparison 5 (pretraining) unchanged."
   },
   "seed_sd_scale_warning": "Across-seed SD scale is NOT uniform: XGBoost models' frozen multiseed was computed on fold9 (13 WPW, noisy); M7's is OOF-scale (run9); the deterministic rank-vote ensemble has no training seed (SD 0). The paired bootstrap CI on the OOF difference is the reliable uncertainty for each comparison.",
   "comparisons": {
@@ -22,13 +23,31 @@
       },
       "delta_A_minus_B": -0.0491,
       "paired_bootstrap_ci95": {
-        "lo": -0.0802,
-        "hi": -0.0207,
+        "lo": -0.0796,
+        "hi": -0.021,
         "excludes_zero": true,
-        "n_resamples": 600,
+        "n_resamples": 2000,
         "seed": 42,
         "method": "stratified: positives and negatives resampled with replacement separately",
-        "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples"
+        "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples",
+        "seed_stability_n2000": {
+          "42": {
+            "lo": -0.0796,
+            "hi": -0.021,
+            "excludes_zero": true
+          },
+          "7": {
+            "lo": -0.079,
+            "hi": -0.0208,
+            "excludes_zero": true
+          },
+          "123": {
+            "lo": -0.079,
+            "hi": -0.0199,
+            "excludes_zero": true
+          }
+        },
+        "note_precision": "Re-run at 2000 stratified paired resamples (was 600); CI stable across seeds 42/7/123."
       },
       "across_seed_sd": {
         "A": null,
@@ -52,13 +71,31 @@
       },
       "delta_A_minus_B": 0.0092,
       "paired_bootstrap_ci95": {
-        "lo": -0.0269,
-        "hi": 0.042,
+        "lo": -0.0255,
+        "hi": 0.0411,
         "excludes_zero": false,
-        "n_resamples": 600,
+        "n_resamples": 2000,
         "seed": 42,
         "method": "stratified: positives and negatives resampled with replacement separately",
-        "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples"
+        "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples",
+        "seed_stability_n2000": {
+          "42": {
+            "lo": -0.0255,
+            "hi": 0.0411,
+            "excludes_zero": false
+          },
+          "7": {
+            "lo": -0.0236,
+            "hi": 0.0432,
+            "excludes_zero": false
+          },
+          "123": {
+            "lo": -0.0232,
+            "hi": 0.0412,
+            "excludes_zero": false
+          }
+        },
+        "note_precision": "Re-run at 2000 stratified paired resamples (was 600); CI stable across seeds 42/7/123."
       },
       "across_seed_sd": {
         "A": 0.0184,
@@ -82,13 +119,31 @@
       },
       "delta_A_minus_B": 0.0226,
       "paired_bootstrap_ci95": {
-        "lo": -0.0086,
-        "hi": 0.0561,
+        "lo": -0.0093,
+        "hi": 0.0549,
         "excludes_zero": false,
-        "n_resamples": 600,
+        "n_resamples": 2000,
         "seed": 42,
         "method": "stratified: positives and negatives resampled with replacement separately",
-        "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples"
+        "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples",
+        "seed_stability_n2000": {
+          "42": {
+            "lo": -0.0093,
+            "hi": 0.0549,
+            "excludes_zero": false
+          },
+          "7": {
+            "lo": -0.0082,
+            "hi": 0.0552,
+            "excludes_zero": false
+          },
+          "123": {
+            "lo": -0.0092,
+            "hi": 0.0553,
+            "excludes_zero": false
+          }
+        },
+        "note_precision": "Re-run at 2000 stratified paired resamples (was 600); CI stable across seeds 42/7/123."
       },
       "across_seed_sd": {
         "A": 0.0241,
@@ -112,13 +167,31 @@
       },
       "delta_A_minus_B": 0.032,
       "paired_bootstrap_ci95": {
-        "lo": -0.0166,
-        "hi": 0.0833,
+        "lo": -0.0218,
+        "hi": 0.0844,
         "excludes_zero": false,
-        "n_resamples": 600,
+        "n_resamples": 2000,
         "seed": 42,
         "method": "stratified: positives and negatives resampled with replacement separately",
-        "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples"
+        "ci_definition": "2.5th and 97.5th percentiles of AP(A)-AP(B) across resamples",
+        "seed_stability_n2000": {
+          "42": {
+            "lo": -0.0218,
+            "hi": 0.0844,
+            "excludes_zero": false
+          },
+          "7": {
+            "lo": -0.0223,
+            "hi": 0.0878,
+            "excludes_zero": false
+          },
+          "123": {
+            "lo": -0.0209,
+            "hi": 0.0854,
+            "excludes_zero": false
+          }
+        },
+        "note_precision": "Re-run at 2000 stratified paired resamples (was 600); CI stable across seeds 42/7/123."
       },
       "across_seed_sd": {
         "A": 0.0183,

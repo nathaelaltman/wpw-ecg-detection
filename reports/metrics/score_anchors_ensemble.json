@@ -1,0 +1,72 @@
+{
+  "_comment": "5-level suspicion scale for model ensemble, in PERCENTILE space (D51: display a rank, never a raw probability). Boundary 'ens' = percentile threshold in [0,1] on this model's own frozen reference. precision/recall = ACHIEVED values at each boundary. n_wpw_at_level / n_total_at_level = OOF reference ECGs at/above the boundary. precision_reliable=false when n_wpw_at_level < 10 (too few cases -> the front end must not show a percentage).",
+  "model": "ensemble",
+  "prevalence_oof": 0.00215,
+  "oof_AP": 0.7178,
+  "n_wpw_oof": 115,
+  "score_space": "percentile",
+  "reliable_min_wpw": 10,
+  "scale": "piecewise-linear on ens (percentile), anchored at the level boundaries below",
+  "levels": [
+    {
+      "key": "tres_faible",
+      "label": "très faible",
+      "target_precision": null,
+      "ens": 0.0,
+      "precision": 0.0,
+      "recall": 1.0,
+      "score_lower": 1,
+      "n_wpw_at_level": 115,
+      "n_total_at_level": 53540,
+      "precision_reliable": true
+    },
+    {
+      "key": "faible",
+      "label": "faible",
+      "target_precision": 0.02,
+      "ens": 0.819275,
+      "precision": 0.02,
+      "recall": 0.9304,
+      "score_lower": 20,
+      "n_wpw_at_level": 107,
+      "n_total_at_level": 5350,
+      "precision_reliable": true
+    },
+    {
+      "key": "moyen",
+      "label": "moyen",
+      "target_precision": 0.3,
+      "ens": 0.981976,
+      "precision": 0.3,
+      "recall": 0.8087,
+      "score_lower": 50,
+      "n_wpw_at_level": 93,
+      "n_total_at_level": 310,
+      "precision_reliable": true
+    },
+    {
+      "key": "eleve",
+      "label": "élevé",
+      "target_precision": 0.75,
+      "ens": 0.996731,
+      "precision": 0.7547,
+      "recall": 0.6957,
+      "score_lower": 80,
+      "n_wpw_at_level": 80,
+      "n_total_at_level": 106,
+      "precision_reliable": true
+    },
+    {
+      "key": "tres_eleve",
+      "label": "très élevé",
+      "target_precision": 0.9,
+      "ens": 0.998898,
+      "precision": 0.9091,
+      "recall": 0.4348,
+      "score_lower": 95,
+      "n_wpw_at_level": 50,
+      "n_total_at_level": 55,
+      "precision_reliable": true
+    }
+  ]
+}

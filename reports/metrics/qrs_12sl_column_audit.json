@@ -1,0 +1,687 @@
+{
+  "committee_split": {
+    "detected": 43,
+    "missed": 14
+  },
+  "qrs_columns": [
+    {
+      "column": "QRS_Balance_I",
+      "n_det": 43,
+      "median_det": 1396.0,
+      "iqr_det": [
+        1086.0,
+        1706.0
+      ],
+      "n_mis": 14,
+      "median_mis": 876.0,
+      "iqr_mis": [
+        624.5,
+        986.0
+      ],
+      "mannwhitney_p": 0.0003
+    },
+    {
+      "column": "QRS_Area_I",
+      "n_det": 43,
+      "median_det": 2.7,
+      "iqr_det": [
+        2.0,
+        4.3
+      ],
+      "n_mis": 14,
+      "median_mis": 1.0,
+      "iqr_mis": [
+        0.7,
+        1.7
+      ],
+      "mannwhitney_p": 0.0001
+    },
+    {
+      "column": "QRS_Balance_II",
+      "n_det": 43,
+      "median_det": -15.0,
+      "iqr_det": [
+        -749.0,
+        292.5
+      ],
+      "n_mis": 14,
+      "median_mis": 913.0,
+      "iqr_mis": [
+        650.5,
+        1231.5
+      ],
+      "mannwhitney_p": 0.0002
+    },
+    {
+      "column": "QRS_Area_II",
+      "n_det": 43,
+      "median_det": -0.4,
+      "iqr_det": [
+        -1.9,
+        0.3
+      ],
+      "n_mis": 14,
+      "median_mis": 1.3,
+      "iqr_mis": [
+        0.6,
+        1.8
+      ],
+      "mannwhitney_p": 0.0001
+    },
+    {
+      "column": "QRS_Balance_V1",
+      "n_det": 43,
+      "median_det": -591.0,
+      "iqr_det": [
+        -964.0,
+        93.0
+      ],
+      "n_mis": 14,
+      "median_mis": -810.5,
+      "iqr_mis": [
+        -1123.2,
+        -547.0
+      ],
+      "mannwhitney_p": 0.173
+    },
+    {
+      "column": "QRS_Area_V1",
+      "n_det": 43,
+      "median_det": -0.9,
+      "iqr_det": [
+        -2.0,
+        0.1
+      ],
+      "n_mis": 14,
+      "median_mis": -1.2,
+      "iqr_mis": [
+        -2.0,
+        -0.5
+      ],
+      "mannwhitney_p": 0.5105
+    },
+    {
+      "column": "QRS_Balance_V2",
+      "n_det": 43,
+      "median_det": 420.0,
+      "iqr_det": [
+        -17.0,
+        1276.5
+      ],
+      "n_mis": 14,
+      "median_mis": -694.0,
+      "iqr_mis": [
+        -968.2,
+        -141.5
+      ],
+      "mannwhitney_p": 0.0012
+    },
+    {
+      "column": "QRS_Area_V2",
+      "n_det": 43,
+      "median_det": 1.3,
+      "iqr_det": [
+        0.6,
+        2.2
+      ],
+      "n_mis": 14,
+      "median_mis": -1.2,
+      "iqr_mis": [
+        -1.8,
+        0.1
+      ],
+      "mannwhitney_p": 0.0004
+    },
+    {
+      "column": "QRS_Balance_V3",
+      "n_det": 43,
+      "median_det": 1147.0,
+      "iqr_det": [
+        115.0,
+        1899.0
+      ],
+      "n_mis": 14,
+      "median_mis": 166.5,
+      "iqr_mis": [
+        -279.8,
+        703.2
+      ],
+      "mannwhitney_p": 0.0294
+    },
+    {
+      "column": "QRS_Area_V3",
+      "n_det": 43,
+      "median_det": 2.2,
+      "iqr_det": [
+        0.8,
+        3.4
+      ],
+      "n_mis": 14,
+      "median_mis": 0.8,
+      "iqr_mis": [
+        -0.7,
+        1.2
+      ],
+      "mannwhitney_p": 0.0053
+    },
+    {
+      "column": "QRS_Balance_V4",
+      "n_det": 43,
+      "median_det": 1587.0,
+      "iqr_det": [
+        908.0,
+        2426.0
+      ],
+      "n_mis": 14,
+      "median_mis": 1291.5,
+      "iqr_mis": [
+        134.2,
+        2322.5
+      ],
+      "mannwhitney_p": 0.3123
+    },
+    {
+      "column": "QRS_Area_V4",
+      "n_det": 43,
+      "median_det": 2.9,
+      "iqr_det": [
+        2.2,
+        4.1
+      ],
+      "n_mis": 14,
+      "median_mis": 2.1,
+      "iqr_mis": [
+        0.1,
+        3.6
+      ],
+      "mannwhitney_p": 0.1048
+    },
+    {
+      "column": "QRS_Balance_V5",
+      "n_det": 43,
+      "median_det": 1494.0,
+      "iqr_det": [
+        1094.0,
+        1948.0
+      ],
+      "n_mis": 14,
+      "median_mis": 1413.0,
+      "iqr_mis": [
+        921.8,
+        2127.5
+      ],
+      "mannwhitney_p": 0.7597
+    },
+    {
+      "column": "QRS_Area_V5",
+      "n_det": 43,
+      "median_det": 2.6,
+      "iqr_det": [
+        2.0,
+        3.6
+      ],
+      "n_mis": 14,
+      "median_mis": 2.0,
+      "iqr_mis": [
+        0.7,
+        3.2
+      ],
+      "mannwhitney_p": 0.1216
+    },
+    {
+      "column": "QRS_Balance_V6",
+      "n_det": 43,
+      "median_det": 898.0,
+      "iqr_det": [
+        581.0,
+        1288.5
+      ],
+      "n_mis": 14,
+      "median_mis": 1103.5,
+      "iqr_mis": [
+        718.5,
+        1353.2
+      ],
+      "mannwhitney_p": 0.3785
+    },
+    {
+      "column": "QRS_Area_V6",
+      "n_det": 43,
+      "median_det": 1.7,
+      "iqr_det": [
+        1.0,
+        2.6
+      ],
+      "n_mis": 14,
+      "median_mis": 1.4,
+      "iqr_mis": [
+        0.7,
+        2.3
+      ],
+      "mannwhitney_p": 0.5844
+    },
+    {
+      "column": "QRS_Balance_III",
+      "n_det": 43,
+      "median_det": -1245.0,
+      "iqr_det": [
+        -2353.0,
+        -981.0
+      ],
+      "n_mis": 14,
+      "median_mis": 59.0,
+      "iqr_mis": [
+        -272.2,
+        624.5
+      ],
+      "mannwhitney_p": 0.0001
+    },
+    {
+      "column": "QRS_Area_III",
+      "n_det": 43,
+      "median_det": -3.2,
+      "iqr_det": [
+        -7.1,
+        -2.1
+      ],
+      "n_mis": 14,
+      "median_mis": 0.1,
+      "iqr_mis": [
+        -0.3,
+        0.7
+      ],
+      "mannwhitney_p": 0.0
+    },
+    {
+      "column": "QRS_Balance_aVR",
+      "n_det": 43,
+      "median_det": -586.0,
+      "iqr_det": [
+        -808.0,
+        -364.0
+      ],
+      "n_mis": 14,
+      "median_mis": -849.5,
+      "iqr_mis": [
+        -990.8,
+        -757.0
+      ],
+      "mannwhitney_p": 0.0094
+    },
+    {
+      "column": "QRS_Area_aVR",
+      "n_det": 43,
+      "median_det": -1.2,
+      "iqr_det": [
+        -1.7,
+        -0.8
+      ],
+      "n_mis": 14,
+      "median_mis": -1.1,
+      "iqr_mis": [
+        -1.6,
+        -0.7
+      ],
+      "mannwhitney_p": 0.8457
+    },
+    {
+      "column": "QRS_Balance_aVL",
+      "n_det": 43,
+      "median_det": 1357.0,
+      "iqr_det": [
+        1035.0,
+        1996.5
+      ],
+      "n_mis": 14,
+      "median_mis": 397.5,
+      "iqr_mis": [
+        244.0,
+        523.5
+      ],
+      "mannwhitney_p": 0.0001
+    },
+    {
+      "column": "QRS_Area_aVL",
+      "n_det": 43,
+      "median_det": 3.0,
+      "iqr_det": [
+        2.1,
+        5.7
+      ],
+      "n_mis": 14,
+      "median_mis": 0.5,
+      "iqr_mis": [
+        0.1,
+        0.8
+      ],
+      "mannwhitney_p": 0.0
+    },
+    {
+      "column": "QRS_Balance_aVF",
+      "n_det": 43,
+      "median_det": -654.0,
+      "iqr_det": [
+        -1586.5,
+        -344.0
+      ],
+      "n_mis": 14,
+      "median_mis": 563.5,
+      "iqr_mis": [
+        225.8,
+        956.8
+      ],
+      "mannwhitney_p": 0.0001
+    },
+    {
+      "column": "QRS_Area_aVF",
+      "n_det": 43,
+      "median_det": -1.8,
+      "iqr_det": [
+        -4.7,
+        -0.8
+      ],
+      "n_mis": 14,
+      "median_mis": 0.8,
+      "iqr_mis": [
+        0.3,
+        1.1
+      ],
+      "mannwhitney_p": 0.0
+    },
+    {
+      "column": "QRS_On_Global",
+      "n_det": 43,
+      "median_det": 398.0,
+      "iqr_det": [
+        376.0,
+        408.0
+      ],
+      "n_mis": 14,
+      "median_mis": 431.0,
+      "iqr_mis": [
+        420.5,
+        439.0
+      ],
+      "mannwhitney_p": 0.0
+    },
+    {
+      "column": "QRS_Off_Global",
+      "n_det": 43,
+      "median_det": 532.0,
+      "iqr_det": [
+        526.0,
+        537.0
+      ],
+      "n_mis": 14,
+      "median_mis": 529.0,
+      "iqr_mis": [
+        523.0,
+        536.0
+      ],
+      "mannwhitney_p": 0.5033
+    },
+    {
+      "column": "QRS_Dur_Global",
+      "n_det": 43,
+      "median_det": 140.0,
+      "iqr_det": [
+        121.0,
+        151.0
+      ],
+      "n_mis": 14,
+      "median_mis": 103.0,
+      "iqr_mis": [
+        96.5,
+        113.0
+      ],
+      "mannwhitney_p": 0.0
+    },
+    {
+      "column": "QRS_AmpPP_I",
+      "n_det": 43,
+      "median_det": 1.4,
+      "iqr_det": [
+        1.1,
+        1.8
+      ],
+      "n_mis": 14,
+      "median_mis": 1.0,
+      "iqr_mis": [
+        0.7,
+        1.2
+      ],
+      "mannwhitney_p": 0.0068
+    },
+    {
+      "column": "QRS_AmpPP_II",
+      "n_det": 43,
+      "median_det": 0.7,
+      "iqr_det": [
+        0.5,
+        1.0
+      ],
+      "n_mis": 14,
+      "median_mis": 1.1,
+      "iqr_mis": [
+        0.9,
+        1.4
+      ],
+      "mannwhitney_p": 0.0043
+    },
+    {
+      "column": "QRS_AmpPP_V1",
+      "n_det": 43,
+      "median_det": 1.0,
+      "iqr_det": [
+        0.7,
+        1.2
+      ],
+      "n_mis": 14,
+      "median_mis": 1.2,
+      "iqr_mis": [
+        0.9,
+        1.4
+      ],
+      "mannwhitney_p": 0.0651
+    },
+    {
+      "column": "QRS_AmpPP_V2",
+      "n_det": 43,
+      "median_det": 1.5,
+      "iqr_det": [
+        1.3,
+        1.9
+      ],
+      "n_mis": 14,
+      "median_mis": 1.6,
+      "iqr_mis": [
+        1.2,
+        2.0
+      ],
+      "mannwhitney_p": 0.963
+    },
+    {
+      "column": "QRS_AmpPP_V3",
+      "n_det": 43,
+      "median_det": 1.6,
+      "iqr_det": [
+        1.2,
+        2.1
+      ],
+      "n_mis": 14,
+      "median_mis": 1.6,
+      "iqr_mis": [
+        1.2,
+        2.2
+      ],
+      "mannwhitney_p": 0.963
+    },
+    {
+      "column": "QRS_AmpPP_V4",
+      "n_det": 43,
+      "median_det": 1.9,
+      "iqr_det": [
+        1.3,
+        2.5
+      ],
+      "n_mis": 14,
+      "median_mis": 1.9,
+      "iqr_mis": [
+        1.5,
+        2.3
+      ],
+      "mannwhitney_p": 0.963
+    },
+    {
+      "column": "QRS_AmpPP_V5",
+      "n_det": 43,
+      "median_det": 1.6,
+      "iqr_det": [
+        1.3,
+        2.0
+      ],
+      "n_mis": 14,
+      "median_mis": 1.7,
+      "iqr_mis": [
+        1.1,
+        2.2
+      ],
+      "mannwhitney_p": 0.9778
+    },
+    {
+      "column": "QRS_AmpPP_V6",
+      "n_det": 43,
+      "median_det": 1.1,
+      "iqr_det": [
+        0.8,
+        1.4
+      ],
+      "n_mis": 14,
+      "median_mis": 1.3,
+      "iqr_mis": [
+        1.1,
+        1.4
+      ],
+      "mannwhitney_p": 0.3491
+    },
+    {
+      "column": "QRS_AmpPP_III",
+      "n_det": 43,
+      "median_det": 1.3,
+      "iqr_det": [
+        1.0,
+        2.4
+      ],
+      "n_mis": 14,
+      "median_mis": 0.8,
+      "iqr_mis": [
+        0.6,
+        1.1
+      ],
+      "mannwhitney_p": 0.0007
+    },
+    {
+      "column": "QRS_AmpPP_aVR",
+      "n_det": 43,
+      "median_det": 0.7,
+      "iqr_det": [
+        0.5,
+        1.0
+      ],
+      "n_mis": 14,
+      "median_mis": 1.1,
+      "iqr_mis": [
+        0.9,
+        1.2
+      ],
+      "mannwhitney_p": 0.0215
+    },
+    {
+      "column": "QRS_AmpPP_aVL",
+      "n_det": 43,
+      "median_det": 1.4,
+      "iqr_det": [
+        1.1,
+        2.0
+      ],
+      "n_mis": 14,
+      "median_mis": 0.6,
+      "iqr_mis": [
+        0.5,
+        0.8
+      ],
+      "mannwhitney_p": 0.0002
+    },
+    {
+      "column": "QRS_AmpPP_aVF",
+      "n_det": 43,
+      "median_det": 0.8,
+      "iqr_det": [
+        0.5,
+        1.6
+      ],
+      "n_mis": 14,
+      "median_mis": 0.9,
+      "iqr_mis": [
+        0.6,
+        1.1
+      ],
+      "mannwhitney_p": 0.5285
+    },
+    {
+      "column": "QRS_Count_Global",
+      "n_det": 43,
+      "median_det": 11.0,
+      "iqr_det": [
+        10.0,
+        12.0
+      ],
+      "n_mis": 14,
+      "median_mis": 14.0,
+      "iqr_mis": [
+        12.0,
+        14.0
+      ],
+      "mannwhitney_p": 0.0057
+    },
+    {
+      "column": "Q_On_Global",
+      "n_det": 43,
+      "median_det": 398.0,
+      "iqr_det": [
+        376.0,
+        408.0
+      ],
+      "n_mis": 14,
+      "median_mis": 431.0,
+      "iqr_mis": [
+        420.5,
+        439.0
+      ],
+      "mannwhitney_p": 0.0
+    },
+    {
+      "column": "Q_Off_Global",
+      "n_det": 43,
+      "median_det": 532.0,
+      "iqr_det": [
+        526.0,
+        537.0
+      ],
+      "n_mis": 14,
+      "median_mis": 529.0,
+      "iqr_mis": [
+        523.0,
+        536.0
+      ],
+      "mannwhitney_p": 0.5033
+    }
+  ],
+  "v5_target": {
+    "det": 94.0,
+    "mis": 89.0,
+    "p": 0.2647
+  },
+  "reproduces_v5": [],
+  "true_qrs_duration_column": "QRS_Dur_Global"
+}

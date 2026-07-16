@@ -1,0 +1,61 @@
+{
+  "committee_confusion": {
+    "TP": 80,
+    "FP": 25,
+    "FN": 35
+  },
+  "ptbxl_split": {
+    "detected": 43,
+    "missed": 14
+  },
+  "per_method": [
+    {
+      "method": "(a) proxy _qw",
+      "n_det": 43,
+      "median_det": 118.0,
+      "n_mis": 14,
+      "median_mis": 76.5,
+      "mannwhitney_p": 0.0008
+    },
+    {
+      "method": "(b) NeuroKit QRS_ms",
+      "n_det": 43,
+      "median_det": 96.0,
+      "n_mis": 14,
+      "median_mis": 136.5,
+      "mannwhitney_p": 0.2737
+    },
+    {
+      "method": "(c) 12SL QRS_Dur_Global",
+      "n_det": 43,
+      "median_det": 140.0,
+      "n_mis": 14,
+      "median_mis": 103.0,
+      "mannwhitney_p": 0.0
+    }
+  ],
+  "narrow_lt60": {
+    "proxy_lt60": 9,
+    "neurokit_lt60": 1,
+    "proxy_n_finite": 57,
+    "neurokit_n_finite": 57
+  },
+  "correlations": {
+    "proxy_vs_12sl": {
+      "n": 57,
+      "spearman": 0.58,
+      "pearson": 0.529
+    },
+    "neurokit_vs_12sl": {
+      "n": 57,
+      "spearman": -0.22,
+      "pearson": -0.213
+    },
+    "proxy_vs_neurokit": {
+      "n": 57,
+      "spearman": -0.308,
+      "pearson": -0.351
+    }
+  },
+  "note": "If (b) and (c) also narrow on misses, the narrowing is physiological, not a proxy artifact."
+}

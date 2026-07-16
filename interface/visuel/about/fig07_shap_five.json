@@ -1,0 +1,190 @@
+{
+  "meta": {
+    "figure": 7,
+    "title": "SHAP importance for the 5 feature-based detectors",
+    "source": "reports/metrics/shap_M{1,2,3,4,5v2}.json",
+    "generated_by": "fig07_shap_five.py"
+  },
+  "detectors": [
+    {
+      "model": "M1",
+      "title": "QRS-onset morphology",
+      "features": [
+        {
+          "name": "delta_area_third_V1",
+          "mean_abs_shap": 0.697065,
+          "lead": "V1"
+        },
+        {
+          "name": "S_amp_V5",
+          "mean_abs_shap": 0.661238,
+          "lead": "V5"
+        },
+        {
+          "name": "Q_amp_V5",
+          "mean_abs_shap": 0.575732,
+          "lead": "V5"
+        },
+        {
+          "name": "qrs_posneg_ratio_V5",
+          "mean_abs_shap": 0.529216,
+          "lead": "V5"
+        },
+        {
+          "name": "delta_vel_half_V5",
+          "mean_abs_shap": 0.430845,
+          "lead": "V5"
+        },
+        {
+          "name": "delta_vel_quarter_V5",
+          "mean_abs_shap": 0.345228,
+          "lead": "V5"
+        }
+      ]
+    },
+    {
+      "model": "M2",
+      "title": "Global statistics",
+      "features": [
+        {
+          "name": "sp_rel_lf_V4",
+          "mean_abs_shap": 0.566369,
+          "lead": "V4"
+        },
+        {
+          "name": "ac_lag100_V4",
+          "mean_abs_shap": 0.267341,
+          "lead": "V4"
+        },
+        {
+          "name": "slope_updown_ratio_AVR",
+          "mean_abs_shap": 0.235737,
+          "lead": "aVR"
+        },
+        {
+          "name": "trev_8_AVR",
+          "mean_abs_shap": 0.212533,
+          "lead": "aVR"
+        },
+        {
+          "name": "hj2_mobility_III",
+          "mean_abs_shap": 0.199821,
+          "lead": "III"
+        },
+        {
+          "name": "sp_e_vlf_III",
+          "mean_abs_shap": 0.198675,
+          "lead": "III"
+        }
+      ]
+    },
+    {
+      "model": "M3",
+      "title": "Wavelet localization",
+      "features": [
+        {
+          "name": "swtsym4_D5_V5_hjcomp",
+          "mean_abs_shap": 0.771324,
+          "lead": "V5"
+        },
+        {
+          "name": "swtdb4_D6_I_qrsfrac",
+          "mean_abs_shap": 0.398126,
+          "lead": "I"
+        },
+        {
+          "name": "swtdb4_D6_V4_qrson2mid",
+          "mean_abs_shap": 0.347439,
+          "lead": "V4"
+        },
+        {
+          "name": "swtsym4_A6_V1_crest",
+          "mean_abs_shap": 0.332862,
+          "lead": "V1"
+        },
+        {
+          "name": "swtsym4_D6_V4_skew",
+          "mean_abs_shap": 0.324893,
+          "lead": "V4"
+        },
+        {
+          "name": "swtcoif3_D6_I_skew",
+          "mean_abs_shap": 0.313302,
+          "lead": "I"
+        }
+      ]
+    },
+    {
+      "model": "M4",
+      "title": "Median-beat morphology",
+      "features": [
+        {
+          "name": "med_AVR_amp15",
+          "mean_abs_shap": 0.559433,
+          "lead": "aVR"
+        },
+        {
+          "name": "med_V5_onQRS_min",
+          "mean_abs_shap": 0.507136,
+          "lead": "V5"
+        },
+        {
+          "name": "med_AVR_on0_slur",
+          "mean_abs_shap": 0.479085,
+          "lead": "aVR"
+        },
+        {
+          "name": "med_AVR_onQRS_max",
+          "mean_abs_shap": 0.467381,
+          "lead": "aVR"
+        },
+        {
+          "name": "med_II_vel6",
+          "mean_abs_shap": 0.442989,
+          "lead": "II"
+        },
+        {
+          "name": "med_V2_vel14",
+          "mean_abs_shap": 0.421443,
+          "lead": "V2"
+        }
+      ]
+    },
+    {
+      "model": "M5",
+      "title": "Spatial VCG",
+      "features": [
+        {
+          "name": "med_k_w20_40_path",
+          "mean_abs_shap": 0.437988,
+          "lead": null
+        },
+        {
+          "name": "med_d_traj_x4",
+          "mean_abs_shap": 0.237301,
+          "lead": null
+        },
+        {
+          "name": "ext_d_w20_40_path",
+          "mean_abs_shap": 0.216854,
+          "lead": null
+        },
+        {
+          "name": "pair_xpeak_AVR_V4",
+          "mean_abs_shap": 0.168604,
+          "lead": "aVR"
+        },
+        {
+          "name": "med_k_traj_x0",
+          "mean_abs_shap": 0.143515,
+          "lead": null
+        },
+        {
+          "name": "pair_xpeak_III_AVL",
+          "mean_abs_shap": 0.141709,
+          "lead": "III"
+        }
+      ]
+    }
+  ]
+}

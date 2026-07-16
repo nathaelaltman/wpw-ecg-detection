@@ -1,0 +1,43 @@
+{
+  "results": [
+    {
+      "corpus": "ptbxl",
+      "n_neg": 17144,
+      "spearman_rho": 0.0738,
+      "spearman_p": 0.0,
+      "n_young": 3320,
+      "mean_score_young": 0.5018,
+      "n_old": 7214,
+      "mean_score_old": 0.5369,
+      "mean_diff": -0.0351,
+      "young_vs_old_MW_p": 0.0
+    },
+    {
+      "corpus": "csn",
+      "n_neg": 36023,
+      "spearman_rho": 0.008,
+      "spearman_p": 0.1278,
+      "n_young": 7750,
+      "mean_score_young": 0.5075,
+      "n_old": 15422,
+      "mean_score_old": 0.4964,
+      "mean_diff": 0.0111,
+      "young_vs_old_MW_p": 0.0014
+    },
+    {
+      "corpus": "combined",
+      "n_neg": 53167,
+      "spearman_rho": 0.0287,
+      "spearman_p": 0.0,
+      "n_young": 11070,
+      "mean_score_young": 0.5058,
+      "n_old": 22636,
+      "mean_score_old": 0.5093,
+      "mean_diff": -0.0035,
+      "young_vs_old_MW_p": 0.1482
+    }
+  ],
+  "young_cut": 45,
+  "old_cut": 65,
+  "note": "Negatives only; PTB-XL age=300 placeholder dropped; ensemble = frozen M3+M4 rank-vote."
+}

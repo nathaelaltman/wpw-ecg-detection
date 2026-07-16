@@ -1,0 +1,111 @@
+{
+  "population": "deployed committee (ens=0.5*pct(M4)+0.5*pct(M3) >= 0.9969), OOF folds 1-8",
+  "A1_counts": {
+    "TP": 80,
+    "FN": 35,
+    "FP": 25,
+    "TP_ptbxl": 43,
+    "TP_csn": 37,
+    "FN_ptbxl": 14,
+    "FN_csn": 21,
+    "FP_ptbxl": 11,
+    "FP_csn": 14
+  },
+  "A2_qrs_12SL_ptbxl": {
+    "TP_median": 94.0,
+    "TP_IQR": [
+      85.0,
+      104.0
+    ],
+    "TP_n": 43,
+    "FN_median": 89.0,
+    "FN_IQR": [
+      82.5,
+      95.5
+    ],
+    "FN_n": 14,
+    "mannwhitney_p": 0.2646571646894471,
+    "verdict": "NOT significant"
+  },
+  "A3_qrs_delineated_proxy_ptbxl": {
+    "TP_median": 118.0,
+    "FN_median": 76.5,
+    "mannwhitney_p": 0.0007878705066687961,
+    "note": "proxy DISAGREES with 12SL on the same population (proxy p<0.001 vs 12SL p=0.26) -> instrumental artifact"
+  },
+  "A4_comorbidity_QRSDEF_ptbxl": {
+    "definition": "BBB{CRBBB,CLBBB,ILBBB,IRBBB,IVCD,LAFB,LPFB} + {LVH,RVH,ASMI,ALMI,IMI,AMI,LMI}",
+    "FN_comorbid": 5,
+    "FN_n": 14,
+    "TP_comorbid": 2,
+    "TP_n": 43,
+    "odds_ratio": 11.38888888888889,
+    "p": 0.007339148833979138,
+    "verdict": "SIGNIFICANT - survives on committee population",
+    "published_intersection": "OR=15.4 p=0.0036"
+  },
+  "A5_validated_ptbxl": {
+    "nonval_missed": 9,
+    "nonval_detected": 35,
+    "val_missed": 5,
+    "val_detected": 8,
+    "odds_ratio": 0.4114285714285714,
+    "p": 0.2705832363373732,
+    "verdict": "no enrichment (OR<1)",
+    "published_intersection": "OR=0.253 p=0.102"
+  },
+  "B7_FN_decomposition": {
+    "PTB_FN": 14,
+    "CSN_FN": 21,
+    "PTB_nonvalidated": 9,
+    "PTB_comorbid": 3,
+    "PTB_neither": 2,
+    "CSN_note": "not decomposable (no validation field)"
+  },
+  "B8_irreducible_floor_PTB": 2,
+  "D10_textbook_rule": {
+    "TP": 53,
+    "FP": 17751,
+    "FN": 89,
+    "TN": 49058,
+    "sensitivity": 0.3732394366197183,
+    "specificity": 0.7343022646649403,
+    "precision": 0.0029768591327791506,
+    "delta": "not computable"
+  },
+  "D11_12sl_ptbxl_detector": {
+    "AP": 0.003640325720763937,
+    "AUC": 0.46224295835493345,
+    "n": 17418,
+    "wpw": 57,
+    "note": "PTB-only, 12SL feature source, NOT comparable"
+  },
+  "E12_learning_curve_extrapolation": {
+    "model": "M4_wavelet_env",
+    "fit": "AP=a-b*n^(-c)",
+    "a": 1.273938243110704,
+    "b": 2.0357728246775166,
+    "c": 0.26968013762223453,
+    "R2": 0.869028884649305,
+    "observed_n_wpw_range": [
+      12,
+      115
+    ],
+    "AP_at_300": {
+      "point": 0.8367193586467487,
+      "CI95": [
+        0.7565753751475317,
+        0.8616007810849365
+      ]
+    },
+    "AP_at_1000": {
+      "point": 0.9579369208607813,
+      "CI95": [
+        0.7943877910139095,
+        1.0086226993801826
+      ]
+    },
+    "note": "EXTRAPOLATION beyond observed 12-115 WPW; wide uncertainty"
+  },
+  "notes": "read-only; no retraining of deployed models; fold10 not touched"
+}

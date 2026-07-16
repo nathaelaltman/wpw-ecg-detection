@@ -1,0 +1,80 @@
+{
+  "family_size": 12,
+  "population": "committee errors (80 TP / 35 FN)",
+  "tests": [
+    {
+      "name": "n_beats (TP vs FN, MW)",
+      "raw_p": 0.00457,
+      "holm_p": 0.0548,
+      "survives_0.05": false
+    },
+    {
+      "name": "comorbidity QRSDEF (FN vs TP, Fisher, PTB)",
+      "raw_p": 0.00734,
+      "holm_p": 0.08073,
+      "survives_0.05": false
+    },
+    {
+      "name": "hr (TP vs FN, MW)",
+      "raw_p": 0.01943,
+      "holm_p": 0.1943,
+      "survives_0.05": false
+    },
+    {
+      "name": "dslow_ms (TP vs FN, MW)",
+      "raw_p": 0.02034,
+      "holm_p": 0.1943,
+      "survives_0.05": false
+    },
+    {
+      "name": "qrs_med (TP vs FN, MW)",
+      "raw_p": 0.03334,
+      "holm_p": 0.2667,
+      "survives_0.05": false
+    },
+    {
+      "name": "demp_area (TP vs FN, MW)",
+      "raw_p": 0.0514,
+      "holm_p": 0.35982,
+      "survives_0.05": false
+    },
+    {
+      "name": "BBB enrichment among FP (Fisher, PTB)",
+      "raw_p": 0.05259,
+      "holm_p": 0.35982,
+      "survives_0.05": false
+    },
+    {
+      "name": "qrs_cv (TP vs FN, MW)",
+      "raw_p": 0.20287,
+      "holm_p": 1.0,
+      "survives_0.05": false
+    },
+    {
+      "name": "Ramp_med (TP vs FN, MW)",
+      "raw_p": 0.20722,
+      "holm_p": 1.0,
+      "survives_0.05": false
+    },
+    {
+      "name": "12SL QRS dur (TP vs FN, MW, PTB)",
+      "raw_p": 0.26466,
+      "holm_p": 1.0,
+      "survives_0.05": false
+    },
+    {
+      "name": "label validity validated x missed (Fisher, PTB)",
+      "raw_p": 0.27058,
+      "holm_p": 1.0,
+      "survives_0.05": false
+    },
+    {
+      "name": "dslope40_norm (TP vs FN, MW)",
+      "raw_p": 0.79147,
+      "holm_p": 1.0,
+      "survives_0.05": false
+    }
+  ],
+  "comorbidity_raw_p": 0.00734,
+  "n_tests_strictly_smaller_than_comorbidity": 1
+}
