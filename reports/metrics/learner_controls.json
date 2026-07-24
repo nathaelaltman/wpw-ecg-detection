@@ -1,0 +1,65 @@
+{
+  "_comment": "Alternative-learner controls for Section 4.4 of the paper. A random forest and a logistic regression were tuned under the same protocol as the gradient-boosted trees, on M1, M2 and M6. This comparison was NOT repeated for M3 and M4, the two deployed detectors, so the choice of learner for the deployed system rests on the native-missing-value argument and on the evidence below, not on a direct test. Selection and tuning are on OOF folds 1-8 throughout; fold 10 is never involved. These values are transcribed from the frozen run outputs of the detector notebooks; the M2 block is the most complete, since all three learners were tuned over their own grids at a fixed feature count.",
+  "protocol": {
+    "selection_and_tuning": "OOF on native folds 1-8, no shuffle",
+    "validation_fold": "fold 9",
+    "held_out": "fold 10, never touched",
+    "primary_metric": "average precision (AP)",
+    "imbalance_handling": "scale_pos_weight (XGBoost) / class_weight='balanced' (RF, LR)",
+    "missing_values": "native in XGBoost; median imputation + standardisation in the RF and LR pipelines"
+  },
+
+  "M2_global_statistical": {
+    "note": "The reference comparison: all three learners tuned over their own hyperparameter grids at the same feature count K=164, then re-compared on fold 9.",
+    "K": 164,
+    "tuned": {
+      "XGBoost": {"AP_oof": 0.266, "AP_fold9": 0.407, "AUC_fold9": 0.904},
+      "RandomForest": {"AP_oof": 0.306, "AP_fold9": 0.303, "AUC_fold9": 0.899,
+                       "best_config": {"max_depth": null, "min_samples_leaf": 5, "n_estimators": 400},
+                       "AUC_oof": 0.9306},
+      "LogisticRegression": {"AP_oof": 0.158, "AP_fold9": 0.164, "AUC_fold9": 0.976,
+                             "best_config": {"C": 0.1, "penalty": "l1"},
+                             "AUC_oof": 0.8861}
+    },
+    "untuned_controls_fold9": {
+      "XGBoost": {"AP": 0.407, "AUC": 0.904},
+      "RandomForest": {"AP": 0.216, "AUC": 0.797},
+      "LogisticRegression": {"AP": 0.165, "AUC": 0.971}
+    },
+    "reading": "The forest is slightly ahead of the boosted trees out-of-fold (0.306 vs 0.266) and behind on the validation fold (0.303 vs 0.407). The logistic regression plateaus far lower in AP (0.158) while attaining the highest AUC of the three (0.976): it ranks reasonably but fails to push WPW cases to the very top of the list, which is the behaviour that matters at a 471:1 base rate."
+  },
+
+  "M1_qrs_onset_morphology": {
+    "note": "Tournament over two feature sets (B = 12 features, D = 50 de-correlated features), judged on AP.",
+    "results": [
+      {"feature_set": "D", "n_features": 50, "learner": "XGBoost",            "AP": 0.1490, "AUC": 0.9338},
+      {"feature_set": "D", "n_features": 50, "learner": "RandomForest",       "AP": 0.1233, "AUC": 0.9270},
+      {"feature_set": "D", "n_features": 50, "learner": "LogisticRegression", "AP": 0.0454, "AUC": 0.9046},
+      {"feature_set": "B", "n_features": 12, "learner": "XGBoost",            "AP": 0.0426, "AUC": 0.8978},
+      {"feature_set": "B", "n_features": 12, "learner": "RandomForest",       "AP": 0.0306, "AUC": 0.8827},
+      {"feature_set": "B", "n_features": 12, "learner": "LogisticRegression", "AP": 0.0212, "AUC": 0.8708}
+    ],
+    "reading": "Same ordering as M2 at both feature-set sizes: boosted trees ahead on AP, the forest close behind, the logistic regression far lower on AP while remaining competitive on AUC."
+  },
+
+  "M6_commercial_marquette_12SL": {
+    "note": "Tournament over four candidate feature lists (A, B, C, D) on the PTB-XL folds where the on-machine measurements exist. gap_AP = AP_train - AP_oof, an overfitting diagnostic. Reproducible from notebooks/03_baseline_marquette.ipynb.",
+    "results": [
+      {"list": "A", "n_features": 6,  "learner": "LogisticRegression", "AUC_cv_mean": 0.9555, "AUC_oof": 0.9507, "AP_oof": 0.2202, "gap_AP": -0.0160},
+      {"list": "A", "n_features": 6,  "learner": "RandomForest",       "AUC_cv_mean": 0.9497, "AUC_oof": 0.9386, "AP_oof": 0.4388, "gap_AP":  0.2471},
+      {"list": "A", "n_features": 6,  "learner": "XGBoost",            "AUC_cv_mean": 0.9633, "AUC_oof": 0.9559, "AP_oof": 0.4783, "gap_AP":  0.2297},
+      {"list": "B", "n_features": 10, "learner": "LogisticRegression", "AUC_cv_mean": 0.9275, "AUC_oof": 0.9191, "AP_oof": 0.3608, "gap_AP":  0.0336},
+      {"list": "B", "n_features": 10, "learner": "RandomForest",       "AUC_cv_mean": 0.9582, "AUC_oof": 0.9509, "AP_oof": 0.3667, "gap_AP":  0.2988},
+      {"list": "B", "n_features": 10, "learner": "XGBoost",            "AUC_cv_mean": 0.9497, "AUC_oof": 0.9356, "AP_oof": 0.4324, "gap_AP":  0.2032},
+      {"list": "C", "n_features": 10, "learner": "LogisticRegression", "AUC_cv_mean": 0.9554, "AUC_oof": 0.9483, "AP_oof": 0.4695, "gap_AP":  0.0078},
+      {"list": "C", "n_features": 10, "learner": "RandomForest",       "AUC_cv_mean": 0.9598, "AUC_oof": 0.9493, "AP_oof": 0.6158, "gap_AP":  0.2104},
+      {"list": "C", "n_features": 10, "learner": "XGBoost",            "AUC_cv_mean": 0.9684, "AUC_oof": 0.9606, "AP_oof": 0.5605, "gap_AP":  0.2470},
+      {"list": "D", "n_features": 26, "learner": "LogisticRegression", "AUC_cv_mean": 0.9120, "AUC_oof": 0.8993, "AP_oof": 0.2508, "gap_AP":  0.0458},
+      {"list": "D", "n_features": 26, "learner": "RandomForest",       "AUC_cv_mean": 0.9510, "AUC_oof": 0.9431, "AP_oof": 0.4159, "gap_AP":  0.3046},
+      {"list": "D", "n_features": 26, "learner": "XGBoost",            "AUC_cv_mean": 0.9328, "AUC_oof": 0.9211, "AP_oof": 0.4667, "gap_AP":  0.3578}
+    ],
+    "reading": "Reported in full, including the case that runs against the paper's summary: on the best list (C) the random forest reaches a higher AP than the boosted trees (0.6158 vs 0.5605) with a smaller overfitting gap (0.210 vs 0.247). List C with XGBoost was retained for M6 on its cross-validated AUC and its behaviour on the other three lists. Across all four lists the boosted trees win three of four on AP, and list D produces the largest gap for every learner, which is what identified it as the over-parameterised control."
+  },
+
+  "summary_for_the_paper": "Across M1, M2 and M6 the ordering is consistent: gradient-boosted trees lead on average precision, the random forest is close and occasionally ahead out-of-fold, and the logistic regression trails badly on AP while remaining competitive or better on AUC. The deployed detectors M3 and M4 were never put through this comparison."
+}
