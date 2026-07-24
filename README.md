@@ -19,7 +19,9 @@ Why AUC is the meaningful headline here: the deliverable is a **risk score for s
 - **No-leakage sentinel (all five feature detectors PASS).** A label-permutation control collapses the null average precision to the prevalence for every feature-based detector: real out-of-fold AP 0.198 (M1), 0.299 (M2), 0.619 (M3), 0.718 (M4), 0.429 (M5v2), each against a null AP of only 0.002 to 0.003. Ranking cannot be reproduced from shuffled labels, so there is no detectable label leakage.
 - **Honest cross-validation.** Out-of-fold evaluation iterates on the native folds only, never re-shuffled (shuffling can co-locate correlated recordings and leak).
 - **Patient-level leakage checks.** The split is patient-disjoint (64,021 unique patients, no patient in two folds), enforced by a blocking assertion.
-- **A reversed result, documented not buried.** An apparent heart-rate effect was traced to a population-definition artifact (a diluted false-negative set) and reversed (heart rate is not significant, p = 0.22); the QRS-width finding that survived correction is the one reported.
+- **A reversed result, documented not buried.** An apparent heart-rate effect was traced to a population-definition artifact (a diluted false-negative set) and reversed (heart rate is not significant, p = 0.22).
+- **Multiplicity correction over the declared family.** The error analysis runs twelve tests on the same small error population, and all twelve are listed with raw and Holm-adjusted p-values. **Exactly one survives**: the QRS duration measured by the acquisition device, detected 140.0 vs missed 103.0 ms, raw p = 2.2e-06, Holm-adjusted 2.7e-05. The comorbidity-masking effect is the largest in the family and does **not** survive (adjusted p = 0.073); it is reported as an unconfirmed signal. See `reports/metrics/error_analysis_holm_family_v2.json`.
+- **Selection optimism measured, not assumed.** Feature selection is computed once on the development folds rather than re-nested per fold. On the two models where a fully nested re-run was affordable, that optimism is **0.114 and 0.130 average precision** (0.727 → 0.613 and 0.740 → 0.610), so out-of-fold numbers in this repository should be read as upper estimates. The single held-out contact is unaffected, since everything was frozen before it.
 
 Rigor is the contribution. The performance number is present, bounded, and secondary to the discipline.
 
@@ -29,7 +31,7 @@ Descriptive names are a presentation layer; every file on disk uses the M1 to M7
 
 | ID | Descriptive name | Representation |
 |----|------------------|----------------|
-| M1 | Clinical-interval detector | NeuroKit delineation (PR, QRS width, morphology) |
+| M1 | QRS-onset morphology detector | NeuroKit delineation; no classical interval survives the gate, so all 35 retained features describe QRS-onset morphology |
 | M2 | Global-statistical detector | per-lead distribution and spectral summaries |
 | M3 | Wavelet-localization detector | wavelet time-frequency at the QRS onset |
 | M4 | Median-beat morphology detector | denoised median beat and most-pre-excited beat shape |

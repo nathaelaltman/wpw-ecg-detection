@@ -42,7 +42,13 @@ THR_ENS = 0.9969; ALPHA = 0.5
 PREEXC = {"195060002": "VPE ventricular preexcitation",
           "74390002":  "WPW",
           "233897008": "AVRT atrioventricular reentrant tachycardia"}
-AVNRT  = {"233896004": "AVNRT (nodal reentry - NOT accessory pathway; reported, excluded)"}
+# NOTE (2026-07-24): the AVNRT code was 233896004, taken from the corpus ConditionNames file.
+# That code appears NOWHERE in the corpus. The SNOMED code for atrioventricular NODAL re-entrant
+# tachycardia is 251166008 (PhysioNet/CinC 2021 mapping), present 16 times, all in negatives.
+# The reported AVNRT count was therefore misleadingly zero. No effect on the pre-excitation set
+# or on any paper number: AVNRT is nodal re-entry, not an accessory pathway, so it was excluded
+# from PREEXC by construction either way.
+AVNRT  = {"251166008": "AVNRT (nodal reentry - NOT accessory pathway; reported, excluded)"}
 
 # ---- committee reconstruction (frozen recipe) ----
 CANON = ["ecg_id","source","fold","label","proba_raw","proba_cal"]; KEY = ["ecg_id","source"]

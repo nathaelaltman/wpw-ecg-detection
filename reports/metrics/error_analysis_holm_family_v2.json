@@ -1,0 +1,78 @@
+{
+ "family_size": 12,
+ "note": "12SL entry corrected to QRS_Dur_Global (the audited column); the previous value used a wrong 12SL column",
+ "tests": [
+  {
+   "name": "n_beats (TP vs FN, MW)",
+   "raw_p": 0.00457,
+   "holm_p": 0.05027,
+   "survives_0.05": false
+  },
+  {
+   "name": "comorbidity QRSDEF (FN vs TP, Fisher, PTB)",
+   "raw_p": 0.00734,
+   "holm_p": 0.0734,
+   "survives_0.05": false
+  },
+  {
+   "name": "hr (TP vs FN, MW)",
+   "raw_p": 0.01943,
+   "holm_p": 0.17487,
+   "survives_0.05": false
+  },
+  {
+   "name": "dslow_ms (TP vs FN, MW)",
+   "raw_p": 0.02034,
+   "holm_p": 0.17487,
+   "survives_0.05": false
+  },
+  {
+   "name": "qrs_med (TP vs FN, MW)",
+   "raw_p": 0.03334,
+   "holm_p": 0.23338,
+   "survives_0.05": false
+  },
+  {
+   "name": "demp_area (TP vs FN, MW)",
+   "raw_p": 0.0514,
+   "holm_p": 0.3084,
+   "survives_0.05": false
+  },
+  {
+   "name": "BBB enrichment among FP (Fisher, PTB)",
+   "raw_p": 0.05259,
+   "holm_p": 0.3084,
+   "survives_0.05": false
+  },
+  {
+   "name": "qrs_cv (TP vs FN, MW)",
+   "raw_p": 0.20287,
+   "holm_p": 0.81148,
+   "survives_0.05": false
+  },
+  {
+   "name": "Ramp_med (TP vs FN, MW)",
+   "raw_p": 0.20722,
+   "holm_p": 0.81148,
+   "survives_0.05": false
+  },
+  {
+   "name": "12SL QRS dur (TP vs FN, MW, PTB)",
+   "raw_p": 2.226130647021717e-06,
+   "holm_p": 2.6713567764260607e-05,
+   "survives_0.05": true
+  },
+  {
+   "name": "label validity validated x missed (Fisher, PTB)",
+   "raw_p": 0.27058,
+   "holm_p": 0.81148,
+   "survives_0.05": false
+  },
+  {
+   "name": "dslope40_norm (TP vs FN, MW)",
+   "raw_p": 0.79147,
+   "holm_p": 0.81148,
+   "survives_0.05": false
+  }
+ ]
+}

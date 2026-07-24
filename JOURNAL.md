@@ -137,7 +137,11 @@ superseded notebooks move to `archive/`. Every current notebook is mapped.
 
 **Finalization:** [D52](#d52) evaluation module rewrite, OOF schema, M2 re-key
 
-**Paper revision:** [D53](#d53) selection not nested; fixed-feature learning curve · [D54](#d54) QRS-narrowing is real and delineator-dependent · [D55](#d55) leak-free learning curve (the paper's direct test) · [D56](#d56) finalization v_c, draft corrections, citation-order bibliography
+**Paper revision:** [D53](#d53) selection not nested; fixed-feature learning curve · [D54](#d54) QRS-narrowing is real and delineator-dependent · [D55](#d55) leak-free learning curve (the paper's direct test) · [D56](#d56) manuscript consolidated into v_c, three draft numbers corrected
+
+**Cohort characterisation and external corroboration (v_d):** [D57](#d57) Huang et al. cited as corroboration, no performance comparison · [D58](#d58) cohort table covers all 66,951 records, not only the positives · [D59](#d59) PTB-XL likelihood-0 means present; ages above 89 are censored · [D60](#d60) SNOMED names resolved officially; 17 corpus names are wrong · [D61](#d61) AVNRT counted under a code absent from the corpus · [D62](#d62) nine negatives carry a WPW statement; one is a false positive
+
+**Audit and correction pass (v_e):** [D63](#d63) **the Holm family carried a stale 12SL test; correcting it reverses the verdict** · [D64](#d64) nested-CV optimism had been measured (0.114 / 0.130 AP) · [D65](#d65) raw-score averaging beats the deployed rank vote, and is declared · [D66](#d66) passband selected on precursors, one not deployed · [D67](#d67) RF/LR controls scoped to M1/M2/M6 · [D68](#d68) the suspicion scale has five levels, not four · [D69](#d69) selection rule differs by design; `CLAUDE.md` was wrong
 
 ---
 # DATA AND PROTOCOL
@@ -658,6 +662,102 @@ superseded notebooks move to `archive/`. Every current notebook is mapped.
 - **Why:** M4 rises from **0.317 at 12 positives to 0.715 at 115** and is still rising at the full set: paired 90-vs-100% difference **+0.027 (95% CI [0.019, 0.033])**, seed spread contracting 0.092 to 0. M3 is **inconclusive** on its final segment (paired -0.007, CI [-0.023, +0.010]). The two protocols are biased in opposite directions at low n (the leak-free 0.317 sits *above* the fixed-feature 0.225 at 10%, over-selecting on 12 positives), and the qualitative "still climbing, not turned over" conclusion survives both. Bounded inference to the deployed vote: its dominant member M4 is demonstrably still improving and no member's saturation caps the committee, so the system as deployed is not shown to have saturated (the paper claims only this, not that data is the sole ceiling). Artifacts `reports/metrics/learning_curve_leakfree.json`, `learning_curve_M4.json`; figure `learning_curve_leakfree_M3M4.png`.
 - **Rejected alternative(s):** the fixed-feature curve of [D53](#d53) as the headline (carries the borrowed-feature leak; retained only as the opposite-bias cross-check); extrapolating to a target corpus size (a 12-115 range cannot constrain an asymptote).
 - **Status:** frozen. Supersedes [D53](#d53)'s fixed-feature curve as the paper's Figure 7 and direct test.
+
+## <a id="d56"></a>[D56] Manuscript consolidated into one version, with three draft numbers corrected
+- **Context:** Three manuscript drafts existed (`v_a`, `v_b`, and an earlier `v1` whose central thesis was that the missed-case QRS narrowing is an *instrumental artifact*). A full fact-check against the frozen artifacts was run before choosing.
+- **Options considered:** publish `v1`; publish `v_b`; or merge `v_a`/`v_b` and correct every number against the artifacts.
+- **Decision:** Merge into `v_c`. **`v1` is rejected outright**: its thesis was refuted by [D54](#d54) (the device's `QRS_Dur_Global` gives 140/103 ms, p<0.001, so the narrowing is real). Three draft numbers were wrong and are corrected: **M6 = 0.583 AP / 0.969 AUC** (a draft printed 0.0036/0.462, which also contradicted the paper's own Section 5.8), **M4 cross-corpus AUC = 0.963** (draft 0.949), and **7 of the 11** PTB-XL false positives carry a QRS-deforming condition (draft: 9).
+- **Why:** A manuscript that cannot survive a line-by-line audit against its own released artifacts cannot survive review. The bibliography was additionally converted from hard-coded numbers to `\cite{key}` with `\bibitem` in citation order, removing a whole class of renumbering error.
+- **Rejected alternative(s):** `v1`'s instrumental-artifact reading (refuted); keeping hard-coded citation numbers (fragile under any insertion).
+- **Status:** superseded by [D63](#d63)-[D69](#d69) (v_e). `v1` archived as `paper/wpw_paper_ARCHIVE_instrumental_thesis.tex`.
+
+## <a id="d57"></a>[D57] Huang et al. integrated as corroboration only, with no performance comparison
+- **Context:** A large real-world study (arXiv:2510.24750) screened 3.57M single-lead recordings from 87,836 individuals for WPW with cardiologist review, reporting AUC 0.6676 and 55 confirmed cases.
+- **Options considered:** ignore it; compare our 0.950 AUC against its 0.6676; or cite it only where it corroborates an existing claim.
+- **Decision:** Cite it six times as corroboration and **draw no performance comparison**. Corroborated claims: comorbidity masking (their sensitivity 48% without a concomitant condition vs 20% with), the pre-filter economics (1,104 → 18 tracings read per confirmed case, ~99.5% burden reduction), rank-over-probability (their probabilities miscalibrate under ultra-low prevalence while ranking holds), and the base rate (~0.9 per 1,000 vs our 0.21%).
+- **Why:** Lead count, signal quality, prevalence and labelling all differ, and the paper's own Section 5.9 forbids exactly this kind of cross-setting comparison. Making it would contradict our own stated discipline. One existing sentence had to change: "one directly comparable reference" became "one directly comparable **12-lead** reference, the one large-scale detection study being single-lead".
+- **Rejected alternative(s):** comparing the two AUCs (incommensurable); ignoring the study (leaves a visible gap for a reviewer).
+- **Status:** frozen in `v_d`, carried into `v_e`.
+
+## <a id="d58"></a>[D58] The cohort table describes all 66,951 records, not only the 142 positives
+- **Context:** The paper described the positive class only by its label definition, with no demographic or diagnostic characterisation of who these patients are.
+- **Options considered:** a table of the 142 WPW alone; or WPW against the surrounding archive, per corpus.
+- **Decision:** Describe **both classes**, per corpus, never pooled. Age: WPW median 48 vs 61 (PTB-XL) and 47 vs 62 (Chapman-Shaoxing-Ningbo), the gap appearing independently in both. Burden: excluding baseline-rhythm and normality statements, WPW records average **0.84 vs 1.59** further statements (PTB-XL) and **0.76 vs 1.18** (CSN), with 1.4% vs 25.7% carrying three or more.
+- **Why:** The contrast column is what makes the table informative instead of decorative, and it supplies the denominator Section 7.3 needs: the typical WPW tracing is otherwise clean, which is what makes the minority that is not clean the subgroup of interest. Two vocabularies (SCP-ECG, SNOMED-CT) are never merged, since any mapping would be arbitrary and attackable. **Trap handled:** counting `NORM` and plain sinus rhythm as comorbidities inverts the reading (naive means are 1.64 vs 2.80), so a second burden metric excluding baseline/normality statements is reported alongside, with the excluded set declared.
+- **Rejected alternative(s):** the 142 alone (a case series, no denominator); pooling the corpora (arbitrary vocabulary mapping); a single burden metric (contaminated by normality labels).
+- **Status:** frozen. Script `wpw_comorbidity_profile.py`, artifacts `reports/metrics/wpw_comorbidity_profile.json` and `wpw_comorbidity_table.tex`, which reproduce the paper's two tables byte-for-byte.
+
+## <a id="d59"></a>[D59] PTB-XL likelihood-0 means present, and ages above 89 are censored
+- **Context:** Two PTB-XL encoding conventions silently corrupt any count taken naively from `scp_codes` and `age`.
+- **Decision:** A statement counts as **present whenever the key exists**, whatever its likelihood, because a likelihood of 0 means "present, no likelihood assigned by the annotator", not "absent". Ages stored as **300 are censored values above 89** and are excluded from medians and reported separately (293 non-WPW records, no WPW record).
+- **Why:** Counting only likelihood > 0 would drop most statements in the corpus. The number of zero-likelihood carriers is reported per code so the choice stays auditable.
+- **Status:** frozen, implemented in `wpw_comorbidity_profile.py`.
+
+## <a id="d60"></a>[D60] Thirty unresolved SNOMED codes, and 17 corpus names that are wrong
+- **Context:** `ConditionNames_SNOMED-CT.csv` shipped with the corpus covers the Chapman-Shaoxing half only. Thirty codes came out as `UNKNOWN`, one of them (`55827005`, left ventricular high voltage) the **second most frequent statement among the WPW records** at 12.5%.
+- **Options considered:** print `UNKNOWN`; drop the unresolved rows; or resolve from the official challenge mapping.
+- **Decision:** Resolve names from the **PhysioNet/CinC 2021 diagnosis mapping**, hard-coded into the script so there is no network dependency, and give the **official SNOMED preferred term priority over the corpus file**.
+- **Why:** Beyond the 30 unresolved codes, the corpus file is actively wrong on 17 of the statements reaching the paper's table. It lists **two codes twice under two different names**: `164909002` as both "left front bundle branch block" and "left back bundle branch block" (officially *left bundle branch block*), and `698252002` as both "Interior differences conduction" and "Intraventricular block" (officially *nonspecific intraventricular conduction disorder*). A dict comprehension keeps whichever comes last, so the table printed a name that does not correspond to its code. Further mistranslations: "ST drop down" (st depression), "ST extension" (st interval abnormal), "T wave opposite" (t wave inversion), "Sinus Irregularity" (sinus arrhythmia), "Axis left shift" (left axis deviation).
+- **Rejected alternative(s):** corpus names first (publishes a wrong name for `164909002`); dropping unresolved rows (loses the second most frequent WPW statement).
+- **Status:** frozen. Priority reversed in the script on 2026-07-24; the divergence is declared in the paper's Section 3.4 and in the table caption.
+
+## <a id="d61"></a>[D61] AVNRT was being counted under a code that does not exist in the corpus
+- **Context:** `fp_miss_code_audit.py` used `233896004` as the AVNRT code, taken from the corpus condition-name file.
+- **Decision:** The correct code is **`251166008`** (PhysioNet/CinC 2021), present 16 times, all in negatives. `233896004` appears **nowhere** in the corpus, so the reported AVNRT count was misleadingly zero.
+- **Why:** No effect on any published number: AVNRT is *nodal* re-entry, not an accessory pathway, so it was excluded from the pre-excitation set by construction either way. Recorded because the same class of error produced [D63](#d63), which did change a conclusion.
+- **Status:** corrected 2026-07-24.
+
+## <a id="d62"></a>[D62] Nine negatives carry a WPW statement; exactly one is a committee false positive
+- **Context:** The strict positive definition (PTB-XL likelihood 100) excludes recordings coded WPW at lower likelihood. How many, and do they explain the false positives?
+- **Decision:** **Nine** PTB-XL negatives carry a WPW statement (`4279, 7399, 7407, 7424, 8274, 10822, 17583, 20486, 20518`). Exactly **one**, `20486` (`WPW: 50.0`, fold 5, ensemble score 0.9985), is among the committee's 11 PTB-XL false positives.
+- **Why:** This confirms rather than corrects the manuscript: Section 7.5 already stated "one of the 11 PTB-XL false positives carries a WPW code at reduced likelihood". The check was run to see whether the other eight were also being flagged, which would have changed the reading of the false-positive set. They are not.
+- **Status:** verified, no manuscript change required.
+
+## <a id="d63"></a>[D63] The Holm family carried a stale 12SL test, and correcting it reverses the section's verdict
+- **Context:** While building the twelve-test table for the manuscript, the saved family `reports/metrics/error_analysis_holm_family.json` was found to contain `12SL QRS dur (TP vs FN, MW, PTB)` at **raw p = 0.265**, while Section 7.2 of the same manuscript reported **p < 0.001** for that same test.
+- **Options considered:** publish the table as saved; drop the 12SL row; or recompute the family.
+- **Decision:** **Recompute.** The family had been computed *before* the 12SL column audit of [D54](#d54) and still contained the test from the wrong column. Re-deriving from the frozen OOF committee (43 detected / 14 missed, PTB-XL) with `QRS_Dur_Global` gives **p = 2.23e-06**. Holm over the twelve tests then yields **exactly one survivor**, adjusted **p = 2.67e-05**: the device-measured QRS narrowing.
+- **Why:** Section 7.3 previously stated "**no test survives at the 0.05 level**". That is false, and false in the direction that understated the work: the central finding of the entire error analysis does survive multiplicity correction, and it is the one measured by an instrument outside our pipeline. Comorbidity masking moves from adjusted 0.081 to **0.073** and still does not survive. **Generalisable lesson, now in `CLAUDE.md` §7bis:** correcting a source number is not enough; every artifact that consumed it must be re-derived or marked stale. The bug survived four days because the family was summarised nowhere — building the exhaustive table is what exposed it.
+- **Rejected alternative(s):** publishing the saved table (would have put p<0.001 and p=0.265 for the same test in one document); dropping the row (hides the strongest result in the section).
+- **Status:** frozen. Artifact `reports/metrics/error_analysis_holm_family_v2.json`, with a note recording the correction. The paper prints the full family as Table 7.
+
+## <a id="d64"></a>[D64] The nested-CV optimism had been measured, and the manuscript said it had not
+- **Context:** `models/best_model/bestmodel_config.json` and `best_model_v2/` both carry a `nested_AP` field. The manuscript's limitations stated "a fully nested re-run ... **we did not perform it**".
+- **Decision:** Report the measurement. Re-running the entire selection inside each fold lowers the feature-union model from **0.727 to 0.613** (sd 0.004) and the union-plus-intervals model from **0.740 to 0.610** (sd 0.011): a selection optimism of **0.114 and 0.130 average precision**.
+- **Why:** A measured bound beats an analytic one, and this is now listed as a contribution. It is costly to state, since it implies the paper's out-of-fold numbers are upper estimates by roughly that margin, and the two union models have the most selection freedom in the study so should carry the most. Two qualifications are stated: the single-representation detectors draw on smaller pools and are expected to carry less, and the measurement was **not** repeated for M3 and M4 individually, which would require re-running their extraction inside every fold.
+- **Rejected alternative(s):** leaving the analytic bound in place (the empirical number exists in the released artifacts; omitting it while claiming full reproducibility is indefensible).
+- **Status:** frozen in `v_e`, Sections 1.3, 4.3 and 8.4.
+
+## <a id="d65"></a>[D65] Averaging raw scores beats the deployed rank vote, and the paper says so
+- **Context:** A discrepancy between `best_model`'s recorded `vote_oof_AP = 0.6849` and `ensemble_config.json`'s `0.7173` was checked by recomputing the vote from the frozen OOF scores.
+- **Decision:** The frozen recipe reproduces **0.7173 AP / 0.9715 AUC / 80-25-35** exactly, so `0.6849` is a stale value from an earlier vote and the manuscript is correct. **But the check also showed that averaging the two members' raw scores reaches 0.7367**, above both the rank vote (0.7173) and M4 alone (0.7184). This is now declared in Section 5.2.
+- **Why:** A reviewer trying the obvious alternative fusion will find it better on the primary metric. Declaring it with the reason is stronger than being caught: raw-score averaging is precisely the operation Section 5.5 shows to be unsafe across acquisition environments, where the same detector's scores differ in scale by a factor of 2.7. The rank vote gives up roughly 0.02 in-distribution average precision for an output defined identically on an unseen corpus.
+- **Status:** frozen in `v_e`.
+
+## <a id="d66"></a>[D66] The passband was selected on precursor models, one of which is not deployed
+- **Context:** Section 4.1 claimed the 0.5-40 Hz band "was best for the two feature-based detectors that are deployed (for M1 ...; for M3 ...)".
+- **Decision:** Rewrite. Three separate errors: **M1 is not deployed** (M3 and M4 are); **M4 was never tested** against an alternative front end; and **for M3 the numbers are 0.697 against 0.698**, so the retained band is marginally *worse* and the comparison does not discriminate. The ablation also ran on early simplified precursors, not on the frozen detectors.
+- **Why:** What the ablation does establish is that filtering beats no filtering for the two feature-based precursors (0.03-0.05 AUC). The choice between 40 and 75 Hz rests on the physical argument (delta-wave energy above 40 Hz versus muscle and mains noise, the latter ~2.6x higher in Chapman-Shaoxing-Ningbo), not on a measured advantage. The one representation with a clear preference, M7, preferred a band we did not adopt.
+- **Rejected alternative(s):** keeping "was best" (contradicted by the paper's own printed numbers); re-running the ablation on frozen M3/M4 (a full run; named as not performed instead).
+- **Status:** frozen in `v_e`, with a dedicated limitation.
+
+## <a id="d67"></a>[D67] The RF/LR controls are real, but scoped to M1, M2 and M6
+- **Context:** Section 4.4 claimed a random forest and a logistic regression "were tuned under the same protocol as witnesses", in a general methods section covering all detectors.
+- **Decision:** Scope it. The tournaments exist for **M1, M2 and M6 only, never for M3 or M4**, the two deployed detectors. The M2 numbers are reported: RF 0.306 out-of-fold / 0.303 on the validation fold, XGB 0.266 / 0.407, LR 0.158 / 0.164 with the **highest AUC of the three (0.976)**. The word "witnesses" (a Gallicism for *témoins*) becomes "controls".
+- **Why:** Two of the three tournaments lived in unpublished superseded notebooks, so a paper promising full reproducibility rested on artifacts nobody could inspect; both are now released as `notebooks/legacy_m{1,2}_algo_tournament.ipynb`. And the one notebook that *was* public shows RF **beating** XGBoost on the best feature list (0.6158 vs 0.5605) with a smaller overfit gap, with no fold-9 comparison to support "generalized worse" — a reviewer opening it would have found the opposite of the claim. The choice of learner for the deployed system now rests explicitly on the missing-value argument, not on a test that was never run.
+- **Status:** frozen in `v_e`.
+
+## <a id="d68"></a>[D68] The suspicion scale has five levels, and the table printed four
+- **Context:** Section 5.7 referred to "the five anchored suspicion levels" while Table 4 listed four (Low, Moderate, High, Very high), and the Georgia percentages summed to 99.5%.
+- **Decision:** Add the missing **Very low** level: precision 0.002 (the prevalence), recall 1.000, 1000 flagged per 1000. Confirmed against `interface/artifacts/ensemble_pr_curve.csv` (43,451 points), whose lowest threshold gives precision 0.002148 at recall 1.000, and against `score_anchors.json`, which has carried five levels all along.
+- **Why:** With five levels the Georgia distribution closes: 89.1 + 10.3 + 0.51 + 0.087 ≈ 100%. A latent LaTeX bug was found alongside: the table declared `@{}lcccc@{}` (five columns) for four-field rows.
+- **Status:** frozen in `v_e`.
+
+## <a id="d69"></a>[D69] The selection rule differs between deployed and characterisation detectors, deliberately
+- **Context:** `CLAUDE.md` stated "1-SE for the deployed/combined models; max-OOF for the standalone ones". The frozen configs state the opposite.
+- **Decision:** **The implementation is authoritative and the manuscript already described it correctly.** M1 and M2 use a 1-SE-style tie rule; **M3 and M4, the two deployed members, use max-OOF with depth open and parsimony as tie-break**, as written verbatim in `models/M3_wavelet/m3_combined_config.json`: *"MAX OOF AP [...] NOTE: differs from M1/M2 (1-SE) on purpose"*. `CLAUDE.md` was wrong and is corrected.
+- **Why:** What was missing was the justification, now in Section 4.3: M1 and M2 characterise what a representation can do, where a parsimony-biased rule guards against reading noise as signal; M3 and M4 are built to be deployed, where the question is attainable performance and the pre-frozen fold-10 contact is the check. The cost is stated: the deployed detectors absorb more selection optimism out-of-fold, which is part of what [D64](#d64) quantifies.
+- **Status:** frozen. `CLAUDE.md` §9 corrected 2026-07-24.
 
 
 ---

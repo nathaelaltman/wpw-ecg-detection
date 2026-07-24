@@ -1,0 +1,1872 @@
+{
+  "note": "Descriptive only, no statistical test. Codes are ECG statements, not clinical histories. Corpora are reported separately because SCP-ECG and SNOMED-CT are different vocabularies and are not pooled. Pre-excitation codes are flagged and excluded from the burden counts.",
+  "ptbxl": {
+    "n_total": 21799,
+    "n_wpw": 70,
+    "n_neg": 21729,
+    "baseline_excluded_from_pathological": [
+      "NORM",
+      "SR"
+    ],
+    "wpw": {
+      "age": {
+        "n": 70,
+        "median": 48.0,
+        "q1": 38.25,
+        "q3": 60.0,
+        "min": 13.0,
+        "max": 87.0
+      },
+      "age_censored_over_89": 0,
+      "age_missing": 0,
+      "sex": {
+        "female": {
+          "n": 32,
+          "pct": 45.7
+        },
+        "male": {
+          "n": 38,
+          "pct": 54.3
+        }
+      },
+      "burden": {
+        "dist": {
+          "0": {
+            "n": 2,
+            "pct": 2.9
+          },
+          "1": {
+            "n": 30,
+            "pct": 42.9
+          },
+          "2": {
+            "n": 31,
+            "pct": 44.3
+          },
+          "3+": {
+            "n": 7,
+            "pct": 10.0
+          }
+        },
+        "mean": 1.64,
+        "median": 2.0
+      },
+      "burden_pathological": {
+        "dist": {
+          "0": {
+            "n": 26,
+            "pct": 37.1
+          },
+          "1": {
+            "n": 32,
+            "pct": 45.7
+          },
+          "2": {
+            "n": 11,
+            "pct": 15.7
+          },
+          "3+": {
+            "n": 1,
+            "pct": 1.4
+          }
+        },
+        "mean": 0.84,
+        "median": 1.0
+      }
+    },
+    "neg": {
+      "age": {
+        "n": 21436,
+        "median": 61.0,
+        "q1": 50.0,
+        "q3": 72.0,
+        "min": 2.0,
+        "max": 89.0
+      },
+      "age_censored_over_89": 293,
+      "age_missing": 0,
+      "sex": {
+        "female": {
+          "n": 10413,
+          "pct": 47.9
+        },
+        "male": {
+          "n": 11316,
+          "pct": 52.1
+        }
+      },
+      "burden": {
+        "dist": {
+          "0": {
+            "n": 0,
+            "pct": 0.0
+          },
+          "1": {
+            "n": 708,
+            "pct": 3.3
+          },
+          "2": {
+            "n": 11199,
+            "pct": 51.5
+          },
+          "3+": {
+            "n": 9822,
+            "pct": 45.2
+          }
+        },
+        "mean": 2.8,
+        "median": 2.0
+      },
+      "burden_pathological": {
+        "dist": {
+          "0": {
+            "n": 7258,
+            "pct": 33.4
+          },
+          "1": {
+            "n": 4719,
+            "pct": 21.7
+          },
+          "2": {
+            "n": 4176,
+            "pct": 19.2
+          },
+          "3+": {
+            "n": 5576,
+            "pct": 25.7
+          }
+        },
+        "mean": 1.59,
+        "median": 1.0
+      }
+    },
+    "n_distinct_codes": 71,
+    "codes": [
+      {
+        "code": "WPW",
+        "name": "Wolf-Parkinson-White syndrome",
+        "n_wpw": 70,
+        "pct_wpw": 100.0,
+        "n_neg": 9,
+        "pct_neg": 0.04,
+        "is_preexcitation": true,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "SR",
+        "name": "sinus rhythm",
+        "n_wpw": 56,
+        "pct_wpw": 80.0,
+        "n_neg": 16692,
+        "pct_neg": 76.82,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 16748
+      },
+      {
+        "code": "ABQRS",
+        "name": "abnormal QRS",
+        "n_wpw": 37,
+        "pct_wpw": 52.9,
+        "n_neg": 3290,
+        "pct_neg": 15.14,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 3327
+      },
+      {
+        "code": "SVARR",
+        "name": "supraventricular arrhythmia",
+        "n_wpw": 5,
+        "pct_wpw": 7.1,
+        "n_neg": 152,
+        "pct_neg": 0.7,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 157
+      },
+      {
+        "code": "SBRAD",
+        "name": "sinus bradycardia",
+        "n_wpw": 3,
+        "pct_wpw": 4.3,
+        "n_neg": 634,
+        "pct_neg": 2.92,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 637
+      },
+      {
+        "code": "ALMI",
+        "name": "anterolateral myocardial infarction",
+        "n_wpw": 3,
+        "pct_wpw": 4.3,
+        "n_neg": 285,
+        "pct_neg": 1.31,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "IMI",
+        "name": "inferior myocardial infarction",
+        "n_wpw": 2,
+        "pct_wpw": 2.9,
+        "n_neg": 2674,
+        "pct_neg": 12.31,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "ASMI",
+        "name": "anteroseptal myocardial infarction",
+        "n_wpw": 2,
+        "pct_wpw": 2.9,
+        "n_neg": 2355,
+        "pct_neg": 10.84,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "AFIB",
+        "name": "atrial fibrillation",
+        "n_wpw": 2,
+        "pct_wpw": 2.9,
+        "n_neg": 1512,
+        "pct_neg": 6.96,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 1466
+      },
+      {
+        "code": "IRBBB",
+        "name": "incomplete right bundle branch block",
+        "n_wpw": 2,
+        "pct_wpw": 2.9,
+        "n_neg": 1116,
+        "pct_neg": 5.14,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "SARRH",
+        "name": "sinus arrhythmia",
+        "n_wpw": 2,
+        "pct_wpw": 2.9,
+        "n_neg": 770,
+        "pct_neg": 3.54,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 772
+      },
+      {
+        "code": "LOWT",
+        "name": "low amplitude T-waves",
+        "n_wpw": 1,
+        "pct_wpw": 1.4,
+        "n_neg": 437,
+        "pct_neg": 2.01,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 438
+      },
+      {
+        "code": "NORM",
+        "name": "normal ECG",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 9514,
+        "pct_neg": 43.78,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "LVH",
+        "name": "left ventricular hypertrophy",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 2132,
+        "pct_neg": 9.81,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "NDT",
+        "name": "non-diagnostic T abnormalities",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 1825,
+        "pct_neg": 8.4,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "LAFB",
+        "name": "left anterior fascicular block",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 1623,
+        "pct_neg": 7.47,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "ISC_",
+        "name": "non-specific ischemic",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 1272,
+        "pct_neg": 5.85,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "PVC",
+        "name": "ventricular premature complex",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 1143,
+        "pct_neg": 5.26,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 116
+      },
+      {
+        "code": "STD_",
+        "name": "non-specific ST depression",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 1009,
+        "pct_neg": 4.64,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 1009
+      },
+      {
+        "code": "VCLVH",
+        "name": "voltage criteria (QRS) for left ventricular hypertrophy",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 875,
+        "pct_neg": 4.03,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 875
+      },
+      {
+        "code": "STACH",
+        "name": "sinus tachycardia",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 826,
+        "pct_neg": 3.8,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 822
+      },
+      {
+        "code": "1AVB",
+        "name": "first degree AV block",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 793,
+        "pct_neg": 3.65,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "IVCD",
+        "name": "non-specific intraventricular conduction disturbance (block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 787,
+        "pct_neg": 3.62,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "NST_",
+        "name": "non-specific ST changes",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 767,
+        "pct_neg": 3.53,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 208
+      },
+      {
+        "code": "ISCAL",
+        "name": "ischemic in anterolateral leads",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 659,
+        "pct_neg": 3.03,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "QWAVE",
+        "name": "Q waves present",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 548,
+        "pct_neg": 2.52,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 548
+      },
+      {
+        "code": "CRBBB",
+        "name": "complete right bundle branch block",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 541,
+        "pct_neg": 2.49,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "CLBBB",
+        "name": "complete left bundle branch block",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 536,
+        "pct_neg": 2.47,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "ILMI",
+        "name": "inferolateral myocardial infarction",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 478,
+        "pct_neg": 2.2,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "LAO/LAE",
+        "name": "left atrial overload/enlargement",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 426,
+        "pct_neg": 1.96,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "NT_",
+        "name": "non-specific T-wave changes",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 423,
+        "pct_neg": 1.95,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 423
+      },
+      {
+        "code": "PAC",
+        "name": "atrial premature complex",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 398,
+        "pct_neg": 1.83,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 361
+      },
+      {
+        "code": "AMI",
+        "name": "anterior myocardial infarction",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 353,
+        "pct_neg": 1.62,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "LPR",
+        "name": "prolonged PR interval",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 340,
+        "pct_neg": 1.56,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 340
+      },
+      {
+        "code": "INVT",
+        "name": "inverted T-waves",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 294,
+        "pct_neg": 1.35,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 294
+      },
+      {
+        "code": "PACE",
+        "name": "normal functioning artificial pacemaker",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 294,
+        "pct_neg": 1.35,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 7
+      },
+      {
+        "code": "ISCIN",
+        "name": "ischemic in inferior leads",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 218,
+        "pct_neg": 1.0,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "INJAS",
+        "name": "subendocardial injury in anteroseptal leads",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 214,
+        "pct_neg": 0.98,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "LMI",
+        "name": "lateral myocardial infarction",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 201,
+        "pct_neg": 0.93,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "LVOLT",
+        "name": "low QRS voltages in the frontal and horizontal leads",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 182,
+        "pct_neg": 0.84,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 182
+      },
+      {
+        "code": "DIG",
+        "name": "digitalis-effect",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 181,
+        "pct_neg": 0.83,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 4
+      },
+      {
+        "code": "ISCIL",
+        "name": "ischemic in inferolateral leads",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 179,
+        "pct_neg": 0.82,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "LPFB",
+        "name": "left posterior fascicular block",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 177,
+        "pct_neg": 0.81,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "ISCAS",
+        "name": "ischemic in anteroseptal leads",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 169,
+        "pct_neg": 0.78,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "INJAL",
+        "name": "subendocardial injury in anterolateral leads",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 145,
+        "pct_neg": 0.67,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "ISCLA",
+        "name": "ischemic in lateral leads",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 140,
+        "pct_neg": 0.64,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "RVH",
+        "name": "right ventricular hypertrophy",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 126,
+        "pct_neg": 0.58,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "LNGQT",
+        "name": "long QT-interval",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 117,
+        "pct_neg": 0.54,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 1
+      },
+      {
+        "code": "ANEUR",
+        "name": "ST-T changes compatible with ventricular aneurysm",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 104,
+        "pct_neg": 0.48,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "RAO/RAE",
+        "name": "right atrial overload/enlargement",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 99,
+        "pct_neg": 0.46,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "EL",
+        "name": "electrolytic disturbance or drug (former EDIS)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 96,
+        "pct_neg": 0.44,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "BIGU",
+        "name": "bigeminal pattern (unknown origin, SV or Ventricular)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 82,
+        "pct_neg": 0.38,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 58
+      },
+      {
+        "code": "ILBBB",
+        "name": "incomplete left bundle branch block",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 77,
+        "pct_neg": 0.35,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "AFLT",
+        "name": "atrial flutter",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 73,
+        "pct_neg": 0.34,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 17
+      },
+      {
+        "code": "HVOLT",
+        "name": "high QRS voltage",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 62,
+        "pct_neg": 0.29,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 62
+      },
+      {
+        "code": "IPLMI",
+        "name": "inferoposterolateral myocardial infarction",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 51,
+        "pct_neg": 0.23,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "ISCAN",
+        "name": "ischemic in anterior leads",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 44,
+        "pct_neg": 0.2,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "TAB_",
+        "name": "T-wave abnormality",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 35,
+        "pct_neg": 0.16,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 35
+      },
+      {
+        "code": "IPMI",
+        "name": "inferoposterior myocardial infarction",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 33,
+        "pct_neg": 0.15,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "SEHYP",
+        "name": "septal hypertrophy",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 29,
+        "pct_neg": 0.13,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "STE_",
+        "name": "non-specific ST elevation",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 28,
+        "pct_neg": 0.13,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 28
+      },
+      {
+        "code": "SVTAC",
+        "name": "supraventricular tachycardia",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 27,
+        "pct_neg": 0.12,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 27
+      },
+      {
+        "code": "PSVT",
+        "name": "paroxysmal supraventricular tachycardia",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 24,
+        "pct_neg": 0.11,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "TRIGU",
+        "name": "trigeminal pattern (unknown origin, SV or Ventricular)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 20,
+        "pct_neg": 0.09,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 20
+      },
+      {
+        "code": "INJIN",
+        "name": "subendocardial injury in inferior leads",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 18,
+        "pct_neg": 0.08,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "INJLA",
+        "name": "subendocardial injury in lateral leads",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 17,
+        "pct_neg": 0.08,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "PMI",
+        "name": "posterior myocardial infarction",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 17,
+        "pct_neg": 0.08,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "3AVB",
+        "name": "third degree AV block",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 16,
+        "pct_neg": 0.07,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "INJIL",
+        "name": "subendocardial injury in inferolateral leads",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 15,
+        "pct_neg": 0.07,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "2AVB",
+        "name": "second degree AV block",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 14,
+        "pct_neg": 0.06,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 0
+      },
+      {
+        "code": "PRC(S)",
+        "name": "premature complex(es)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 10,
+        "pct_neg": 0.05,
+        "is_preexcitation": false,
+        "n_zero_likelihood": 10
+      }
+    ]
+  },
+  "csn": {
+    "n_total": 45152,
+    "n_wpw": 72,
+    "n_neg": 45080,
+    "baseline_excluded_from_pathological": [
+      "426177001",
+      "426783006",
+      "427084000",
+      "427393009"
+    ],
+    "wpw": {
+      "age": {
+        "n": 72,
+        "median": 47.0,
+        "q1": 28.25,
+        "q3": 58.0,
+        "min": 4.0,
+        "max": 83.0
+      },
+      "age_censored_over_89": 0,
+      "age_missing": 0,
+      "sex": {
+        "FEMALE": {
+          "n": 28,
+          "pct": 38.9
+        },
+        "MALE": {
+          "n": 44,
+          "pct": 61.1
+        }
+      },
+      "burden": {
+        "dist": {
+          "0": {
+            "n": 0,
+            "pct": 0.0
+          },
+          "1": {
+            "n": 45,
+            "pct": 62.5
+          },
+          "2": {
+            "n": 16,
+            "pct": 22.2
+          },
+          "3+": {
+            "n": 11,
+            "pct": 15.3
+          }
+        },
+        "mean": 1.61,
+        "median": 1.0
+      },
+      "burden_pathological": {
+        "dist": {
+          "0": {
+            "n": 42,
+            "pct": 58.3
+          },
+          "1": {
+            "n": 16,
+            "pct": 22.2
+          },
+          "2": {
+            "n": 9,
+            "pct": 12.5
+          },
+          "3+": {
+            "n": 5,
+            "pct": 6.9
+          }
+        },
+        "mean": 0.76,
+        "median": 0.0
+      }
+    },
+    "neg": {
+      "age": {
+        "n": 45025,
+        "median": 62.0,
+        "q1": 48.0,
+        "q3": 72.0,
+        "min": 0.0,
+        "max": 89.0
+      },
+      "age_censored_over_89": 0,
+      "age_missing": 55,
+      "sex": {
+        "FEMALE": {
+          "n": 19648,
+          "pct": 43.6
+        },
+        "MALE": {
+          "n": 25410,
+          "pct": 56.4
+        },
+        "UNKNOWN": {
+          "n": 22,
+          "pct": 0.0
+        }
+      },
+      "burden": {
+        "dist": {
+          "0": {
+            "n": 5,
+            "pct": 0.0
+          },
+          "1": {
+            "n": 22195,
+            "pct": 49.2
+          },
+          "2": {
+            "n": 11809,
+            "pct": 26.2
+          },
+          "3+": {
+            "n": 11071,
+            "pct": 24.6
+          }
+        },
+        "mean": 1.95,
+        "median": 2.0
+      },
+      "burden_pathological": {
+        "dist": {
+          "0": {
+            "n": 19862,
+            "pct": 44.1
+          },
+          "1": {
+            "n": 10785,
+            "pct": 23.9
+          },
+          "2": {
+            "n": 6738,
+            "pct": 14.9
+          },
+          "3+": {
+            "n": 7695,
+            "pct": 17.1
+          }
+        },
+        "mean": 1.18,
+        "median": 1.0
+      }
+    },
+    "n_distinct_codes": 94,
+    "codes": [
+      {
+        "code": "74390002",
+        "name": "WPW (wolff parkinson white pattern)",
+        "n_wpw": 72,
+        "pct_wpw": 100.0,
+        "n_neg": 0,
+        "pct_neg": 0.0,
+        "is_preexcitation": true
+      },
+      {
+        "code": "426177001",
+        "name": "SB (sinus bradycardia)",
+        "n_wpw": 32,
+        "pct_wpw": 44.4,
+        "n_neg": 16527,
+        "pct_neg": 36.66,
+        "is_preexcitation": false
+      },
+      {
+        "code": "427084000",
+        "name": "STach (sinus tachycardia)",
+        "n_wpw": 13,
+        "pct_wpw": 18.1,
+        "n_neg": 7242,
+        "pct_neg": 16.06,
+        "is_preexcitation": false
+      },
+      {
+        "code": "426783006",
+        "name": "NSR (sinus rhythm)",
+        "n_wpw": 9,
+        "pct_wpw": 12.5,
+        "n_neg": 8116,
+        "pct_neg": 18.0,
+        "is_preexcitation": false
+      },
+      {
+        "code": "55827005",
+        "name": "LVHV (left ventricular high voltage)",
+        "n_wpw": 9,
+        "pct_wpw": 12.5,
+        "n_neg": 5392,
+        "pct_neg": 11.96,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164890007",
+        "name": "AFL (atrial flutter)",
+        "n_wpw": 7,
+        "pct_wpw": 9.7,
+        "n_neg": 8053,
+        "pct_neg": 17.86,
+        "is_preexcitation": false
+      },
+      {
+        "code": "427393009",
+        "name": "SA (sinus arrhythmia)",
+        "n_wpw": 7,
+        "pct_wpw": 9.7,
+        "n_neg": 2543,
+        "pct_neg": 5.64,
+        "is_preexcitation": false
+      },
+      {
+        "code": "39732003",
+        "name": "LAD (left axis deviation)",
+        "n_wpw": 6,
+        "pct_wpw": 8.3,
+        "n_neg": 1539,
+        "pct_neg": 3.41,
+        "is_preexcitation": false
+      },
+      {
+        "code": "426761007",
+        "name": "SVT (supraventricular tachycardia)",
+        "n_wpw": 6,
+        "pct_wpw": 8.3,
+        "n_neg": 718,
+        "pct_neg": 1.59,
+        "is_preexcitation": false
+      },
+      {
+        "code": "713427006",
+        "name": "CRBBB (complete right bundle branch block)",
+        "n_wpw": 4,
+        "pct_wpw": 5.6,
+        "n_neg": 1092,
+        "pct_neg": 2.42,
+        "is_preexcitation": false
+      },
+      {
+        "code": "427172004",
+        "name": "PVC (premature ventricular contractions)",
+        "n_wpw": 3,
+        "pct_wpw": 4.2,
+        "n_neg": 1088,
+        "pct_neg": 2.41,
+        "is_preexcitation": false
+      },
+      {
+        "code": "55930002",
+        "name": "STC (s t changes)",
+        "n_wpw": 2,
+        "pct_wpw": 2.8,
+        "n_neg": 4230,
+        "pct_neg": 9.38,
+        "is_preexcitation": false
+      },
+      {
+        "code": "284470004",
+        "name": "PAC (premature atrial contraction)",
+        "n_wpw": 2,
+        "pct_wpw": 2.8,
+        "n_neg": 1310,
+        "pct_neg": 2.91,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164917005",
+        "name": "QAb (qwave abnormal)",
+        "n_wpw": 2,
+        "pct_wpw": 2.8,
+        "n_neg": 1061,
+        "pct_neg": 2.35,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164909002",
+        "name": "LBBB (left bundle branch block)",
+        "n_wpw": 2,
+        "pct_wpw": 2.8,
+        "n_neg": 238,
+        "pct_neg": 0.53,
+        "is_preexcitation": false
+      },
+      {
+        "code": "425856008",
+        "name": "PVT (paroxysmal ventricular tachycardia)",
+        "n_wpw": 2,
+        "pct_wpw": 2.8,
+        "n_neg": 107,
+        "pct_neg": 0.24,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164934002",
+        "name": "TAb (t wave abnormal)",
+        "n_wpw": 1,
+        "pct_wpw": 1.4,
+        "n_neg": 7042,
+        "pct_neg": 15.62,
+        "is_preexcitation": false
+      },
+      {
+        "code": "251146004",
+        "name": "LQRSV (low qrs voltages)",
+        "n_wpw": 1,
+        "pct_wpw": 1.4,
+        "n_neg": 1042,
+        "pct_neg": 2.31,
+        "is_preexcitation": false
+      },
+      {
+        "code": "47665007",
+        "name": "RAD (right axis deviation)",
+        "n_wpw": 1,
+        "pct_wpw": 1.4,
+        "n_neg": 852,
+        "pct_neg": 1.89,
+        "is_preexcitation": false
+      },
+      {
+        "code": "698252002",
+        "name": "NSIVCB (nonspecific intraventricular conduction disorder)",
+        "n_wpw": 1,
+        "pct_wpw": 1.4,
+        "n_neg": 770,
+        "pct_neg": 1.71,
+        "is_preexcitation": false
+      },
+      {
+        "code": "61721007",
+        "name": "CVCL/CCVCL (clockwise or counterclockwise vectorcardiographic loop)",
+        "n_wpw": 1,
+        "pct_wpw": 1.4,
+        "n_neg": 652,
+        "pct_neg": 1.45,
+        "is_preexcitation": false
+      },
+      {
+        "code": "365413008",
+        "name": "PRWP (poor R wave progression)",
+        "n_wpw": 1,
+        "pct_wpw": 1.4,
+        "n_neg": 637,
+        "pct_neg": 1.41,
+        "is_preexcitation": false
+      },
+      {
+        "code": "713422000",
+        "name": "ATach (atrial tachycardia)",
+        "n_wpw": 1,
+        "pct_wpw": 1.4,
+        "n_neg": 296,
+        "pct_neg": 0.66,
+        "is_preexcitation": false
+      },
+      {
+        "code": "106068003",
+        "name": "ARH (atrial rhythm)",
+        "n_wpw": 1,
+        "pct_wpw": 1.4,
+        "n_neg": 214,
+        "pct_neg": 0.47,
+        "is_preexcitation": false
+      },
+      {
+        "code": "733534002",
+        "name": "CLBBB (complete left bundle branch block)",
+        "n_wpw": 1,
+        "pct_wpw": 1.4,
+        "n_neg": 212,
+        "pct_neg": 0.47,
+        "is_preexcitation": false
+      },
+      {
+        "code": "54329005",
+        "name": "AnMI (anterior myocardial infarction)",
+        "n_wpw": 1,
+        "pct_wpw": 1.4,
+        "n_neg": 56,
+        "pct_neg": 0.12,
+        "is_preexcitation": false
+      },
+      {
+        "code": "233897008",
+        "name": "AVRT (atrioventricular reentrant tachycardia)",
+        "n_wpw": 1,
+        "pct_wpw": 1.4,
+        "n_neg": 25,
+        "pct_neg": 0.06,
+        "is_preexcitation": true
+      },
+      {
+        "code": "59931005",
+        "name": "TInv (t wave inversion)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 2877,
+        "pct_neg": 6.38,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164889003",
+        "name": "AF (atrial fibrillation)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 1780,
+        "pct_neg": 3.95,
+        "is_preexcitation": false
+      },
+      {
+        "code": "429622005",
+        "name": "STD (st depression)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 1668,
+        "pct_neg": 3.7,
+        "is_preexcitation": false
+      },
+      {
+        "code": "10370003",
+        "name": "PR (pacing rhythm)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 1182,
+        "pct_neg": 2.62,
+        "is_preexcitation": false
+      },
+      {
+        "code": "428750005",
+        "name": "NSSTTA (nonspecific st t abnormality)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 1158,
+        "pct_neg": 2.57,
+        "is_preexcitation": false
+      },
+      {
+        "code": "270492004",
+        "name": "IAVB (1st degree av block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 1140,
+        "pct_neg": 2.53,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164930006",
+        "name": "STIAb (st interval abnormal)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 801,
+        "pct_neg": 1.78,
+        "is_preexcitation": false
+      },
+      {
+        "code": "59118001",
+        "name": "RBBB (right bundle branch block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 649,
+        "pct_neg": 1.44,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164873001",
+        "name": "LVH (left ventricular hypertrophy)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 647,
+        "pct_neg": 1.44,
+        "is_preexcitation": false
+      },
+      {
+        "code": "111975006",
+        "name": "LQT (prolonged qt interval)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 394,
+        "pct_neg": 0.87,
+        "is_preexcitation": false
+      },
+      {
+        "code": "6374002",
+        "name": "BBB (bundle branch block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 385,
+        "pct_neg": 0.85,
+        "is_preexcitation": false
+      },
+      {
+        "code": "445118002",
+        "name": "LAnFB (left anterior fascicular block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 380,
+        "pct_neg": 0.84,
+        "is_preexcitation": false
+      },
+      {
+        "code": "428417006",
+        "name": "ERe (early repolarization)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 366,
+        "pct_neg": 0.81,
+        "is_preexcitation": false
+      },
+      {
+        "code": "17338001",
+        "name": "VPB (ventricular premature beats)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 294,
+        "pct_neg": 0.65,
+        "is_preexcitation": false
+      },
+      {
+        "code": "713426002",
+        "name": "IRBBB (incomplete right bundle branch block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 246,
+        "pct_neg": 0.55,
+        "is_preexcitation": false
+      },
+      {
+        "code": "233917008",
+        "name": "AVB (av block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 244,
+        "pct_neg": 0.54,
+        "is_preexcitation": false
+      },
+      {
+        "code": "251223006",
+        "name": "TPW (tall p wave)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 215,
+        "pct_neg": 0.48,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164931005",
+        "name": "STE (st elevation)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 176,
+        "pct_neg": 0.39,
+        "is_preexcitation": false
+      },
+      {
+        "code": "251199005",
+        "name": "CCR (counterclockwise rotation)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 162,
+        "pct_neg": 0.36,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164912004",
+        "name": "PWC (p wave change)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 142,
+        "pct_neg": 0.31,
+        "is_preexcitation": false
+      },
+      {
+        "code": "29320008",
+        "name": "AVJR (atrioventricular junctional rhythm)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 139,
+        "pct_neg": 0.31,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164937009",
+        "name": "UAb (u wave abnormal)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 136,
+        "pct_neg": 0.3,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164865005",
+        "name": "MI (myocardial infarction)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 123,
+        "pct_neg": 0.27,
+        "is_preexcitation": false
+      },
+      {
+        "code": "13640000",
+        "name": "FB (fusion beats)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 116,
+        "pct_neg": 0.26,
+        "is_preexcitation": false
+      },
+      {
+        "code": "89792004",
+        "name": "RVH (right ventricular hypertrophy)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 110,
+        "pct_neg": 0.24,
+        "is_preexcitation": false
+      },
+      {
+        "code": "251205003",
+        "name": "PPW (prolonged P wave)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 106,
+        "pct_neg": 0.24,
+        "is_preexcitation": false
+      },
+      {
+        "code": "81898007",
+        "name": "VEsR (ventricular escape rhythm)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 96,
+        "pct_neg": 0.21,
+        "is_preexcitation": false
+      },
+      {
+        "code": "251198002",
+        "name": "CR (clockwise rotation)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 76,
+        "pct_neg": 0.17,
+        "is_preexcitation": false
+      },
+      {
+        "code": "27885002",
+        "name": "CHB (complete heart block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 76,
+        "pct_neg": 0.17,
+        "is_preexcitation": false
+      },
+      {
+        "code": "426995002",
+        "name": "JE (junctional escape)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 75,
+        "pct_neg": 0.17,
+        "is_preexcitation": false
+      },
+      {
+        "code": "195042002",
+        "name": "IIAVB (2nd degree av block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 66,
+        "pct_neg": 0.15,
+        "is_preexcitation": false
+      },
+      {
+        "code": "251170000",
+        "name": "BPAC (blocked premature atrial contraction)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 62,
+        "pct_neg": 0.14,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164896001",
+        "name": "VF (ventricular fibrillation)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 59,
+        "pct_neg": 0.13,
+        "is_preexcitation": false
+      },
+      {
+        "code": "50799005",
+        "name": "AVD (atrioventricular dissociation)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 59,
+        "pct_neg": 0.13,
+        "is_preexcitation": false
+      },
+      {
+        "code": "75532003",
+        "name": "VEsB (ventricular escape beat)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 56,
+        "pct_neg": 0.12,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164947007",
+        "name": "LPR (prolonged pr interval)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 52,
+        "pct_neg": 0.12,
+        "is_preexcitation": false
+      },
+      {
+        "code": "57054005",
+        "name": "AMI (acute myocardial infarction)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 49,
+        "pct_neg": 0.11,
+        "is_preexcitation": false
+      },
+      {
+        "code": "446358003",
+        "name": "RAH (right atrial hypertrophy)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 36,
+        "pct_neg": 0.08,
+        "is_preexcitation": false
+      },
+      {
+        "code": "67751000119106",
+        "name": "RAHV (right atrial high voltage)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 36,
+        "pct_neg": 0.08,
+        "is_preexcitation": false
+      },
+      {
+        "code": "5609005",
+        "name": "SARR (sinus arrest)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 33,
+        "pct_neg": 0.07,
+        "is_preexcitation": false
+      },
+      {
+        "code": "54016002",
+        "name": "MoI (mobitz type i wenckebach atrioventricular block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 31,
+        "pct_neg": 0.07,
+        "is_preexcitation": false
+      },
+      {
+        "code": "426648003",
+        "name": "JTach (junctional tachycardia)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 24,
+        "pct_neg": 0.05,
+        "is_preexcitation": false
+      },
+      {
+        "code": "49578007",
+        "name": "SPRI (shortened pr interval)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 23,
+        "pct_neg": 0.05,
+        "is_preexcitation": false
+      },
+      {
+        "code": "251187003",
+        "name": "AED (atrial escape beat)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 17,
+        "pct_neg": 0.04,
+        "is_preexcitation": false
+      },
+      {
+        "code": "233892002",
+        "name": "AAR (accelerated atrial escape rhythm)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 16,
+        "pct_neg": 0.04,
+        "is_preexcitation": false
+      },
+      {
+        "code": "251166008",
+        "name": "AVNRT (atrioventricular node reentrant tachycardia)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 16,
+        "pct_neg": 0.04,
+        "is_preexcitation": false
+      },
+      {
+        "code": "61277005",
+        "name": "AIVR (accelerated idioventricular rhythm)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 14,
+        "pct_neg": 0.03,
+        "is_preexcitation": false
+      },
+      {
+        "code": "195060002",
+        "name": "VPEx (ventricular pre excitation)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 12,
+        "pct_neg": 0.03,
+        "is_preexcitation": true
+      },
+      {
+        "code": "426664006",
+        "name": "AJR (accelerated junctional rhythm)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 12,
+        "pct_neg": 0.03,
+        "is_preexcitation": false
+      },
+      {
+        "code": "251164006",
+        "name": "JPC (junctional premature complex)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 11,
+        "pct_neg": 0.02,
+        "is_preexcitation": false
+      },
+      {
+        "code": "63593006",
+        "name": "SVPB (supraventricular premature beats)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 9,
+        "pct_neg": 0.02,
+        "is_preexcitation": false
+      },
+      {
+        "code": "251180001",
+        "name": "VTrig (ventricular trigeminy)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 8,
+        "pct_neg": 0.02,
+        "is_preexcitation": false
+      },
+      {
+        "code": "446813000",
+        "name": "LAH (left atrial hypertrophy)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 8,
+        "pct_neg": 0.02,
+        "is_preexcitation": false
+      },
+      {
+        "code": "111288001",
+        "name": "VFL (ventricular flutter)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 7,
+        "pct_neg": 0.02,
+        "is_preexcitation": false
+      },
+      {
+        "code": "17366009",
+        "name": "SAAWR (sinus atrium to atrial wandering rhythm)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 7,
+        "pct_neg": 0.02,
+        "is_preexcitation": false
+      },
+      {
+        "code": "426183003",
+        "name": "IIAVBII (mobitz type II atrioventricular block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 7,
+        "pct_neg": 0.02,
+        "is_preexcitation": false
+      },
+      {
+        "code": "426627000",
+        "name": "Brady (bradycardia)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 7,
+        "pct_neg": 0.02,
+        "is_preexcitation": false
+      },
+      {
+        "code": "251120003",
+        "name": "ILBBB (incomplete left bundle branch block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 6,
+        "pct_neg": 0.01,
+        "is_preexcitation": false
+      },
+      {
+        "code": "418818005",
+        "name": "BRU (brugada)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 5,
+        "pct_neg": 0.01,
+        "is_preexcitation": false
+      },
+      {
+        "code": "445211001",
+        "name": "LPFB (left posterior fascicular block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 5,
+        "pct_neg": 0.01,
+        "is_preexcitation": false
+      },
+      {
+        "code": "65778007",
+        "name": "SAB (sinoatrial block)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 5,
+        "pct_neg": 0.01,
+        "is_preexcitation": false
+      },
+      {
+        "code": "11157007",
+        "name": "VBig (ventricular bigeminy)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 3,
+        "pct_neg": 0.01,
+        "is_preexcitation": false
+      },
+      {
+        "code": "164942001",
+        "name": "FQRS (fqrs wave)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 3,
+        "pct_neg": 0.01,
+        "is_preexcitation": false
+      },
+      {
+        "code": "251173003",
+        "name": "AB (atrial bigeminy)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 3,
+        "pct_neg": 0.01,
+        "is_preexcitation": false
+      },
+      {
+        "code": "195101003",
+        "name": "WAP (wandering atrial pacemaker)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 2,
+        "pct_neg": 0.0,
+        "is_preexcitation": false
+      },
+      {
+        "code": "77867006",
+        "name": "SQT (decreased qt interval)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 2,
+        "pct_neg": 0.0,
+        "is_preexcitation": false
+      },
+      {
+        "code": "67741000119109",
+        "name": "LAE (left atrial enlargement)",
+        "n_wpw": 0,
+        "pct_wpw": 0.0,
+        "n_neg": 1,
+        "pct_neg": 0.0,
+        "is_preexcitation": false
+      }
+    ]
+  },
+  "integrity": {
+    "unresolved_snomed": [],
+    "ptbxl_negatives_with_wpw_statement": [
+      "4279",
+      "7399",
+      "7407",
+      "7424",
+      "8274",
+      "10822",
+      "17583",
+      "20486",
+      "20518"
+    ],
+    "csn_negatives_with_preexcitation": {
+      "74390002": 0,
+      "195060002": 12,
+      "233897008": 25
+    }
+  }
+}
