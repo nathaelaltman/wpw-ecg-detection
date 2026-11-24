@@ -1,92 +1,133 @@
-# WPW detection from 12-lead ECG
+# WPW detection from the 12-lead ECG
 
-Detecting Wolff-Parkinson-White syndrome (WPW), a rare congenital pre-excitation, from the standard 12-lead ECG. The thesis of this project: at very low positive counts, **data volume, not model choice, is the bottleneck**.
+Code, frozen models and decision log for detecting Wolff-Parkinson-White syndrome (WPW) on standard 12-lead ECGs, where WPW appears in 142 of 66,951 recordings (0.21%, about 1 in 471).
 
-## Result (stated honestly, up front)
+**Paper:** [arXiv:2608.14633](https://arxiv.org/abs/2608.14633) (preprint, not peer-reviewed) · **Demo:** [wpwdetector.com/demo](https://wpwdetector.com/demo) · **Project site:** [wpwdetector.com](https://wpwdetector.com)
 
-The deployed model is a **rank-vote of two detectors** (wavelet-localization + median-beat morphology). It was evaluated **exactly once** on a held-out test fold that was never touched during development, with composition, weights, and threshold all frozen beforehand. On that test fold it reaches:
+> Research code. Not a medical device and not a diagnosis.
 
-- **AUC 0.95** (test set)
-- **AP 0.595** (95% CI [0.35, 0.85])
+## Result
 
-at a **471:1** class imbalance (**142 WPW in 66,951 ECGs**, prevalence 0.21%).
+The deployed detector is an equal-weight rank vote of two models (M3 wavelet + M4 median beat). Its composition, weights and threshold were frozen before the held-out fold (fold 10: 6,713 ECGs, 14 WPW) was scored, once.
 
-Why AUC is the meaningful headline here: the deliverable is a **risk score for screening** (sort the suspicious ECGs to the top), and ranking quality is what transfers. At 471:1, Average Precision is mechanically compressed (precision collapses as recall rises when negatives outnumber positives 471 to 1), so a modest AP is expected and is not a ranking failure. AUC, which measures ranking, holds at 0.95. The AP is reported openly, not hidden, and framed as a consequence of the imbalance rather than a weakness of the detector.
+| Held-out fold 10 | Value |
+|---|---|
+| ROC AUC | 0.950 (95% CI 0.89 to 1.00) |
+| Average precision | 0.595 (95% CI 0.35 to 0.85) |
+| At the frozen threshold | 11 flagged: 8 WPW, 3 false alarms, 6 WPW missed |
+| Recall / precision | 0.571 / 0.727 |
+| Specificity | 99.96% |
 
-## Why this project is methodologically strict (the point of the repository)
+![Held-out average precision for each model](reports/figures/fold10_forest_ap.png)
 
-- **One held-out contact.** The test fold (fold10) is contacted a single time, at the very end, with model composition, weights, and threshold frozen in advance. Nothing is selected on the test set.
-- **No-leakage sentinel (all five feature detectors PASS).** A label-permutation control collapses the null average precision to the prevalence for every feature-based detector: real out-of-fold AP 0.198 (M1), 0.299 (M2), 0.619 (M3), 0.718 (M4), 0.429 (M5v2), each against a null AP of only 0.002 to 0.003. Ranking cannot be reproduced from shuffled labels, so there is no detectable label leakage.
-- **Honest cross-validation.** Out-of-fold evaluation iterates on the native folds only, never re-shuffled (shuffling can co-locate correlated recordings and leak).
-- **Patient-level leakage checks.** The split is patient-disjoint (64,021 unique patients, no patient in two folds), enforced by a blocking assertion.
-- **A reversed result, documented not buried.** An apparent heart-rate effect was traced to a population-definition artifact (a diluted false-negative set) and reversed (heart rate is not significant, p = 0.22).
-- **Multiplicity correction over the declared family.** The error analysis runs twelve tests on the same small error population, and all twelve are listed with raw and Holm-adjusted p-values. **Exactly one survives**: the QRS duration measured by the acquisition device, detected 140.0 vs missed 103.0 ms, raw p = 2.2e-06, Holm-adjusted 2.7e-05. The comorbidity-masking effect is the largest in the family and does **not** survive (adjusted p = 0.073); it is reported as an unconfirmed signal. See `reports/metrics/error_analysis_holm_family_v2.json`.
-- **Selection optimism measured, not assumed.** Feature selection is computed once on the development folds rather than re-nested per fold. On the two models where a fully nested re-run was affordable, that optimism is **0.114 and 0.130 average precision** (0.727 → 0.613 and 0.740 → 0.610), so out-of-fold numbers in this repository should be read as upper estimates. The single held-out contact is unaffected, since everything was frozen before it.
+With 14 positives in the test fold, every interval overlaps: the held-out data cannot rank these models against each other.
 
-Rigor is the contribution. The performance number is present, bounded, and secondary to the discipline.
+## Seven representations, one protocol
 
-## Model nomenclature
+Each model reads the same split and the same evaluation code. Out-of-fold (OOF) numbers come from folds 1 to 8 (115 WPW).
 
-Descriptive names are a presentation layer; every file on disk uses the M1 to M7 / bestmodel IDs.
+| ID | Representation | OOF AP | Held-out AP [95% CI] | Held-out AUC |
+|---|---|:---:|:---:|:---:|
+| M1 | QRS-onset morphology (NeuroKit2 delineation) | 0.198 | 0.251 [0.065, 0.498] | 0.941 |
+| M2 | Global per-lead statistics and spectra | 0.299 | 0.276 [0.082, 0.535] | 0.897 |
+| M3 | Wavelet time-frequency at QRS onset | 0.619 | 0.544 [0.310, 0.802] | 0.957 |
+| M4 | Median-beat morphology | 0.718 | 0.552 [0.296, 0.828] | 0.903 |
+| M5 | Spatial vectorcardiogram | 0.429 | 0.301 [0.095, 0.589] | 0.913 |
+| M6 | Marquette 12SL on-machine measurements (commercial reference, PTB-XL only) | 0.583 | 0.442 (7 WPW) | n/a |
+| M7 | 1D residual CNN, about 63,500 parameters | 0.651 | 0.745 [0.529, 0.940] | 0.978 |
+| **Deployed** | **M3 + M4 rank vote** | **0.717** | **0.595 [0.346, 0.854]** | **0.950** |
 
-| ID | Descriptive name | Representation |
-|----|------------------|----------------|
-| M1 | QRS-onset morphology detector | NeuroKit delineation; no classical interval survives the gate, so all 35 retained features describe QRS-onset morphology |
-| M2 | Global-statistical detector | per-lead distribution and spectral summaries |
-| M3 | Wavelet-localization detector | wavelet time-frequency at the QRS onset |
-| M4 | Median-beat morphology detector | denoised median beat and most-pre-excited beat shape |
-| M5 | Spatial-VCG detector | vectorcardiogram (Kors, inverse-Dower), delta-axis geometry |
-| M6 | Marquette 12SL baseline | on-machine measurements (proprietary commercial reference) |
-| M7 | 1D-CNN detector (ResNet) | learned representation from the raw signal |
-| best_model | Feature-union model | XGBoost on the union of the best M1 to M5 features |
-| Deployed | Wavelet-morphology fusion | M3 + M4 rank-vote (equal weight) |
+M7 has the highest held-out point estimate. It was not promoted after the fact, because the deployed system was frozen before fold 10 was opened and the intervals overlap.
 
-## Key results (held-out test fold, fold10, 14 WPW)
+## What did not raise the ceiling
 
-| Model | fold10 AP | 95% CI | fold10 AUC |
-|-------|:---------:|:------:|:----------:|
-| M7 (1D-CNN) | 0.745 | [0.529, 0.940] | 0.978 |
-| **Deployed fusion (M3 + M4)** | **0.595** | **[0.346, 0.854]** | **0.950** |
-| best_model (feature-union) | 0.553 | [0.313, 0.812] | 0.934 |
-| M4 (median-beat) | 0.552 | [0.296, 0.828] | 0.903 |
-| M3 (wavelet) | 0.544 | [0.310, 0.802] | 0.957 |
-| M5v2 (spatial-VCG) | 0.301 | [0.095, 0.589] | 0.913 |
-| M2 (global-statistical) | 0.276 | [0.082, 0.535] | 0.897 |
-| M1 (clinical-interval) | 0.251 | [0.065, 0.498] | 0.941 |
+Five attempts to beat the two-model vote, as paired OOF differences in average precision:
 
-At 14 test WPW, **every AP confidence interval overlaps**, so the ranking above is **not statistically separable**. This is the central finding: no representation, including a deep network, pulls away from the others at this data volume. Every model reaches AUC above 0.90, which is the property that matters for screening.
+| Attempt | Difference [95% CI] |
+|---|---|
+| Add the spatial VCG detector (M5) | −0.049 [−0.080, −0.021] |
+| One model on the union of the best M1 to M5 features | +0.009 [−0.026, +0.041] |
+| Same union plus classical intervals | +0.023 [−0.009, +0.055] |
+| CNN from scratch (M7) vs wavelet (M3) | +0.032 [−0.022, +0.084] |
+| Self-supervised pretraining vs scratch | +0.014 per seed (about 1 SD), below the pre-registered 3 SD gate |
 
-## Repository structure
+Meanwhile, the learning curve for M4 was still rising at the full 115 training positives (90% to 100%: +0.027, 95% CI [0.019, 0.033]). Feature selection was re-run at each size, so the curve carries no selection leak.
+
+![Leak-free learning curve for M3 and M4](reports/figures/learning_curve_leakfree_M3M4.png)
+
+## What the errors show
+
+On the development folds the vote made 80 detections, 25 false alarms and 35 misses.
+
+- **Missed cases have narrower QRS complexes.** The acquisition device's own measurement (Marquette 12SL) gives 103 ms for misses vs 140 ms for detections (p = 2.2 × 10⁻⁶, Holm-adjusted 2.7 × 10⁻⁵). Of 12 tests in the error-analysis family, this is the only one that survives correction ([`reports/metrics/error_analysis_holm_family_v2.json`](reports/metrics/error_analysis_holm_family_v2.json)).
+- **The direction depends on the delineator.** A signal proxy agrees with the device (correlation 0.58) but returns impossible values below 60 ms on 9 of 57 cases; NeuroKit2 reverses the sign (correlation −0.22). See `qrs_three_delineators.py`.
+- **Part of the label problem sits in the negative class.** 6 of the 25 false alarms are recordings the corpus itself codes as pre-excited, under a code the WPW label definition did not include. See `fp_miss_code_audit.py`.
+- **Uncertain positive labels are not enriched among misses** (OR 0.41, p = 0.27).
+- **Comorbidity masking** (5 of 14 misses vs 2 of 43 detections) does not survive correction (Holm-adjusted p = 0.073).
+
+## Output: a rank, not a probability
+
+Each model's raw score is converted to a percentile within a frozen reference distribution of training scores, the two percentiles are averaged, and one frozen threshold is applied. The demo shows this as a 1 to 100 suspicion level. Raw scores do not transfer between hospitals: M4's 99th-percentile score is 0.0336 on PTB-XL and 0.0125 on Chapman-Shaoxing-Ningbo, a factor of 2.7.
+
+**External specificity check (Georgia G12EC, never used in development):** 10,344 ECGs scored with no failures. 9 (0.087%) reached the two highest levels, all non-WPW. The corpus has only two WPW labels, so sensitivity cannot be estimated there.
+
+## Protocol
+
+- Two public corpora pooled: PTB-XL (70 WPW / 21,799) and Chapman-Shaoxing-Ningbo (72 WPW / 45,152).
+- Ten folds: 1 to 8 for development (115 WPW), 9 for validation (13), 10 held out (14).
+- PTB-XL is split by patient (18,869 patients). Chapman-Shaoxing-Ningbo has no patient identifier, so each recording counts as one patient; a near-duplicate search over the 142 WPW recordings is in `dedup_wpw.py`.
+- 0.5 to 40 Hz fourth-order zero-phase Butterworth filter, fixed before modelling.
+- Label-permutation control: with shuffled labels, every feature model falls to AP 0.002 to 0.003 (the prevalence).
+- Nested re-selection on the two feature-union models costs 0.11 to 0.13 AP, so OOF numbers here are upper estimates. The held-out fold is unaffected.
+- Every design decision, with the rejected alternative, is logged in [`JOURNAL.md`](JOURNAL.md).
+
+## Limitations
+
+- 14 held-out positives give wide intervals.
+- Two training corpora; no third corpus to measure sensitivity.
+- No cardiologist adjudicated the labels; 44 of 57 PTB-XL development positives are non-validated in the source data.
+- The CNN is about two orders of magnitude smaller than benchmark ECG architectures (single laptop, CPU only).
+- The permutation control used five shuffles.
+
+## Repository
 
 ```
-.
-|- config.py       repo-relative paths (works wherever the repo is cloned)
-|- requirements.txt frozen dependency stack
-|- JOURNAL.md      the full decision log (every design decision, why it was made, and the rejected alternative)
-|- src/            canonical signal loader, evaluation module, feature extractors
-|- notebooks/      pipeline notebooks (data prep, each detector, error analysis, ensemble, held-out test);
-|                   m7_exploration/ holds the CNN run series
-|- models/         frozen model artifacts: configs, .joblib, out-of-fold scores, fold9/fold10 scores, ensemble reference
-|- data/           processed light artifacts (metadata, filter config, OOF scores, selected-feature lists) + data/README.md
-|- reports/        figures/ (evaluation plots) and metrics/ (per-model *_metrics.json)
+config.py           repo-relative paths (override raw data location with WPW_RAW_DATA)
+requirements.txt    pinned dependencies
+JOURNAL.md          decision log
+src/                signal loading, evaluation, feature extraction, SHAP
+notebooks/          01 to 13: setup, EDA, each detector, error analysis, ensemble, held-out evaluation
+models/             frozen models, OOF and fold 9/10 scores, ensemble reference distribution
+data/               light processed artifacts; data/README.md explains how to download the raw ECGs
+reports/            figures/ and metrics/ (one JSON per model)
+paper/              LaTeX source of the preprint
+*.py (root)         standalone analyses from the paper: learning curve, delineator comparison,
+                    12SL column audit, false-alarm code audit, near-duplicate search,
+                    age confound, comorbidity profile, figure scripts
 ```
 
-Raw ECG signals are **not shipped** (they are downloaded from PhysioNet, see `data/README.md`). The multi-gigabyte per-ECG **feature matrices are regenerated** by the notebooks and are not committed.
+Raw ECGs are not included; they come from PhysioNet (see [`data/README.md`](data/README.md)). The multi-gigabyte feature matrices are regenerated by the notebooks. The frozen models, scores and metric files are committed, so every reported number can be checked without retraining.
 
-## Reproducibility and how to use
+## Citation
 
-- Paths are centralized in `config.py` and resolved relative to the repository, so nothing is hardcoded to a machine.
-- The dependency stack is pinned in `requirements.txt`.
-- Raw data acquisition (PTB-XL and Ningbo / Chapman-Shaoxing from PhysioNet) is documented in `data/README.md`; point `RAW` at your local copy via the `WPW_RAW_DATA` environment variable if you regenerate features.
-- The notebooks are **documentation artifacts** (cell outputs cleared). Full re-execution requires the raw data plus multi-gigabyte feature regeneration. The **frozen models, out-of-fold scores, and metrics JSONs are included**, so the results are fully inspectable without re-running anything.
+```bibtex
+@misc{altman2026wpw,
+  title         = {Wolff-Parkinson-White Detection at 471:1 Class Imbalance: A Leakage-Controlled Study of the Data Bottleneck},
+  author        = {Altman, Nathael},
+  year          = {2026},
+  eprint        = {2608.14633},
+  archivePrefix = {arXiv},
+  primaryClass  = {eess.SP}
+}
+```
 
-## Datasets and attribution
+## Data and attribution
 
-- **PTB-XL** (Germany), CC BY 4.0: Wagner P., Strodthoff N., Bousseljot R.-D., et al. PTB-XL, a large publicly available electrocardiography dataset. Scientific Data 7, 154 (2020).
-- **Ningbo / Chapman-Shaoxing** (China), via PhysioNet: Zheng J., et al. A 12-lead electrocardiogram database for arrhythmia research (Chapman University and Shaoxing People's Hospital), and its Ningbo extension.
-- **PhysioNet platform**: Goldberger A.L., Amaral L.A.N., Glass L., et al. PhysioBank, PhysioToolkit, and PhysioNet: components of a new research resource for complex physiologic signals. Circulation 101(23):e215-e220 (2000).
-- **Marquette 12SL** is a proprietary commercial algorithm, used here only as a comparison baseline (M6), not redistributed.
+- **PTB-XL**, CC BY 4.0: Wagner P., Strodthoff N., Bousseljot R.-D., et al. PTB-XL, a large publicly available electrocardiography dataset. *Scientific Data* 7, 154 (2020).
+- **Chapman-Shaoxing-Ningbo**, via PhysioNet: Zheng J., et al. A 12-lead electrocardiogram database for arrhythmia research (Chapman University and Shaoxing People's Hospital), and its Ningbo extension. [doi:10.13026/wgex-er52](https://doi.org/10.13026/wgex-er52)
+- **PhysioNet**: Goldberger A.L., et al. PhysioBank, PhysioToolkit, and PhysioNet. *Circulation* 101(23):e215-e220 (2000).
+- **Marquette 12SL** is a proprietary commercial algorithm, used only as a comparison baseline (M6) and not redistributed.
 
 ## License
 
-MIT (see `LICENSE`).
+MIT (see [`LICENSE`](LICENSE)).
